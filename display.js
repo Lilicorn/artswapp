@@ -51,4 +51,23 @@ window.onload = function() {
         l = (l + 1) % flicker.length;
     }
 
+    document.getElementById("displaymode").addEventListener('click', displaymode)
+    if(document.getElementsByClassName("dark").length===0){
+        document.getElementById("displaymode").innerHTML="🌙";
+    }
+    else{
+        document.getElementById("displaymode").innerHTML="☀️";
+    }
+}
+
+function displaymode(){
+    var element = document.body;
+    element.classList.toggle("dark");
+    console.log(document.getElementsByClassName("dark"));
+    if(document.getElementsByClassName("dark").length===0){
+        document.getElementById("displaymode").innerHTML="🌙";
+    }
+    else{
+        document.getElementById("displaymode").innerHTML="☀️";
+    }
 }
