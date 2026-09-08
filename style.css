@@ -190,6 +190,7 @@ main, footer{
     background: none;
     text-align: center;
     font-size: 20px;
+    cursor: default;
 }
 #displaymode:hover{
     transform: scale(1.1);
