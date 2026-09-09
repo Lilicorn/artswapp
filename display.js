@@ -53,12 +53,12 @@ window.onload = function() {
 
     document.getElementById("displaymode").addEventListener('click', displaymode)
     if(document.getElementsByClassName("dark").length===0){
-        document.getElementById("modeicon").textContent="🌙";
-        document.getElementById("displayhelper").innerHTML="Switch to light mode";
-    }
-    else{
         document.getElementById("modeicon").textContent="☀️";
          document.getElementById("displayhelper").innerHTML="Switch to dark mode";
+    }
+    else{
+        document.getElementById("modeicon").textContent="🌙";
+        document.getElementById("displayhelper").innerHTML="Switch to light mode";
     }
 }
 
