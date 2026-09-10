@@ -45,7 +45,8 @@
         height: 50px;
         scale: 1;
         rotate: 0deg;
-        transition: transform 0.4s ease-out, scale 0.4s ease-out, rotate 1.2s ease-in-out;
+        translate: 0px 0px;
+        transition: transform 0.4s ease-out, scale 0.4s ease-out, rotate 1.2s ease-in-out, top 0.3s;
 
     }
     #w{
@@ -87,8 +88,11 @@
         transform: translateX(-5px) scale(1);
     }
     #S:hover{
-        scale: 1.12;
+        top:9px;
+        scale: 1.1;
         rotate: 360deg;
+        animation: float infinite 1s ease-in-out alternate;
+        
     }
 
     @keyframes float {
