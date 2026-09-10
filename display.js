@@ -66,12 +66,12 @@ function displaymode(){
     var element = document.body;
     element.classList.toggle("dark");
     //console.log(document.getElementsByClassName("dark"));
-    if(document.getElementsByClassName("dark").length===0){
-        document.getElementById("modeicon").textContent="🌙";
-        document.getElementById("displayhelper").innerHTML="Switch to light mode";
-    }
-    else{
+ if(document.getElementsByClassName("dark").length===0){
         document.getElementById("modeicon").textContent="☀️";
          document.getElementById("displayhelper").innerHTML="Switch to dark mode";
+    }
+    else{
+        document.getElementById("modeicon").textContent="🌙";
+        document.getElementById("displayhelper").innerHTML="Switch to light mode";
     }
 }
