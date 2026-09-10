@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>logo test</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+    }
+    div{
+        height: 65px;
+        width: 180px;
+        position: relative;
+        margin: 0 auto;
+    }
+    img{
+        height: 40px;
+        position: absolute;
+        transform: translateX(0) scale(1);
+        padding: 0;
+        z-index: 0;
+        transform-origin: center;
+        transition: all 0.35s ease-out;
+
+    }
+    #a1{
+        top:10px;
+        left:3px;
+    }
+    #r{
+        top:13px;
+        left:20px;
+    }
+    #t{
+        top:10px;
+        left:35px;
+    }
+    #S{
+        top:7px;
+        left: 50px;
+        height: 50px;
+        scale: 1;
+        rotate: 0deg;
+        transition: transform 0.4s ease-out, scale 0.4s ease-out, rotate 1.2s ease-in-out;
+
+    }
+    #w{
+        top:10px;
+        left:75px;
+        height: 45px;
+    }
+    #a2{
+        top:10px;
+        left:97px;
+    }
+    #p1{
+        top:11px;
+        left: 110px;
+        height: 45px;
+    }
+    #p2{
+        top:13px;
+        left:127px;
+        height: 45px;
+    }
+    img:hover:not(#S){
+        transform: translateY(0px) scale(1.1);
+        z-index: 1;
+        animation: float infinite 1s ease-in-out alternate;
+    }
+
+    img:hover ~ img{
+        transform: translateX(5px) scale(1);
+    }
+
+    div:has(#r:hover) #a1,
+    div:has(#t:hover) #r,
+    div:has(#S:hover) #t,
+    div:has(#w:hover) #S,
+    div:has(#a2:hover) #w,
+    div:has(#p1:hover) #a2,
+    div:has(#p2:hover) #p1{
+        transform: translateX(-5px) scale(1);
+    }
+    #S:hover{
+        scale: 1.12;
+        rotate: 360deg;
+    }
+
+    @keyframes float {
+    from {
+        translate: 0px 2px;
+    }
+
+    to {
+        translate: 0px -2px;;
+    }
+    }
+   
+</style>
+<body>
+    <div>
+        <img src="logo/a1.PNG" id="a1">
+        <img src="logo/r.PNG" id="r">
+        <img src="logo/t.PNG" id="t">
+        <img src="logo/S.PNG" id="S">
+        <img src="logo/w.PNG" id="w">
+        <img src="logo/a2.PNG" id="a2">
+        <img src="logo/p1.PNG" id="p1">
+        <img src="logo/p2.PNG" id="p2">
+    </div>
+</body>
+<script>
+
+</script>
+</html>
