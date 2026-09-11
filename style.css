@@ -3,7 +3,9 @@
 *{
     font-family: 'Varela Round', sans-serif;
     box-sizing: border-box;
+    
 }
+
 
 body{
     margin: 0;
@@ -11,6 +13,7 @@ body{
   --text-color: rgb(60, 52, 57);
   --background-color: rgb(254, 230, 244);
   --transition: rgba(254, 230, 244, 0.703);
+  --complementary: white;
   --button-text-color: var(--background-color);
 
   background-color: var(--background-color);
@@ -26,13 +29,15 @@ body.dark {
   --text-color: white;
   --background-color:rgb(60, 52, 57);
   --transition:rgba(60, 52, 57, 0.68);
+  --complementary: black;
   --button-text-color: rgb(60, 52, 57);
 }
 
 a:hover, .profile-box:hover, .searchbar:hover, .logo-box:hover, #displaymode:hover{
     text-decoration: none;
+    font-weight: bold;
     transform: scale(1.05);
-    transition: 0.4s;
+    transition: all 0.4s;
 }
 a, .profile-box, .searchbar, .logo-box, #displaymode{
     transform: scale(1);
@@ -54,7 +59,7 @@ nav{
     position: fixed;
     top: 0;
     left: 0;
-    padding: 0px 2%;
+    padding: 0px 3%;
     z-index: 3;
     border-radius: 0px 0px 20px 20px;
     height: 65px;
@@ -106,7 +111,11 @@ nav{
     border-radius: 5px;
 }
 
-
+.fa-solid{
+    color: var(--accent-color);
+    font-size: large;
+    margin: 5px;
+}
 
 main, footer{
     margin-top: 50px;
@@ -132,7 +141,7 @@ main, footer{
     width: 230px;
 }
 .cardcaption{
-    background-color: white;
+    background-color: var(--complementary);
     height: 20%;
     width: 100%;
     position: absolute;
@@ -195,21 +204,23 @@ main, footer{
     border-radius: 50px;
 }
 
-.tooltip {
+.tooltip, #mobileview {
+    
   position: absolute;
   visibility: hidden;
   opacity: 0;
 
-  color: black;
+  color: var(--text-color);
   font-size: 0.9rem;
   font-weight: lighter;
   text-align: left;
-  background-color: white;
-  border: 2px solid black;
-  border-bottom: 4px solid black;
+  background-color: var(--complementary);
+  border: 2px solid var(--text-color);
+  border-bottom: 4px solid var(--text-color);
   padding: 10px 15px;
   width: 15vw;
   
+  transform-origin: top right;
   transition: opacity 0.5s;
 }
 
@@ -247,9 +258,8 @@ main, footer{
     transform: scale(1.1);
 }
 
-#displaymode .tooltip, .profile-box .tooltip{
+#displaymode .tooltip, .profile-box .tooltip, #mobileview{
     z-index: 10;
-    transform-origin: top right;
     top: 115%; 
     right: 80%;
     border-radius: 30px 0px 30px 30px;
@@ -302,3 +312,59 @@ footer div{
     text-align: center;
 }
 
+#hamburber {
+    display: none;
+}
+
+
+@media (max-width: 768px){
+    
+    a:hover{
+    text-decoration: none;
+    transform: scale(1.1);
+    }
+    
+    #navitems{
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #hamburber{
+        display: block;
+        position: relative;
+        
+    }
+
+     #mobileview{
+        position: absolute;
+        transform-origin: top right;
+        top: 30px;
+        right: 0;
+        width:40vw;
+        height: 0;
+        overflow: hidden;
+        padding: 0 0;
+        top: 115%; 
+        right: 80%;
+        transform: scale(1);
+        transition: 0.5s;
+        
+    }
+    #mobileview:hover{
+        transform: scale(1.1);
+    }
+
+    #hamburber.menu-open #mobileview{
+       height: max-content;
+       padding: 10px 0;
+       visibility: visible;
+       opacity: 1;
+       animation: teszt 0.7s;
+       transition-delay: 0s;
+    }
+
+    #hamburber.menu-open #mobileview a{
+        font-size: large;
+    }
+}

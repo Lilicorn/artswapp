@@ -53,25 +53,53 @@ window.onload = function() {
 
     document.getElementById("displaymode").addEventListener('click', displaymode)
     if(document.getElementsByClassName("dark").length===0){
-        document.getElementById("modeicon").textContent="☀️";
+        document.getElementById("modeicon").classList.remove("fa-moon-o");
+        document.getElementById("modeicon").classList.add("fa-sun-o");
          document.getElementById("displayhelper").innerHTML="Switch to dark mode";
     }
     else{
-        document.getElementById("modeicon").textContent="🌙";
+        document.getElementById("modeicon").classList.remove("fa-sun-o");
+        document.getElementById("modeicon").classList.add("fa-moon-o");
         document.getElementById("displayhelper").innerHTML="Switch to light mode";
     }
+
+
+    
+    const thing = document.getElementById("navitems");
+    const one = document.getElementById("desktopview");
+    const two = document.getElementById("mobileview");
+    const hamburger = document.getElementById("hamburber");
+
+    hamburger.classList="";
+    function nav(){
+        if (window.innerWidth <= 768) {
+            two.appendChild(thing);
+        } else {
+            one.insertBefore(thing, one.querySelector(".searchbar"));
+        }
+    }
+
+
+    nav();
+    window.addEventListener("resize", nav);
+    hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("menu-open");
+    });
 }
+    
 
 function displaymode(){
     var element = document.body;
     element.classList.toggle("dark");
     //console.log(document.getElementsByClassName("dark"));
- if(document.getElementsByClassName("dark").length===0){
-        document.getElementById("modeicon").textContent="☀️";
+    if(document.getElementsByClassName("dark").length===0){
+        document.getElementById("modeicon").classList.remove("fa-moon");
+        document.getElementById("modeicon").classList.add("fa-sun");
          document.getElementById("displayhelper").innerHTML="Switch to dark mode";
     }
     else{
-        document.getElementById("modeicon").textContent="🌙";
+        document.getElementById("modeicon").classList.remove("fa-sun");
+        document.getElementById("modeicon").classList.add("fa-moon");
         document.getElementById("displayhelper").innerHTML="Switch to light mode";
     }
 }
