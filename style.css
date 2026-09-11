@@ -353,6 +353,10 @@ footer div{
     transform: scale(1.1);
     }
     
+    .tooltip{
+        width: max-content;
+    }
+    
     #navitems{
         display: flex;
         flex-direction: column;
@@ -370,7 +374,7 @@ footer div{
         transform-origin: top right;
         top: 30px;
         right: 0;
-        width:40vw;
+        width:60vw;
         height: 0;
         overflow: hidden;
         padding: 0 0;
