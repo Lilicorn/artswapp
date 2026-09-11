@@ -212,6 +212,7 @@ main, footer{
     gap:20px;
     overflow-x: auto;
     padding: 5px 10px;
+    margin-bottom: 5%;
 }
 
 .badge{
