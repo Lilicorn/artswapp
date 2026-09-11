@@ -8,6 +8,7 @@ function generatecards (mainID, elementnum){
         image.className="cardimage";
         let caption = document.createElement("div");
         caption.className="cardcaption";
+        caption.innerHTML="text uhh user tags idk yet mate";
         let pfp = document.createElement("div");
         pfp.className="cardpfp";
         card.appendChild(image);

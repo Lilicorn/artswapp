@@ -128,7 +128,7 @@ main, footer{
     overflow: hidden;
 }
 .card:hover{
-    height: 250px;
+    height: 275px;
     width: 230px;
 }
 .cardcaption{
