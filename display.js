@@ -72,7 +72,7 @@ window.onload = function() {
 
     hamburger.classList="";
     function nav(){
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 912) {
             two.appendChild(thing);
         } else {
             one.insertBefore(thing, one.querySelector(".searchbar"));
