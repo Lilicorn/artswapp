@@ -87,9 +87,32 @@ nav{
     height: 65px;
     width: 180px;
     border: none;
-    display: block;
+    display: flex;
     overflow: hidden;
 }
+.mini-logo-box{
+    height: 50px;
+    display: none;
+    transition: transform 0.4s ease-out, scale 0.4s ease-out, rotate 1.2s ease-in-out, top 0.3s;
+
+}
+.mini-logo-box:hover{
+        top:9px;
+        scale: 1.1;
+        rotate: 360deg;
+        animation: float infinite 1s ease-in-out alternate;
+        
+    }
+
+    @keyframes float {
+    from {
+        translate: 0px 2px;
+    }
+
+    to {
+        translate: 0px -2px;;
+    }
+    }
 
 .links-right{
     display: flex;          /* 1. Ez teszi egymás mellé a dolgokat */
@@ -318,7 +341,13 @@ footer div{
 
 
 @media (max-width: 912px){
-    
+    .logo-box{
+        display: none;
+    }
+    .mini-logo-box{
+        display: block;
+    }
+
     a:hover{
     text-decoration: none;
     transform: scale(1.1);
