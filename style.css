@@ -354,8 +354,11 @@ footer div{
     }
     
     .tooltip{
-        width: 40vw;
+        width: 30vw;
     }
+    .help-icon .tooltip{
+    width: 15vw;
+}
     
     #navitems{
         display: flex;
