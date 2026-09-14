@@ -11,8 +11,12 @@ function generatecards (mainID, elementnum){
         caption.innerHTML="text uhh user tags idk yet mate";
         let pfp = document.createElement("div");
         pfp.className="cardpfp";
+        let button = document.createElement("button");
+        button.textContent="View Profile"
+
         card.appendChild(image);
         card.appendChild(caption);
+        card.appendChild(button);
         caption.appendChild(pfp);
         main.appendChild(card);
     }

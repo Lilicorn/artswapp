@@ -204,6 +204,12 @@ main, footer{
     border-radius: 15px;
 }
 
+.card>button{
+    position: absolute;
+    top: -50%;
+    left: 5%;
+}
+
 .card-grid{
     display: grid;
     width: 100%;
