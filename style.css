@@ -227,8 +227,7 @@ badge{
     background-color: var(--accent-color);
     border-radius: 5px;
     transition: 0.5s, top 0.3s;
-    border: 2px solid var(--text-color);
-    box-shadow: 0px 3px 0px var(--text-color);
+    border: 3px solid var(--complementary);
 }
 
 .card:hover .cardpfp{
@@ -279,8 +278,7 @@ badge{
     background-color: var(--accent-color);
     color:var(--complementary);
     border-radius: 50px;
-    border: 2px solid var(--text-color);
-    box-shadow: 0px 3px 0px var(--text-color);
+    border: none;
 }
 .card:hover>button{
     visibility: visible;
@@ -292,7 +290,7 @@ badge{
     scale: 1.05;
     padding: 5px 0;
     margin-bottom: 10px;
-    top: calc(90% - 10px);
+    top: calc(90% - 5px);
 }
 .card:has(>button:hover){
     height: calc(var(--card-size) * 1.4);
