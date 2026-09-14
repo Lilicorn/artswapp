@@ -436,9 +436,13 @@ footer div{
 
 @media (max-width: 912px){
 
-    body{
+    /*body{
         --card-size:180px
     }
+
+    .card *{
+        font-size: 1em;
+    }*/
 
     .logo-box{
         display: none;
