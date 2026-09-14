@@ -21,11 +21,16 @@ body{
 
   background-color: var(--background-color);
   color: var(--text-color);
-  scrollbar-color: var(--accent-color) var(--background-color);
+
+  scrollbar-color: var(--accent-color) transparent;
   scrollbar-width: thin;
+  scroll-behavior: smooth;
+  scroll-padding-right: -30px;
+  
 
   transition: all 0.5s;
 }
+
 
 body.dark {
   --accent-color: darkviolet;
@@ -241,6 +246,7 @@ badge{
     gap: 0;
     padding:0;
     transition: all 0.5s;
+    overflow-y: hidden;
     transform-origin: center;
 }
 
@@ -256,7 +262,7 @@ badge{
 
 .card:hover .cardimage{
     height: 60%;
-    overflow-y: auto;
+    overflow-y: scroll;
 }
 
 
