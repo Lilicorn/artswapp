@@ -123,8 +123,8 @@ nav{
     }
 
 .links-right{
-    display: flex;          /* 1. Ez teszi egymás mellé a dolgokat */
-    align-items: center;    /* 2. Ez igazítja őket FÜGGŐLEGESEN KÖZÉPRE egymáshoz képest! */
+    display: flex;          
+    align-items: center;  
     gap: 15px;
 }
 
@@ -436,13 +436,13 @@ footer div{
 
 @media (max-width: 912px){
 
-    /*body{
-        --card-size:180px
+    .card{
+        scale: 0.95;
     }
-
-    .card *{
-        font-size: 1em;
-    }*/
+   
+    .card-grid{
+        gap:10px;
+    }
 
     .logo-box{
         display: none;
