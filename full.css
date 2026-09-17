@@ -1,0 +1,146 @@
+html{
+    --card-size:200px;
+}
+
+
+        main{
+            display: flex;
+            justify-items: center;
+        }
+        section{
+            display: flex;
+            flex-wrap:wrap;
+            
+            justify-self: center;
+            }
+
+        section>h1{
+            width: 100%;
+        }
+
+        section>div{
+            display: flex;
+            flex-flow: row wrap;
+            
+            justify-content: flex-start;
+            justify-self: center;
+        }
+        .card{
+            margin: 7px;
+        }
+
+.card, more{
+    position: relative;
+    border-radius: 15px;
+    transition: 0.3s;
+    overflow: hidden;
+}
+.card{
+    transform-origin: top;
+    
+    height: calc(var(--card-size) * 1.375);
+    width: calc(var(--card-size) * 1.1);
+    border:1px solid var(--accent-color);
+    box-shadow: 0 1px 5px var(--accent-color);
+    
+}
+.cardcaption{
+    background-color: var(--complementary);
+    height: 60%;
+    width: 100%;
+    position: absolute;
+    top:60%;
+    padding: 15px;
+    display: block;
+    box-sizing: border-box;
+    transition: 0.5s;
+
+}
+
+.cardcaption>username{
+    display: block;
+    position: relative;
+    font-size: 1.4em;
+    width: 90%;
+    /*border: 1px solid;*/
+    padding-bottom: 0;
+    transition: all 0.5s;
+}
+.cardcaption>tags{
+    display: block;
+    position: relative;
+    font-size: 0.75em;
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.2s;
+}
+
+badge{
+    font-size: 0.5rem;
+    margin: 5px;
+    border-radius: 50px;
+}
+
+.cardpfp{
+    width: 25%;
+    aspect-ratio: 1/1;
+    position: absolute;
+    top: -25%;
+    left: 5%;
+    background-color: var(--accent-color);
+    border-radius: 5px;
+    transition: 0.5s, top 0.3s;
+    border: 3px solid var(--complementary);
+}
+
+.cardimage{
+    position: absolute;
+    top:0;
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 0;
+    padding:0;
+    transition: all 0.5s;
+    overflow-y: scroll;
+    transform-origin: center;
+}
+
+.cardimage img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    border: 3px;
+    object-fit: cover;
+    transition: all 0.5s;
+}
+
+.card.card > button{
+    opacity: 100;
+    visibility: visible;
+    position: absolute;
+    scale: 1;
+    width:90%;
+    top: 90%;
+    left: 5%;
+    padding: 0;
+    margin-bottom: 0;
+    transition: all 0.5s;
+    background-color: var(--accent-color);
+    color:var(--complementary);
+    border-radius: 50px;
+    border: none;
+}
+.card>button:hover{
+    scale: 1.02;
+    padding: 5px 0;
+    margin-bottom: 10px;
+    top: calc(90% - 5px);
+}
+.card:has(>button:hover){
+    height: calc(var(--card-size) * 1.4);
+    width: calc(var(--card-size) * 1.12);
+}

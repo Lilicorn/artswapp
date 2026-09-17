@@ -1,8 +1,8 @@
 let imgdebug = ["car.jpg", "huh.png","letöltés.png"]
 
-function generatecards (mainID, elementnum, seemorehref){
+function generatecards (mainID, elementnum){
     let main = document.getElementById(mainID);
-    main.innerHTML="";
+    
     for(let i = 0; i<elementnum; i++){
         let card = document.createElement("section");
         card.className="card";
@@ -45,26 +45,11 @@ function generatecards (mainID, elementnum, seemorehref){
     //  content megy bele uyge
     //lehet hogy egy fgv nem is eleg :( de megprobaltam
 
-    if(seemorehref!==""){
-        let more = document.createElement("more");
-        let circle = document.createElement("badge");
-        let pi = document.createElement("p");
-        circle.innerHTML=">"
-        pi.innerHTML="See more..."
-        more.appendChild(circle)
-        more.appendChild(pi)
-        more.addEventListener("click", function(){window.open(seemorehref, "_self")});
-        main.appendChild(more)
-    }
     
 }
 
 function loadingstuff(){
-    let en = window.innerWidth <= 768 ? 5 : 10;
-    generatecards("recommendedusers", en, "recommendedusers.html");
-    generatecards("recommendedauctions", en, "auctions.html");
-    generatecards("donatorleaderboard", en, "donatorleaderboard.html");
-}
+    generatecards("recommendedusersfull", 20);
+   }
 
 window.addEventListener("load", loadingstuff);
-window.addEventListener("resize", loadingstuff);

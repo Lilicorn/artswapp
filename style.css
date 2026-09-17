@@ -148,6 +148,8 @@ nav{
     margin: 5px;
 }
 
+
+
 main, footer{
     margin-top: 50px;
     display: block;
@@ -155,17 +157,19 @@ main, footer{
     padding: 15px;
 }
 
-
+.card, more{
+    position: relative;
+    border-radius: 15px;
+    transition: 0.3s;
+    overflow: hidden;
+}
 .card{
     transform-origin: top;
-    position: relative;
     height: var(--card-size);
     width: var(--card-size);
     border:1px solid var(--accent-color);
-    border-radius: 15px;
     box-shadow: 0 1px 5px var(--accent-color);
-    transition: 0.3s;
-    overflow: hidden;
+    
 }
 .card:hover{
     height: calc(var(--card-size) * 1.375);
@@ -214,8 +218,9 @@ main, footer{
 }
 
 badge{
-    font-size: 0.5em;
+    font-size: 0.5rem;
     margin: 5px;
+    border-radius: 50px;
 }
 
 .cardpfp{
@@ -308,11 +313,42 @@ badge{
     margin-bottom: 30px;
 }
 
-.badge{
-    border: 1px solid var(--text-color);
+
+more, more *{
+    transition: 0.3s;
+}
+more{
+    transform-origin: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: none;
+    color: var(--text-color);
+    width: calc(var(--card-size)*0.75);
+    height: var(--card-size);
+}
+more badge{
+    font-size: 1.5em;
+    width: 40%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--accent-color);
+    color: var(--complementary);
+    border: 0.1px
+}
+more:hover{
+    height: calc(var(--card-size) * 1.03);
+    width: calc(var(--card-size) * 0.77);
+}
+more badge:hover{
+    width: calc(40% + 5px);
+    border: 4px solid var(--complementary);
 }
 
-.help-icon, .badge{
+.help-icon{
     display: flex;
     width: 30px;
     height: 30px;
