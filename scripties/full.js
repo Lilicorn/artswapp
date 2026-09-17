@@ -24,7 +24,7 @@ function generatecards (mainID, elementnum){
 
          for(let i=0;i<3;i++){
             let im = document.createElement("img");
-            im.src="debug/"+imgdebug[i];
+            im.src="../debug/"+imgdebug[i];
             im.alt="#";
             image.appendChild(im);
         }
