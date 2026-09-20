@@ -66,6 +66,9 @@ main{
   margin-top: -110px;
   box-sizing: border-box;
 }
+.profile-header *{
+  transition: 0.3s;
+}
 
 button{
   font-size: 1.1em;
@@ -145,7 +148,7 @@ button{
     grid-template-columns: auto 1fr;
     
     gap: 15px;
-    margin-top: -110px;
+    margin-top: -95px;
   }
 
   
@@ -170,5 +173,18 @@ button{
 .username, .handle {
   text-overflow: ellipsis; /* Ha túl hosszú a név, csinos pontokat tesz a végére */
 }
+
+
+.pfp {
+    width: 100px;
+  }
+
+  .display {
+    font-size: 1.3rem;
+  }
+
+  .handle {
+    font-size: 0.8rem;
+  }
 
 }
