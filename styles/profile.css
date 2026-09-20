@@ -150,20 +150,18 @@ button{
     gap: 15px;
     margin-top: -95px;
   }
-
   
-
   .buttons {
     grid-column: span 2;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     width: 100%;
     margin-top: 10px;
   }
   
   button{
-    width: 30%;
+    width: 25%;
   }
 
   .profile-details {
@@ -176,15 +174,15 @@ button{
 
 
 .pfp {
-    width: 100px;
+    width: 90px;
   }
 
-  .display {
-    font-size: 1.3rem;
+  .top-row * {
+    font-size: 1.1rem;
   }
 
-  .handle {
-    font-size: 0.8rem;
+  .bottom-row *{
+    font-size: 0.7rem;
   }
 
 }
