@@ -161,7 +161,7 @@ button{
   }
   
   button{
-    width: 25%;
+    width: 30%;
   }
 
   .profile-details {
@@ -178,11 +178,11 @@ button{
   }
 
   .top-row * {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   .bottom-row *{
-    font-size: 0.7rem;
+    font-size: 0.67rem;
   }
 
 }
