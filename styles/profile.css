@@ -1,0 +1,134 @@
+body{
+    margin: 0;
+
+    --card-size: 200px;
+
+  --accent-color: hotpink;
+  --text-color: rgb(60, 52, 57);
+  --background-color: rgb(254, 230, 244);
+  --transition: rgba(254, 230, 244, 0.703);
+  --complementary: white;
+  --button-text-color: var(--background-color);
+
+  background-color: var(--background-color);
+  color: var(--text-color);
+
+  scrollbar-color: var(--accent-color) transparent;
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+  scroll-padding-right: -30px;
+  
+
+  transition: all 0.5s;
+
+  width: 100vw;
+  height: 100vh;
+}
+
+body.dark {
+  --accent-color: darkviolet;
+  --text-color: white;
+  --background-color:rgb(60, 52, 57);
+  --transition:rgba(60, 52, 57, 0.68);
+  --complementary: black;
+  --button-text-color: rgb(60, 52, 57);
+}
+
+#banner{
+    background-color: var(--complementary);
+    width: 100%;
+    height: calc(25vh + 65px);
+    background-image: url("../debug/car.jpg");
+    background-size: cover;
+    background-position: center top 60px;
+    transition: 0.1s;
+}
+main{
+  height: max-content;
+  width: 100%;
+  transform-origin: top;
+  background-color: var(--background-color);
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+/* Fejléc elrendezése: Avatár | Infók | Gombok */
+.profile-header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* Avatár mérete | Kitölti a helyet | Gombok */
+  align-items: end;
+  gap: 20px;
+  padding: 0 20px;
+  margin-top: -140px;
+  box-sizing: border-box;
+}
+
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  background-color: var(--accent-color);
+  border-radius: 20px;
+  border: 4px solid var(--background-color); /* Dinamikusan vált dark mode-ban is! */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* Infók konténere: 2 egymás alatti sor */
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  padding-bottom: 6px; /* Hogy szép egy vonalban legyen a kép aljával */
+}
+
+/* Egy-egy sor elrendezése (bal és jobb oldalra tolja az elemeket) */
+.info-row {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20PX;
+  align-items: center;
+  width: 100%;
+}
+
+/* Felső sor stílusai */
+.username {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-color);
+}
+
+.stat-counts {
+  font-size: 1.5rem;
+  letter-spacing: 4px;
+}
+
+/* Alsó sor stílusai */
+.handle {
+  color: #8a8a8a;
+  font-size: 0.95rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+/* Gombok csopotja (ha kellenek mellé) */
+.actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding-bottom: 6px;
+}
+
+@media (max-width: 912px){
+   .profile-header{
+    grid-template-columns: auto 1fr; /* Avatár mérete | Kitölti a helyet | Gombok */
+    grid-template-rows: 3fr 1fr;
+  }
+}

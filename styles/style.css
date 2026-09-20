@@ -270,7 +270,12 @@ badge{
 }
 
 
-
+button{
+    background-color: var(--accent-color);
+    color:var(--complementary);
+    border-radius: 50px;
+    border: none;
+}
 .card>button{
     opacity: 0;
     visibility: hidden;
@@ -280,10 +285,6 @@ badge{
     top: 110%;
     left: 5%;
     transition: all 0.5s;
-    background-color: var(--accent-color);
-    color:var(--complementary);
-    border-radius: 50px;
-    border: none;
 }
 .card:hover>button{
     visibility: visible;

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/profile.css">
+    <script src="../scripties/display.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     
     <title>ArtSwapp - user's Profile -</title>
@@ -42,9 +44,38 @@
         </nav>
     </header>
 
-<main>
-    
-</main>
+    <section id="banner">
+
+    </section>
+    <main>
+        <div class="profile-header">
+  <!-- 1. Bal oldalon az avatár -->
+            <div class="avatar-container">
+                <div class="avatar"></div>
+            </div>
+
+            <!-- 2. Középen a 2 soros infók -->
+            <div class="profile-details">
+                <div class="info-row top-row">
+                <h2 class="username">user_________</h2>
+                <div class="stat-counts">O O O</div>
+                </div>
+
+                <!-- Alsó sor: @handle + 0/5 swaps -->
+                <div class="info-row bottom-row">
+                <span class="handle">@usernotdisplay11111111111</span>
+                <span class="stat-label">0/5 swaps</span>
+                </div>
+            </div>
+
+            <!-- 3. Jobb oldalon a gombok (ha vannak) -->
+            <div class="actions">
+                <button class="btn btn-pink">swap</button>
+                <button class="btn btn-pink">donate</button>
+                <button class="btn btn-dark">report</button>
+            </div>
+</div>
+    </main>
 
      <footer>
         <div>@ all rigths reversed or sumthing</div>
