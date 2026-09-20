@@ -57,22 +57,29 @@ main{
 .profile-header {
   width: 100%;
   display: grid;
-  grid-template-columns: auto 1fr auto; /* Avatár mérete | Kitölti a helyet | Gombok */
+  grid-template-columns: auto 2fr 1.5fr; /* Avatár mérete | Kitölti a helyet | Gombok */
   align-items: end;
   gap: 20px;
   padding: 0 20px;
-  margin-top: -140px;
+  margin-top: -110px;
   box-sizing: border-box;
 }
 
+button{
+  font-size: 1.1em;
+  min-width: 70px;
+  width: 33%;
+  padding: 8px;
+}
 
-.avatar {
+.pfp {
   width: 120px;
   height: 120px;
   background-color: var(--accent-color);
   border-radius: 20px;
   border: 4px solid var(--background-color); /* Dinamikusan vált dark mode-ban is! */
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  margin: 0;
 }
 
 /* Infók konténere: 2 egymás alatti sor */
@@ -85,23 +92,23 @@ main{
 }
 
 /* Egy-egy sor elrendezése (bal és jobb oldalra tolja az elemeket) */
-.info-row {
+.row {
   display: flex;
   justify-content: flex-start;
-  gap: 20PX;
+  gap: 20px;
   align-items: center;
   width: 100%;
 }
 
 /* Felső sor stílusai */
-.username {
+.display {
   margin: 0;
   font-size: 1.6rem;
   font-weight: 800;
   color: var(--text-color);
 }
 
-.stat-counts {
+.badges {
   font-size: 1.5rem;
   letter-spacing: 4px;
 }
@@ -112,23 +119,43 @@ main{
   font-size: 0.95rem;
 }
 
-.stat-label {
+.swapslots {
   font-size: 0.9rem;
   color: var(--text-color);
   opacity: 0.8;
 }
 
 /* Gombok csopotja (ha kellenek mellé) */
-.actions {
+.buttons {
   display: flex;
   gap: 10px;
+  width: 100%;
   align-items: center;
+  justify-content: space-between;
   padding-bottom: 6px;
 }
 
-@media (max-width: 912px){
-   .profile-header{
-    grid-template-columns: auto 1fr; /* Avatár mérete | Kitölti a helyet | Gombok */
-    grid-template-rows: 3fr 1fr;
+
+@media (max-width: 800px) {
+  .profile-header {
+    /* 2 oszlopra váltunk: [Avatár] [Infók], alatta a [Gombok] */
+    display: grid;
+    grid-template-columns: auto 1fr;
+    
+    gap: 15px;
+    margin-top: -110px;
   }
+
+  .buttons {
+    grid-column: span 2;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  button{
+    width: 30%;
+  }
+
 }
