@@ -213,7 +213,7 @@ main section:not(.profile-header){
 
 
   main{
-    grid-template: repeat(6, 1fr) / 1fr 1fr;
+    grid-template: 1fr 1fr auto 1fr 1fr 1fr / 1fr 1fr;
     /* nemtom 1fr legyen-e mindenho a row? */
   }
 
@@ -249,6 +249,14 @@ main section:not(.profile-header){
 
 @media (max-width: 500px) {
 
+  
+.profile-header{
+    margin-top: -40px;
+  }
+  .buttons{
+    
+  align-self: center;
+  }
   .badges{
     letter-spacing: 0;
   }
