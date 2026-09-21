@@ -193,10 +193,12 @@ main, footer{
     
 }
 
-
+tags, username{
+    
+    display: block;
+}
 
 .cardcaption>username{
-    display: block;
     position: relative;
     font-size: 1.4em;
     width: 90%;
@@ -205,7 +207,6 @@ main, footer{
     transition: all 0.5s;
 }
 .cardcaption>tags{
-    display: block;
     position: relative;
     font-size: 0.75em;
     opacity: 0;

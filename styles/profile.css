@@ -47,11 +47,15 @@ body.dark {
     transition: 0.1s;
 }
 main{
-  height: max-content;
-  width: 100%;
+  padding: 0;
+  margin: 0;
   background-color: var(--background-color);
-  display: flex;
+  width: 100%;
+  display: grid;
+  gap: 20px;
+  grid-template: 1fr 1fr 2fr auto auto / 1fr 1fr 1fr;
 }
+
 
 .profile-header {
   width: 100%;
@@ -59,13 +63,15 @@ main{
   grid-template-columns: auto 1.5fr 1fr;
   align-items: end;
   gap: 20px;
-  padding: 0;
+  padding: 0 20px;
   margin: 0;
-  margin-top: -110px;
+  
+  margin-top: -50px;
   box-sizing: border-box;
 }
 .profile-header *{
   transition: 0.3s;
+  
 }
 
 button{
@@ -139,12 +145,43 @@ button{
 }
 
 
-@media (max-width: 800px) {
+
+main section{
+  
+  background-color: #fff;
+  margin: 0;
+  border-radius: 25px;
+  height: 100%;
+  width: 100%;
+}
+
+.profile-header, .tags, .bio{
+  
+  grid-column: span 3;
+}
+.portfolio, .swaps{
+  
+  grid-column: span 2;
+}
+
+
+@media (max-width: 768px) {
+
+  main{
+    
+  grid-template: repeat(7, auto) / 1fr;
+  }
+
+  .profile-header, .tags, .bio{
+  
+  grid-column: span 1;
+}
+
   .profile-header {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 10px;
-    margin-top: -95px;
+    margin-top: -35px;
     padding: 0 10px;
   }
   
