@@ -215,7 +215,6 @@ main section:not(.profile-header){
   main{
     grid-template: repeat(6, 1fr) / 1fr 1fr;
     /* nemtom 1fr legyen-e mindenho a row? */
-    padding: 0 10px;
   }
 
   main section{
@@ -259,6 +258,11 @@ main section:not(.profile-header){
     
   }
   .bottom-row *{
-    font-size: 0.67rem;
+    font-size: 0.6rem;
   }
+
+  .tags, .socials{
+    grid-column: span 2 !important;
+  }
+  
 }
