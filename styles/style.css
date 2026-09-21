@@ -89,6 +89,7 @@ nav{
     border:1px solid var(--accent-color);
     border-radius: 50px;
     padding: 3px 15px;
+    margin: auto;
 }
 
 .logo-box{
@@ -473,6 +474,14 @@ footer div{
 
 @media (max-width: 912px){
 
+    .links-right{
+        gap: 7px;
+    }
+
+    .searchbar{
+    max-width: 150px;
+    min-width: 0;
+    }
     .card{
         scale: 0.95;
     }

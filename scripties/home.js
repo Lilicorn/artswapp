@@ -13,8 +13,6 @@ function generatecards (mainID, elementnum, seemorehref){
         caption.className="cardcaption";
         let username = document.createElement("username");
         username.innerHTML="user"
-        let badges = document.createElement("badge") //idk
-        badges.innerHTML="badge ".repeat(3)
         let tags = document.createElement("tags")
         tags.innerHTML="Because you're interested in:<br> tags";
         let pfp = document.createElement("div");
@@ -30,7 +28,6 @@ function generatecards (mainID, elementnum, seemorehref){
         }
         card.appendChild(image);
         
-        username.appendChild(badges)
         caption.appendChild(username);
         caption.appendChild(tags);
         caption.appendChild(pfp);

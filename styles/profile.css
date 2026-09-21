@@ -2,6 +2,7 @@ body{
   
     box-sizing: border-box;
     margin: 0;
+    padding: 0;
 
     --card-size: 200px;
 
@@ -48,21 +49,18 @@ body.dark {
 main{
   height: max-content;
   width: 100%;
-  transform-origin: top;
   background-color: var(--background-color);
-  position: relative;
   display: flex;
-  flex-flow: row wrap;
 }
 
-/* Fejléc elrendezése: Avatár | Infók | Gombok */
 .profile-header {
   width: 100%;
   display: grid;
-  grid-template-columns: auto 2fr 1.5fr; /* Avatár mérete | Kitölti a helyet | Gombok */
+  grid-template-columns: auto 1.5fr 1fr;
   align-items: end;
   gap: 20px;
-  padding: 0 20px;
+  padding: 0;
+  margin: 0;
   margin-top: -110px;
   box-sizing: border-box;
 }
@@ -131,7 +129,6 @@ button{
   opacity: 0.8;
 }
 
-/* Gombok csopotja (ha kellenek mellé) */
 .buttons {
   display: flex;
   gap: 10px;
@@ -179,8 +176,12 @@ button{
 
   .top-row * {
     font-size: 1rem;
+    
   }
 
+  .top-row, .bottom-row{
+    gap: 10px;
+  }
   .bottom-row *{
     font-size: 0.67rem;
   }
