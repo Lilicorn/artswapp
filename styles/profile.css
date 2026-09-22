@@ -59,7 +59,7 @@ main{
 .profile-header {
   width: 100%;
   display: grid;
-  grid-template-columns: auto 1.5fr 1fr;
+  grid-template-columns: auto max-content 1fr;
   align-items: end;
   gap: 20px;
   padding: 0 20px;
