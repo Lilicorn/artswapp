@@ -27,7 +27,6 @@ body{
   scroll-behavior: smooth;
   scroll-padding-right: -30px;
   
-
   transition: all 0.5s;
 }
 
@@ -173,7 +172,7 @@ main, footer{
     
 }
 .card:hover{
-    height: calc(var(--card-size) * 1.375);
+    height: calc(var(--card-size) * 1.4);
     width: calc(var(--card-size) * 1.1);
 }
 .cardcaption{
@@ -200,7 +199,7 @@ tags, username{
 
 .cardcaption>username{
     position: relative;
-    font-size: 1.4em;
+    font-size: 1.3em;
     width: 90%;
     /*border: 1px solid;*/
     padding-bottom: 0;
@@ -294,8 +293,12 @@ button{
     top: 90%;
     scale: 1;
 }
-.card>button:hover{
+
+button:hover{
     scale: 1.05;
+}
+
+.card>button:hover{
     padding: 5px 0;
     margin-bottom: 10px;
     top: calc(90% - 5px);
