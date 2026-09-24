@@ -152,7 +152,7 @@ main section:not(.profile-header){
   margin: 0;
   border-radius: 25px;
   padding: 10px;
-  align-content: start;
+  align-content: start !important;
   overflow: hidden;
   
 }
