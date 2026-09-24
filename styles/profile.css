@@ -181,10 +181,7 @@ main section:not(.profile-header) p{
 }
 
 main section:not(.profile-header) h2{
-  position: sticky;
-  top: -10px;
   margin: 0;
-  padding: 10px;
   background-image: linear-gradient(to bottom, var(--complementary), var(--complementary), #ffffff00);
 
 }
@@ -291,7 +288,6 @@ main section:not(.profile-header) h2{
   .portfolio, .swaps{
     min-height: 0;
     height: 500px;
-    overflow: hidden;
   }
 
   .portfolio.open, .swaps.open{
