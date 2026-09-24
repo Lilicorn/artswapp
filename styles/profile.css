@@ -147,13 +147,12 @@ button{
 
 
 main section:not(.profile-header){
-  
   position: relative;
   background-color: var(--complementary);
   margin: 0;
   border-radius: 25px;
   padding: 10px;
-  align-content: center;
+  align-content: start;
   overflow: hidden;
   
 }
