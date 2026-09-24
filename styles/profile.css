@@ -181,6 +181,7 @@ main section:not(.profile-header) p{
 }
 
 main section:not(.profile-header) h2{
+  position: relative;
   margin: 0;
   background-image: linear-gradient(to bottom, var(--complementary), var(--complementary), #ffffff00);
 
