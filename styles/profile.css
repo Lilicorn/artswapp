@@ -148,21 +148,27 @@ button{
 
 main section:not(.profile-header){
   
+  position: relative;
   background-color: var(--complementary);
   margin: 0;
   border-radius: 25px;
   padding: 10px;
   align-content: center;
+  overflow: hidden;
   
 }
 
 .profile-header, .tags, .bio{
   grid-column: span 3;
 }
+
+.bio{
+  height: 200px;
+  transition: 0.3s;
+}
+
 .portfolio, .swaps{
   grid-column: span 2;
-  overflow-y: auto;
-  position: relative;
   align-self: stretch;
    align-content: start !important;
   
@@ -170,7 +176,11 @@ main section:not(.profile-header){
   min-height: 100%;
 }
 
-.portfolio h2, .swaps h2{
+main section:not(.profile-header) p{
+  padding: 0 10px;
+}
+
+main section:not(.profile-header) h2{
   position: sticky;
   top: -10px;
   margin: 0;
@@ -179,11 +189,41 @@ main section:not(.profile-header){
 
 }
 
+.buttonbg{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: max-content;
+  padding: 10px;
+  background-image: linear-gradient(to top, var(--complementary), var(--complementary), #ffffff00);
+  display: flex;
+  justify-content: center;
+  transition: 0.3s;
+}
+.buttonbg button{
+  height: 35px;
+  width: 150px;
+  font-size: 0.9rem;
+
+}
+
+.open{
+  height: max-content;
+  min-height: 0;
+  grid-column: span 3; /* ? */
+}
+.open .buttonbg{
+  position: relative;
+  background: none;
+  margin: 0;
+  padding: 0;
+}
+
 .images{
   background-color: var(--background-color);
   height: 800px;
   border-radius: 25px;
-  margin: 0 0 10px 10px;
+  margin: 10px;
 }
 
 
@@ -250,9 +290,13 @@ main section:not(.profile-header){
 
   .portfolio, .swaps{
     min-height: 0;
-    height: auto;
-    max-height: 500px;
+    height: 500px;
+    overflow: hidden;
+  }
 
+  .portfolio.open, .swaps.open{
+    height: max-content;
+    overflow: visible;
   }
 
   .bio{
@@ -275,6 +319,10 @@ main section:not(.profile-header){
   .statistics{
     order: 6;
   }
+
+ 
+
+
 }
 
 
