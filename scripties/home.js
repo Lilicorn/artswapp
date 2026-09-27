@@ -35,6 +35,8 @@ function generatecards (mainID, elementnum, seemorehref){
         
         card.appendChild(button);
 
+        card.classList.add("randomizer")
+
         main.appendChild(card);
     }
     // termeszetesen ezt majd tovabb kell 
@@ -58,9 +60,11 @@ function generatecards (mainID, elementnum, seemorehref){
 
 function loadingstuff(){
     let en = window.innerWidth <= 768 ? 5 : 10;
-    generatecards("recommendedusers", en, "recommendedusers.html");
+    generatecards("recommendedusers", en, "full.html");
     generatecards("recommendedauctions", en, "auctions.html");
     generatecards("donatorleaderboard", en, "donatorleaderboard.html");
+
+    colorrandomizer();
 }
 
 window.addEventListener("load", loadingstuff);

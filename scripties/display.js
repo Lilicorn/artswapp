@@ -1,18 +1,25 @@
 let prev = -1;
-let random;
 function colorrandomizer(){
-    var colors = ["--red", "--orange", "--green", "--blue", "--purple", "--pink"];
-    do {
+    var colors = ["#ff4a6f", "#ff924a", "#7fd01c", "#4acfff", "#ad2dcd", "#ff69b4"];
+    
+    
+    const everyone = document.querySelectorAll('.randomizer');
+    for(const e of everyone){
+        let random;
+        do {
         random = Math.floor(Math.random() * colors.length);
     } while (random === prev);
-    prev = random;
-    var r = document.querySelector(":root");
-    r.style.setProperty("--random", `var(${colors[random]})`);
+        prev = random;
 
+        
+    e.style.setProperty("--accent-color", colors[random]);
+    }
+
+    let bi = Math.floor(Math.random() * colors.length);
+    document.body.style.setProperty("--accent-color", colors[bi]);
 }
 
 
-colorrandomizer();
     let currentTitle = document.title;
 
     //a weblaphoz animáció

@@ -38,6 +38,8 @@ function generatecards (mainID, elementnum){
         
         card.appendChild(button);
 
+        card.classList.add("randomizer")
+
         main.appendChild(card);
     }
     // termeszetesen ezt majd tovabb kell 
@@ -50,6 +52,7 @@ function generatecards (mainID, elementnum){
 
 function loadingstuff(){
     generatecards("recommendedusersfull", 20);
+    colorrandomizer();
    }
 
 window.addEventListener("load", loadingstuff);

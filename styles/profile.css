@@ -78,7 +78,7 @@ button{
   aspect-ratio: 1/1;
   background-color: var(--accent-color);
   border-radius: 20px;
-  border: 4px solid var(--background-color); /* Dinamikusan vált dark mode-ban is! */
+  border: 4px solid var(--background-color) !important; /* Dinamikusan vált dark mode-ban is! */
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   margin: 0;
   padding: 0;
