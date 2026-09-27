@@ -1,4 +1,18 @@
-window.onload = function() {
+let prev = -1;
+let random;
+function colorrandomizer(){
+    var colors = ["--red", "--orange", "--green", "--blue", "--purple", "--pink"];
+    do {
+        random = Math.floor(Math.random() * colors.length);
+    } while (random === prev);
+    prev = random;
+    var r = document.querySelector(":root");
+    r.style.setProperty("--random", `var(${colors[random]})`);
+
+}
+
+
+colorrandomizer();
     let currentTitle = document.title;
 
     //a weblaphoz animáció
@@ -85,12 +99,13 @@ window.onload = function() {
     hamburger.addEventListener("click", () => {
         hamburger.classList.toggle("menu-open");
     });
-}
+
     
 
 function displaymode(){
     var element = document.body;
     element.classList.toggle("dark");
+    colorrandomizer();
     //console.log(document.getElementsByClassName("dark"));
     if(document.getElementsByClassName("dark").length===0){
         document.getElementById("modeicon").classList.remove("fa-moon");
@@ -103,3 +118,5 @@ function displaymode(){
         document.getElementById("displayhelper").innerHTML="Switch to light mode";
     }
 }
+
+

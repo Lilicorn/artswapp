@@ -1,5 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
+:root{
+    --card-size: 200px;
+
+
+    --red: rgb(255, 74, 111);
+    --orange: rgb(255, 146, 74);
+    --green: rgb(127, 208, 28);
+    --blue: rgb(74, 207, 255);
+    --purple: rgb(173, 45, 205);
+    --pink: hotpink;
+
+
+  --accent-color: var(--random);
+  --text-color: rgb(60, 52, 57);
+  --background-color: rgb(246, 240, 225);
+  --transition: rgba(233, 229, 219, 0.5);
+  --complementary: white;
+}
+
 *{
     font-family: 'Varela Round', sans-serif;
     box-sizing: border-box;
@@ -9,15 +28,6 @@
 
 body{
     margin: 0;
-
-    --card-size: 200px;
-
-  --accent-color: hotpink;
-  --text-color: rgb(60, 52, 57);
-  --background-color: rgb(254, 230, 244);
-  --transition: rgba(254, 230, 244, 0.703);
-  --complementary: white;
-  --button-text-color: var(--background-color);
 
   background-color: var(--background-color);
   color: var(--text-color);
@@ -32,12 +42,11 @@ body{
 
 
 body.dark {
-  --accent-color: darkviolet;
+  --accent-color: var(--random);
   --text-color: white;
   --background-color:rgb(60, 52, 57);
   --transition:rgba(60, 52, 57, 0.68);
   --complementary: black;
-  --button-text-color: rgb(60, 52, 57);
 }
 
 a:hover, .profile-box:hover, .searchbar:hover, .logo-box:hover, #displaymode:hover{
@@ -50,6 +59,11 @@ a, .profile-box, .searchbar, .logo-box, #displaymode{
     transform: scale(1);
     transition: 0.2s;
     text-decoration: none;
+}
+
+#mobileview a.nav-link{
+    width: 100%;
+    text-align: center;
 }
 
 nav a{
