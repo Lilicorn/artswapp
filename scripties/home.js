@@ -58,14 +58,22 @@ function generatecards (mainID, elementnum, seemorehref){
     
 }
 
+let laststate = null;
 function loadingstuff(){
-    let en = window.innerWidth <= 768 ? 5 : 10;
+    let mobile = window.innerWidth <= 768 ? true : false;
+    if(mobile === laststate) return;
+    laststate = mobile;
+
+    let en = mobile ? 5 : 10;
     generatecards("recommendedusers", en, "full.html");
     generatecards("recommendedauctions", en, "auctions.html");
     generatecards("donatorleaderboard", en, "donatorleaderboard.html");
 
+    
     colorrandomizer();
+
 }
+
 
 window.addEventListener("load", loadingstuff);
 window.addEventListener("resize", loadingstuff);
