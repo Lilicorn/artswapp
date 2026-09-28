@@ -4,14 +4,6 @@ body{
     margin: 0;
     padding: 0;
 
-    --card-size: 200px;
-
-  --accent-color: hotpink;
-  --text-color: rgb(60, 52, 57);
-  --background-color: rgb(254, 230, 244);
-  --transition: rgba(254, 230, 244, 0.703);
-  --complementary: white;
-  --button-text-color: var(--background-color);
 
   background-color: var(--background-color);
   color: var(--text-color);
@@ -22,17 +14,11 @@ body{
   scroll-padding-right: -30px;
   
 
-  transition: all 0.5s;
 
 }
 
-body.dark {
-  --accent-color: darkviolet;
-  --text-color: white;
-  --background-color:rgb(60, 52, 57);
-  --transition:rgba(60, 52, 57, 0.68);
-  --complementary: black;
-  --button-text-color: rgb(60, 52, 57);
+body *{
+  transition: all 0.3s;
 }
 
 #banner{
@@ -60,18 +46,24 @@ main{
   width: 100%;
   height: max-content;
   display: grid;
-  grid-template-columns: auto max-content 1fr;
+  grid-template-columns: auto max-content;
   align-items: end;
+  justify-content: space-between;
   gap: 20px;
   padding: 0 20px;
   margin: 0;
   
-  margin-top: -50px;
+  margin-top: -25px;
   box-sizing: border-box;
 }
-.profile-header *{
-  transition: 0.3s;
+
+
+.fortheflex{
+  display: flex;
   
+  gap: 20px;
+  flex-flow: row nowrap;
+  align-items: end;
 }
 
 button{
@@ -86,7 +78,7 @@ button{
   aspect-ratio: 1/1;
   background-color: var(--accent-color);
   border-radius: 20px;
-  border: 4px solid var(--background-color); /* Dinamikusan vált dark mode-ban is! */
+  border: 4px solid var(--background-color) !important; /* Dinamikusan vált dark mode-ban is! */
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   margin: 0;
   padding: 0;
@@ -139,7 +131,8 @@ button{
   display: flex;
   gap: 10px;
   width: 100%;
-  align-items: center;
+  max-width: 300px;
+  align-items: flex-end;
   justify-content: space-between;
   padding-bottom: 6px;
 }
@@ -149,6 +142,7 @@ button{
 main section:not(.profile-header){
   position: relative;
   background-color: var(--complementary);
+  border: 2px solid var(--accent-color);
   margin: 0;
   border-radius: 25px;
   padding: 10px;
@@ -163,7 +157,6 @@ main section:not(.profile-header){
 
 .bio{
   height: 200px;
-  transition: 0.3s;
 }
 
 .portfolio, .swaps{
@@ -197,7 +190,6 @@ main section:not(.profile-header) h2{
   background-image: linear-gradient(to top, var(--complementary), var(--complementary), #ffffff00);
   display: flex;
   justify-content: center;
-  transition: 0.3s;
 }
 .buttonbg button{
   height: 35px;
@@ -233,7 +225,7 @@ main section:not(.profile-header) h2{
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 10px;
-    margin-top: -30px;
+    margin-top: -15px;
     padding: 0 10px;
   }
   
@@ -243,6 +235,8 @@ main section:not(.profile-header) h2{
     justify-content: space-evenly;
     flex-wrap: wrap;
     width: 100%;
+    
+  max-width: none;
     margin-top: 10px;
   }
   
@@ -326,12 +320,10 @@ main section:not(.profile-header) h2{
 
 @media (max-width: 500px) {
 
-  
-.profile-header{
-    margin-top: -40px;
-  }
+
   .buttons{
     
+  width: 100%;
   align-self: center;
   }
   .badges{

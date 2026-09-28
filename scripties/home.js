@@ -1,4 +1,4 @@
-let imgdebug = ["car.jpg", "huh.png","letöltés.png"]
+let imgdebug = ["car.jpg", "huh.jpg","letöltés.jpg"]
 
 function generatecards (mainID, elementnum, seemorehref){
     let main = document.getElementById(mainID);
@@ -35,6 +35,8 @@ function generatecards (mainID, elementnum, seemorehref){
         
         card.appendChild(button);
 
+        card.classList.add("randomizer")
+
         main.appendChild(card);
     }
     // termeszetesen ezt majd tovabb kell 
@@ -56,12 +58,22 @@ function generatecards (mainID, elementnum, seemorehref){
     
 }
 
+let laststate = null;
 function loadingstuff(){
-    let en = window.innerWidth <= 768 ? 5 : 10;
-    generatecards("recommendedusers", en, "recommendedusers.html");
+    let mobile = window.innerWidth <= 768 ? true : false;
+    if(mobile === laststate) return;
+    laststate = mobile;
+
+    let en = mobile ? 5 : 10;
+    generatecards("recommendedusers", en, "full.html");
     generatecards("recommendedauctions", en, "auctions.html");
     generatecards("donatorleaderboard", en, "donatorleaderboard.html");
+
+    
+    colorrandomizer();
+
 }
+
 
 window.addEventListener("load", loadingstuff);
 window.addEventListener("resize", loadingstuff);

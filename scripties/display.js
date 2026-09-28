@@ -1,4 +1,25 @@
-window.onload = function() {
+let prev = -1;
+function colorrandomizer(){
+    var colors = ["#ff4a6f", "#ff924a", "#7fd01c", "#4acfff", "#ad2dcd", "#ff69b4"];
+    
+    
+    const everyone = document.querySelectorAll('.randomizer');
+    for(const e of everyone){
+        let random;
+        do {
+        random = Math.floor(Math.random() * colors.length);
+    } while (random === prev);
+        prev = random;
+
+        
+    e.style.setProperty("--accent-color", colors[random]);
+    }
+
+    let bi = Math.floor(Math.random() * colors.length);
+    document.body.style.setProperty("--accent-color", colors[bi]);
+}
+
+
     let currentTitle = document.title;
 
     //a weblaphoz animáció
@@ -85,12 +106,13 @@ window.onload = function() {
     hamburger.addEventListener("click", () => {
         hamburger.classList.toggle("menu-open");
     });
-}
+
     
 
 function displaymode(){
     var element = document.body;
     element.classList.toggle("dark");
+    colorrandomizer();
     //console.log(document.getElementsByClassName("dark"));
     if(document.getElementsByClassName("dark").length===0){
         document.getElementById("modeicon").classList.remove("fa-moon");
@@ -103,3 +125,5 @@ function displaymode(){
         document.getElementById("displayhelper").innerHTML="Switch to light mode";
     }
 }
+
+
