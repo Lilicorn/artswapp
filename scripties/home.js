@@ -1,4 +1,4 @@
-let imgdebug = ["car.jpg", "huh.png","letöltés.png"]
+let imgdebug = ["car.jpg", "huh.jpg","letöltés.jpg"]
 
 function generatecards (mainID, elementnum, seemorehref){
     let main = document.getElementById(mainID);
