@@ -1,0 +1,203 @@
+.card, more{
+    position: relative;
+    border-radius: 15px;
+    transition: 0.3s;
+    overflow: hidden;
+}
+.card{
+    transform-origin: top;
+    height: var(--card-size);
+    width: var(--card-size);
+    border:1px solid var(--accent-color);
+    box-shadow: 0 1px 5px var(--accent-color);
+    
+}
+.card:hover{
+    height: calc(var(--card-size) * 1.4);
+    width: calc(var(--card-size) * 1.1);
+}
+.cardcaption{
+    background-color: var(--complementary);
+    height: 20%;
+    width: 100%;
+    position: absolute;
+    top:80%;
+    padding: 8px;
+    transition: 0.5s;
+
+}
+.card:hover .cardcaption{
+    height: 60%;
+    top:60%;
+    padding-top: 15px;
+    
+}
+
+tags, username{
+    
+    display: block;
+}
+
+.cardcaption>username{
+    position: relative;
+    font-size: 1.3em;
+    width: 90%;
+    /*border: 1px solid;*/
+    padding-bottom: 0;
+    transition: all 0.5s;
+}
+.cardcaption>tags{
+    position: relative;
+    font-size: 0.75em;
+    opacity: 0;
+    visibility: collapse;
+    transition: all 0.2s;
+}
+
+.card:hover tags{
+    visibility: visible;
+    opacity: 1;
+}
+
+badge{
+    font-size: 0.5rem;
+    margin: 5px;
+    border-radius: 50px;
+}
+
+.cardpfp{
+    width: 20%;
+    aspect-ratio: 1/1;
+    position: absolute;
+    top: -80%;
+    left: 5%;
+    background-color: var(--accent-color);
+    border-radius: 5px;
+    transition: 0.5s, top 0.3s;
+    border: 3px solid var(--complementary) !important;
+}
+
+.card:hover .cardpfp{
+    top:-25%;
+    width: 25%;
+}
+
+.cardimage{
+    position: absolute;
+    top:0;
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding:0;
+    transition: all 0.5s;
+    overflow-y: hidden;
+    transform-origin: center;
+}
+
+.cardimage img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    border: 3px;
+    object-fit: cover;
+    transition: all 0.5s;
+}
+
+.card:hover .cardimage{
+    height: 60%;
+    overflow-y: scroll;
+}
+
+
+
+.card>button{
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    scale: 0.5;
+    width:90%;
+    top: 110%;
+    left: 5%;
+    transition: all 0.5s;
+}
+.card:hover>button{
+    visibility: visible;
+    opacity: 100;
+    top: 90%;
+    scale: 1;
+}
+
+button:hover{
+    scale: 1.05;
+}
+
+.card>button:hover{
+    padding: 5px 0;
+    margin-bottom: 10px;
+    top: calc(90% - 5px);
+}
+.card:has(>button:hover){
+    height: calc(var(--card-size) * 1.4);
+    width: calc(var(--card-size) * 1.12);
+}
+
+.card-grid{
+    display: grid;
+    width: 100%;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    gap:20px;
+    overflow-x: auto;
+    padding: 5px 10px;
+    margin-bottom: 30px;
+}
+
+
+
+more, more *{
+    transition: 0.3s;
+}
+more{
+    transform-origin: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: none;
+    color: var(--text-color);
+    width: calc(var(--card-size)*0.75);
+    height: var(--card-size);
+}
+more badge{
+    font-size: 1.5em;
+    width: 40%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--accent-color);
+    color: var(--complementary);
+    border: 0.1px
+}
+more:hover{
+    height: calc(var(--card-size) * 1.03);
+    width: calc(var(--card-size) * 0.77);
+}
+more badge:hover{
+    width: calc(40% + 5px);
+    border: 4px solid var(--complementary);
+}
+
+
+@media (max-width:912px){
+    .card{
+        scale: 0.95;
+    }
+   
+    .card-grid{
+        gap:10px;
+    }
+}

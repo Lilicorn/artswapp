@@ -46,7 +46,7 @@ main{
   width: 100%;
   height: max-content;
   display: grid;
-  grid-template-columns: auto max-content;
+  grid-template-columns: 1fr auto;
   align-items: end;
   justify-content: space-between;
   gap: 20px;
@@ -66,12 +66,7 @@ main{
   align-items: end;
 }
 
-button{
-  font-size: 1.1em;
-  min-width: 70px;
-  width: 33%;
-  padding: 8px;
-}
+
 
 .pfp {
   width: 120px;
@@ -113,6 +108,7 @@ button{
 .badges {
   font-size: 1.5rem;
   letter-spacing: 1px;
+  /* ez majd egyszer 3 kepet fog tartalmazni akkor majd lehet reszponzivalni*/
 }
 
 /* Alsó sor stílusai */
@@ -130,11 +126,19 @@ button{
 .buttons {
   display: flex;
   gap: 10px;
-  width: 100%;
-  max-width: 300px;
+  justify-self: flex-end;
   align-items: flex-end;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding-bottom: 6px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.buttons button{
+   font-size: 1.1em;
+  min-width: 70px;
+  padding: 8px;
+  flex: 1;
 }
 
 
@@ -223,7 +227,7 @@ main section:not(.profile-header) h2{
 
   .profile-header {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto auto;
     gap: 10px;
     margin-top: -15px;
     padding: 0 10px;

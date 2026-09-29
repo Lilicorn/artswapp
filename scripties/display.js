@@ -76,12 +76,12 @@ function colorrandomizer(){
     if(document.getElementsByClassName("dark").length===0){
         document.getElementById("modeicon").classList.remove("fa-moon-o");
         document.getElementById("modeicon").classList.add("fa-sun-o");
-         document.getElementById("displayhelper").innerHTML="Switch to dark mode";
+         document.getElementById("displayhelper").innerText="Switch to dark mode";
     }
     else{
         document.getElementById("modeicon").classList.remove("fa-sun-o");
         document.getElementById("modeicon").classList.add("fa-moon-o");
-        document.getElementById("displayhelper").innerHTML="Switch to light mode";
+        document.getElementById("displayhelper").innerText="Switch to light mode";
     }
 
 
@@ -117,12 +117,12 @@ function displaymode(){
     if(document.getElementsByClassName("dark").length===0){
         document.getElementById("modeicon").classList.remove("fa-moon");
         document.getElementById("modeicon").classList.add("fa-sun");
-         document.getElementById("displayhelper").innerHTML="Switch to dark mode";
+         document.getElementById("displayhelper").innerText="Switch to dark mode";
     }
     else{
         document.getElementById("modeicon").classList.remove("fa-sun");
         document.getElementById("modeicon").classList.add("fa-moon");
-        document.getElementById("displayhelper").innerHTML="Switch to light mode";
+        document.getElementById("displayhelper").innerText="Switch to light mode";
     }
 }
 

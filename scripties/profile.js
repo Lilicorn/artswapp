@@ -1,7 +1,9 @@
 
 
 window.addEventListener("resize", function() {
-    document.getElementsByClassName("swapslots")[0].innerHTML = window.innerWidth <= 380 ? "0/5" : "0/5 swaps";
+    document.getElementsByClassName("swapslots")[0].innerText = 
+    window.innerWidth <= 380 | (800 < window.innerWidth && window.innerWidth < 825) ? "0/5" 
+    : "0/5 swaps";
 });
 
 document.getElementById("seemorebio").addEventListener("click", function(){
