@@ -18,7 +18,7 @@
             display: flex;
             flex-flow: row wrap;
             
-            justify-content: flex-start;
+            justify-content: center;
             justify-self: center;
         }
         .card{
@@ -139,4 +139,31 @@ badge{
 .card:hover{
     height: calc(var(--card-size) * 1.45);
     width: calc(var(--card-size) * 1.12);
+}
+
+@media (max-width: 513px){
+    main{
+        display: block;
+    }
+
+    main > section{
+        display: block;
+        width: 100%;
+        --card-size: 75vw;
+    }
+
+    main > section > div{
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        justify-items: center;
+        gap: 14px;
+        width: 100%;
+    }
+
+    .card,
+    .card:hover{
+        width: calc(var(--card-size) * 1.1);
+        height: calc(var(--card-size) * 1.375);
+        margin: 0;
+    }
 }
