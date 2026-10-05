@@ -141,7 +141,7 @@ badge{
     width: calc(var(--card-size) * 1.12);
 }
 
-@media (max-width: 513px){
+@media (max-width: 515px){
     main{
         display: block;
     }
@@ -161,7 +161,7 @@ badge{
 
     .card,
     .card:hover{
-        width: min(300px, 100%);
+        width: 300px;
         height: auto;
         aspect-ratio: 4 / 5;
         margin: 0;
