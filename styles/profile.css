@@ -37,7 +37,7 @@ main{
   width: 100%;
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   align-items: start;
 }
 
@@ -46,7 +46,7 @@ main{
   width: 100%;
   height: max-content;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 2fr 1fr;
   align-items: end;
   justify-content: space-between;
   gap: 20px;
@@ -127,7 +127,6 @@ main{
   justify-content: flex-end;
   padding-bottom: 6px;
   width: 100%;
-  max-width: 700px;
 }
 
 .buttons *{
