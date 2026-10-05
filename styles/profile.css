@@ -37,7 +37,7 @@ main{
   width: 100%;
   display: grid;
   gap: 20px;
-  grid-template: auto auto auto auto auto / repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   align-items: start;
 }
 
@@ -46,7 +46,7 @@ main{
   width: 100%;
   height: max-content;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 2fr 1fr;
   align-items: end;
   justify-content: space-between;
   gap: 20px;
@@ -105,11 +105,7 @@ main{
   color: var(--text-color);
 }
 
-.badges {
-  font-size: 1.5rem;
-  letter-spacing: 1px;
-  /* ez majd egyszer 3 kepet fog tartalmazni akkor majd lehet reszponzivalni*/
-}
+
 
 /* Alsó sor stílusai */
 .handle {
@@ -131,12 +127,12 @@ main{
   justify-content: flex-end;
   padding-bottom: 6px;
   width: 100%;
-  max-width: 500px;
 }
 
-.buttons button{
+.buttons *{
    font-size: 1.1em;
   min-width: 70px;
+  width: 100%;
   padding: 8px;
   flex: 1;
 }
@@ -155,21 +151,23 @@ main section:not(.profile-header){
   
 }
 
-.profile-header, .tags, .bio{
+.profile-header, .tags{
   grid-column: span 3;
 }
 
 .bio{
-  height: 200px;
+  grid-column: span 2;
+  height: 0;
+  min-height: 100%;
+}
+
+.socials{
+  grid-column: span 1;
 }
 
 .portfolio, .swaps{
-  grid-column: span 2;
-  align-self: stretch;
-   align-content: start !important;
-  
-  height: 0;
-  min-height: 100%;
+  grid-column: span 3;
+  height: 300px;
 }
 
 main section:not(.profile-header) p{
@@ -273,66 +271,33 @@ main section:not(.profile-header) h2{
 
 
 
+}
+
+
+@media (max-width: 800px) {
+
   main{
-    grid-template: repeat(6, auto) / repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2,1fr);
     align-items: stretch;
   }
 
   main section{
     grid-column: span 2 !important;
-    /* https://medium.com/@lucas1004jx/css-selectors-priority-dcc0bb25f0bd */
     grid-row: span 1;
     width: auto;
   }
 
-  .portfolio, .swaps{
-    min-height: 0;
-    height: 500px;
+  .profile-header{
+    grid-column: span 2 !important;
   }
-
-  .portfolio.open, .swaps.open{
-    height: max-content;
-    overflow: visible;
-  }
-
-  .bio{
-    order: 1;
-  }
-  .tags{
-    grid-column: span 1 !important;
-    order: 2;
-  }
-  .socials{
-    grid-column: span 1 !important;
-    order: 3;
-  }
-  .portfolio{
-    order: 4;
-  }
-  .swaps{
-    order: 5;
-  }
-  .statistics{
-    order: 6;
-  }
-
- 
-
-
-}
-
-
-@media (max-width: 500px) {
-
 
   .buttons{
     
   width: 100%;
   align-self: center;
   }
-  .badges{
-    letter-spacing: 0;
-  }
+  
+  
 
   .top-row * {
     font-size: 1rem;
@@ -345,5 +310,26 @@ main section:not(.profile-header) h2{
   .tags, .socials{
     grid-column: span 2 !important;
   }
-  
+
+  .bio{
+    order: 1;
+    height: 200px;
+    min-height: 0;
+  }
+  .tags{
+    order: 2;
+  }
+  .socials{
+    order: 3;
+  }
+  .portfolio{
+    order: 4;
+  }
+  .swaps{
+    order: 5;
+  }
+
+  .portfolio, .swaps{
+    height: 500px;
+  }
 }
