@@ -37,7 +37,7 @@ main{
   width: 100%;
   display: grid;
   gap: 20px;
-  grid-template: auto auto auto auto auto / repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: start;
 }
 
@@ -155,21 +155,23 @@ main section:not(.profile-header){
   
 }
 
-.profile-header, .tags, .bio{
+.profile-header, .tags{
   grid-column: span 3;
 }
 
 .bio{
-  height: 200px;
+  grid-column: span 2;
+  height: 0;
+  min-height: 100%;
+}
+
+.socials{
+  grid-column: span 1;
 }
 
 .portfolio, .swaps{
-  grid-column: span 2;
-  align-self: stretch;
-   align-content: start !important;
-  
-  height: 0;
-  min-height: 100%;
+  grid-column: span 3;
+  height: 300px;
 }
 
 main section:not(.profile-header) p{
@@ -273,57 +275,25 @@ main section:not(.profile-header) h2{
 
 
 
+}
+
+
+@media (max-width: 768px) {
+
   main{
-    grid-template: repeat(6, auto) / repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: stretch;
   }
 
   main section{
     grid-column: span 2 !important;
-    /* https://medium.com/@lucas1004jx/css-selectors-priority-dcc0bb25f0bd */
     grid-row: span 1;
     width: auto;
   }
 
-  .portfolio, .swaps{
-    min-height: 0;
-    height: 500px;
+  .profile-header{
+    grid-column: span 2 !important;
   }
-
-  .portfolio.open, .swaps.open{
-    height: max-content;
-    overflow: visible;
-  }
-
-  .bio{
-    order: 1;
-  }
-  .tags{
-    grid-column: span 1 !important;
-    order: 2;
-  }
-  .socials{
-    grid-column: span 1 !important;
-    order: 3;
-  }
-  .portfolio{
-    order: 4;
-  }
-  .swaps{
-    order: 5;
-  }
-  .statistics{
-    order: 6;
-  }
-
- 
-
-
-}
-
-
-@media (max-width: 500px) {
-
 
   .buttons{
     
@@ -345,5 +315,26 @@ main section:not(.profile-header) h2{
   .tags, .socials{
     grid-column: span 2 !important;
   }
-  
+
+  .bio{
+    order: 1;
+    height: 200px;
+    min-height: 0;
+  }
+  .tags{
+    order: 2;
+  }
+  .socials{
+    order: 3;
+  }
+  .portfolio{
+    order: 4;
+  }
+  .swaps{
+    order: 5;
+  }
+
+  .portfolio, .swaps{
+    height: 500px;
+  }
 }
