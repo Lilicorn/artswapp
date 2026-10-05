@@ -153,7 +153,7 @@ badge{
 
     main > section > div{
         display: grid;
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: auto;
         justify-items: center;
         gap: 14px;
         width: 100%;
