@@ -105,11 +105,7 @@ main{
   color: var(--text-color);
 }
 
-.badges {
-  font-size: 1.5rem;
-  letter-spacing: 1px;
-  /* ez majd egyszer 3 kepet fog tartalmazni akkor majd lehet reszponzivalni*/
-}
+
 
 /* Alsó sor stílusai */
 .handle {
@@ -131,12 +127,13 @@ main{
   justify-content: flex-end;
   padding-bottom: 6px;
   width: 100%;
-  max-width: 500px;
+  max-width: 700px;
 }
 
-.buttons button{
+.buttons *{
    font-size: 1.1em;
   min-width: 70px;
+  width: 100%;
   padding: 8px;
   flex: 1;
 }
@@ -278,7 +275,7 @@ main section:not(.profile-header) h2{
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
 
   main{
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -300,9 +297,8 @@ main section:not(.profile-header) h2{
   width: 100%;
   align-self: center;
   }
-  .badges{
-    letter-spacing: 0;
-  }
+  
+  
 
   .top-row * {
     font-size: 1rem;

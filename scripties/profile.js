@@ -1,10 +1,11 @@
-
-
-window.addEventListener("resize", function() {
-    document.getElementsByClassName("swapslots")[0].innerText = 
+function text(){
+        document.getElementsByClassName("swapslots")[0].innerText = 
     window.innerWidth <= 380 | (800 < window.innerWidth && window.innerWidth < 825) ? "0/5" 
     : "0/5 swaps";
-});
+}
+
+window.addEventListener("resize", text());
+window.addEventListener("onload", text());
 
 document.getElementById("seemorebio").addEventListener("click", function(){
     document.getElementsByClassName("bio")[0].classList.toggle("open");
