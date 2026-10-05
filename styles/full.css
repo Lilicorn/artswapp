@@ -141,7 +141,7 @@ badge{
     width: calc(var(--card-size) * 1.12);
 }
 
-@media (max-width: 513px){
+@media (max-width: 515px){
     main{
         display: block;
     }
@@ -149,7 +149,6 @@ badge{
     main > section{
         display: block;
         width: 100%;
-        --card-size: 75vw;
     }
 
     main > section > div{
@@ -162,8 +161,25 @@ badge{
 
     .card,
     .card:hover{
-        width: calc(var(--card-size) * 1.1);
-        height: calc(var(--card-size) * 1.375);
+        width: 300px;
+        height: auto;
+        aspect-ratio: 4 / 5;
         margin: 0;
+    }
+
+    .cardcaption{
+        padding: 18px;
+    }
+
+    .cardcaption > username{
+        font-size: 1.7rem;
+    }
+
+    .cardcaption > tags{
+        font-size: 1rem;
+    }
+
+    .card > button{
+        font-size: 1rem;
     }
 }
