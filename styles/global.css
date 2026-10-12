@@ -101,12 +101,16 @@ nav{
     margin: auto;
 }
 .logo-box{
+    overflow: hidden;
+}
+
+iframe{
+    display: flex;
     height: 65px;
     width: 180px;
     border: none;
-    display: flex;
-    overflow: hidden;
 }
+
 .mini-logo-box{
     height: 50px;
     display: none;
