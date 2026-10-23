@@ -64,7 +64,8 @@ a:hover, .nav-pfp:hover, .searchbar:hover, #displaymode:hover{
 }
 #mobileview a.nav-link{
     width: 100%;
-    text-align: center;
+    text-align: right;
+    transform-origin: center right;
 }
 a.nav-link{
     color:var(--text-color);
@@ -170,11 +171,11 @@ nav{
     color: var(--text-color);
     font-size: 0.9rem;
     font-weight: lighter;
-    text-align: left;
+    text-align: right;
     background-color: var(--complementary);
     border: 2px solid var(--text-color);
     border-bottom: 4px solid var(--text-color);
-    padding: 10px 15px;
+    padding: 30px 15px;
     width: 15vw;
     transform-origin: top right;
     transition: opacity 0.5s;
@@ -193,24 +194,7 @@ nav{
 }
 
 
-@keyframes navmenu-bubble{
-    0%{
-        transition-timing-function: ease-out;
-        transform: rotate(10deg) scale(1.2);
-    }
-    30%{
-        transition-timing-function: ease-in-out;
-        transform: rotate(-15deg);
-    }
-    70%{
-        transition-timing-function: ease-in-out;
-        transform: rotate(5deg) scale(0.95);
-    }
-    100%{
-        transition-timing-function: ease-in-out;
-        transform: rotate(0deg) scale(1);
-    }
-}
+
 
 #displaymode{
     position: relative;
@@ -303,7 +287,7 @@ footer .footer-logo{
         transform-origin: top right;
         top: 30px;
         right: 0;
-        width:60vw;
+        width:50vw;
         height: 0;
         overflow: hidden;
         padding: 0 0;
@@ -314,15 +298,14 @@ footer .footer-logo{
         
     }
     #mobileview:hover{
-        transform: scale(1.1);
+        transform: scale(1.02);
     }
 
     #hamburber.menu-open #mobileview{
        height: max-content;
-       padding: 10px 0;
+       padding: 10px 20px;
        visibility: visible;
        opacity: 1;
-       animation: navmenu-bubble 0.7s;
        transition-delay: 0s;
     }
 
