@@ -22,7 +22,7 @@ body{
     width: 100%;
      aspect-ratio: 3 / 1; /* amugy 2:1-es kepek jobban mukodnek vele */
      margin-top: 60px;
-  max-height: 400px;
+    max-height: 400px;
     background-image: url("../debug/banner2.jpg");
     background-size: cover;
     background-position: center;

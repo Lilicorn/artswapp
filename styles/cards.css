@@ -1,7 +1,7 @@
 .card, more{
     position: relative;
     border-radius: 15px;
-    transition: 0.3s;
+    transition: 0.3s, background-color 0.0s, color 0.0s, border-color 0.0s;
     overflow: hidden;
 }
 .card{
@@ -23,7 +23,7 @@
     position: absolute;
     top:80%;
     padding: 8px;
-    transition: 0.5s;
+    transition: 0.5s, color 0.0s, background-color 0.0s;
 
 }
 .card:hover .cardcaption{
@@ -44,14 +44,12 @@ tags, username{
     width: 90%;
     /*border: 1px solid;*/
     padding-bottom: 0;
-    transition: all 0.5s;
 }
 .cardcaption>tags{
     position: relative;
     font-size: 0.75em;
     opacity: 0;
     visibility: collapse;
-    transition: all 0.2s;
 }
 
 .card:hover tags{
@@ -73,7 +71,7 @@ badge{
     left: 5%;
     background-color: var(--accent-color);
     border-radius: 5px;
-    transition: 0.5s, top 0.3s;
+    transition: 0.5s, top 0.3s, border-color 0.0s;
     border: 3px solid var(--complementary) !important;
 }
 

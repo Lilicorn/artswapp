@@ -26,7 +26,7 @@ function colorrandomizer(){
     /*const frames = [
         "icon/0.png", "icon/2.png", "icon/4.png", "icon/6.png", 
         "icon/8.png", "icon/10.png"
-    ];*/
+    ];
     const titles = [
         " ₊ ⊹ ⋆ .˚⋆ ",
         " ⊹ ⋆ .˚⋆ ₊ ",
@@ -44,31 +44,18 @@ function colorrandomizer(){
         "ㅤ"+ " .˚⋆ ₊ ",
         " .˚⋆ ₊ ⊹ ⋆ ",
         "˚⋆ ₊ ⊹ ⋆ ."
-    ]
+    ]*/
     const flicker=["♡︎⁠ ","♡︎⁠ ", "♥︎ ","♥︎ "]
 
     //let i = 0; 
     let j = 1;
     let l = 0;
-    for (let k = 0; k < intro.length; k++) {
-        setTimeout(() => {
-            document.title = "♥︎ " + currentTitle +" "+ intro[k];
-        }, k * 300);
-    }
+        setInterval(updateTitle,300);
+    
+    
 
-    setTimeout(() => {
-        setInterval(updateFavicon, 300);
-    }, intro.length * 300);
-
-    function updateFavicon() {
-        /*let favicon = document.getElementById("icon"); 
-        if (favicon) {
-            favicon.href = frames[i]; 
-            i = (i + 1) % frames.length; 
-        }*/
-       //nem lenne rossz csak szerintem sok memoriat veszunk el mar igy is x
-        document.title = flicker[l]+currentTitle +" "+ titles[j];
-        j = (j + 1) % titles.length;
+    function updateTitle() {
+        document.title = flicker[l]+currentTitle;
         l = (l + 1) % flicker.length;
     }
 
@@ -121,6 +108,20 @@ function setModeIcon(isDark, target = document) {
     icon.classList.toggle("fa-sun", !isDark);
 }
 
+function collectScrollPositions(source, clone, positions) {
+    if (source instanceof HTMLElement && clone instanceof HTMLElement) {
+        positions.push({
+            element: clone,
+            left: source.scrollLeft,
+            top: source.scrollTop,
+        });
+    }
+
+    Array.from(source.children).forEach((child, index) => {
+        collectScrollPositions(child, clone.children[index], positions);
+    });
+}
+
 setModeIcon(document.body.classList.contains("dark"));
 document.getElementById("displaymode").addEventListener("click", (event) => {
     event.preventDefault();
@@ -133,8 +134,15 @@ document.getElementById("displaymode").addEventListener("click", (event) => {
     const toggle = event.currentTarget;
 
     colorrandomizer();
+
+    const scrollPositions = [];
+
     for (const child of body.children) {
-        if (child !== clip) clipContent.append(child.cloneNode(true));
+        if (child !== clip) {
+            const clone = child.cloneNode(true);
+            collectScrollPositions(child, clone, scrollPositions);
+            clipContent.append(clone);
+        }
     }
 
     body.classList.toggle("dark", willBeDark);
@@ -167,5 +175,12 @@ document.getElementById("displaymode").addEventListener("click", (event) => {
     };
 
     clip.addEventListener("animationend", onAnimationEnd);
-    clip.classList.add("anim");
+    requestAnimationFrame(() => {
+        for (const { element, left, top } of scrollPositions) {
+            element.scrollLeft = left;
+            element.scrollTop = top;
+        }
+
+        clip.classList.add("anim");
+    });
 });

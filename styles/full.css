@@ -28,7 +28,7 @@
 .card, more{
     position: relative;
     border-radius: 15px;
-    transition: 0.3s;
+    transition: 0.3s, background-color 0.0s, color 0.0s, border-color 0.0s;
     overflow: hidden;
 }
 .card{
@@ -49,7 +49,7 @@
     padding: 15px;
     display: block;
     box-sizing: border-box;
-    transition: 0.5s;
+    transition: 0.5s, color 0.0s, background-color 0.0s;
 
 }
 
@@ -60,7 +60,7 @@
     width: 90%;
     /*border: 1px solid;*/
     padding-bottom: 0;
-    transition: all 0.5s;
+    transition: 0.5s, color 0.0s;
 }
 .cardcaption>tags{
     display: block;
@@ -68,7 +68,7 @@
     font-size: 0.75em;
     opacity: 1;
     visibility: visible;
-    transition: all 0.2s;
+    transition: 0.2s, color 0.0s;
 }
 
 badge{
@@ -85,7 +85,7 @@ badge{
     left: 5%;
     background-color: var(--accent-color);
     border-radius: 5px;
-    transition: 0.5s, top 0.3s;
+    transition: 0.5s, top 0.3s, border-color 0s;
     border: 3px solid var(--complementary) !important;
 }
 
@@ -124,7 +124,7 @@ badge{
     left: 5%;
     padding: 0;
     margin-bottom: 0;
-    transition: all 0.5s;
+    transition: 0.5s, color 0.0s;
     background-color: var(--accent-color);
     color:var(--complementary);
     border-radius: 50px;

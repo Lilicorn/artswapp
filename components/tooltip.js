@@ -20,9 +20,10 @@ class tooltipThing extends HTMLElement {
                     inset: 0;
                     display: block;
                     z-index: 10;
-                }
-
+                    }
+               
                 .tooltip-container {
+                    transition: 0.5s, background-color 0.0s, color 0.0s;
                     position: absolute;
                     visibility: hidden;
                     opacity: 0;
