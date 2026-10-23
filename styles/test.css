@@ -1,0 +1,27 @@
+.clip {
+	position: fixed;
+	inset: 0;
+	z-index: 20;
+	visibility: hidden;
+	clip-path: circle(0 at var(--origin-x, 50%) var(--origin-y, 50%));
+	pointer-events: none;
+}
+
+.clip.anim {
+	visibility: visible;
+	animation: reveal-theme 1.2s ease-in forwards;
+}
+
+.clip-content {
+	position: absolute;
+	inset: 0;
+	overflow: auto;
+	background-color: var(--background-color);
+	color: var(--text-color);
+}
+
+@keyframes reveal-theme {
+	to {
+		clip-path: circle(150vmax at var(--origin-x, 50%) var(--origin-y, 50%));
+	}
+}
