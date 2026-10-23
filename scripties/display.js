@@ -72,18 +72,6 @@ function colorrandomizer(){
         l = (l + 1) % flicker.length;
     }
 
-    document.getElementById("displaymode").addEventListener('click', displaymode)
-    if(document.getElementsByClassName("dark").length===0){
-        document.getElementById("modeicon").classList.remove("fa-moon-o");
-        document.getElementById("modeicon").classList.add("fa-sun-o");
-         }
-    else{
-        document.getElementById("modeicon").classList.remove("fa-sun-o");
-        document.getElementById("modeicon").classList.add("fa-moon-o");
-        }
-
-
-    
     const thing = document.getElementById("navitems");
     const one = document.getElementById("desktopview");
     const two = document.getElementById("mobileview");
@@ -108,21 +96,76 @@ function colorrandomizer(){
         document.querySelector("#profile-dropdown-menu").classList.toggle("menu-open");
     });
 
-    
+const clip = document.createElement("div");
+clip.className = "clip";
+clip.setAttribute("aria-hidden", "true");
+const clipContent = document.createElement("div");
+clipContent.className = "clip-content";
+clip.append(clipContent);
+document.body.append(clip);
 
-    
+const themeVariables = [
+    "--accent-color",
+    "--background-color",
+    "--complementary",
+    "--text-color",
+    "--transition",
+];
+let transitionRunning = false;
 
-function displaymode(){
-    var element = document.body;
-    element.classList.toggle("dark");
-    colorrandomizer();
-    //console.log(document.getElementsByClassName("dark"));
-    if(document.getElementsByClassName("dark").length===0){
-        document.getElementById("modeicon").classList.remove("fa-moon");
-        document.getElementById("modeicon").classList.add("fa-sun");
-         }
-    else{
-        document.getElementById("modeicon").classList.remove("fa-sun");
-        document.getElementById("modeicon").classList.add("fa-moon");
-        }
+function setModeIcon(isDark, target = document) {
+    const icon = target.querySelector("#modeicon");
+    if (!icon) return;
+
+    icon.classList.toggle("fa-moon", isDark);
+    icon.classList.toggle("fa-sun", !isDark);
 }
+
+setModeIcon(document.body.classList.contains("dark"));
+document.getElementById("displaymode").addEventListener("click", (event) => {
+    event.preventDefault();
+    if (transitionRunning) return;
+    transitionRunning = true;
+
+    const body = document.body;
+    const wasDark = body.classList.contains("dark");
+    const willBeDark = !wasDark;
+    const toggle = event.currentTarget;
+
+    colorrandomizer();
+    for (const child of body.children) {
+        if (child !== clip) clipContent.append(child.cloneNode(true));
+    }
+
+    body.classList.toggle("dark", willBeDark);
+    const targetStyles = getComputedStyle(body);
+    for (const variable of themeVariables) {
+        clipContent.style.setProperty(variable, targetStyles.getPropertyValue(variable));
+    }
+    body.classList.toggle("dark", wasDark);
+    setModeIcon(willBeDark, clipContent);
+
+    const toggleBounds = toggle.getBoundingClientRect();
+    clip.style.setProperty("--origin-x", `${toggleBounds.left + toggleBounds.width / 2}px`);
+    clip.style.setProperty("--origin-y", `${toggleBounds.top + toggleBounds.height / 2}px`);
+    clipContent.scrollTop = window.scrollY;
+
+    const onAnimationEnd = (animationEvent) => {
+        if (animationEvent.target !== clip) return;
+        clip.removeEventListener("animationend", onAnimationEnd);
+        body.classList.toggle("dark", willBeDark);
+        setModeIcon(willBeDark);
+
+        window.setTimeout(() => {
+            clipContent.replaceChildren();
+            clipContent.removeAttribute("style");
+            clip.style.removeProperty("--origin-x");
+            clip.style.removeProperty("--origin-y");
+            clip.classList.remove("anim");
+            transitionRunning = false;
+        }, 150);
+    };
+
+    clip.addEventListener("animationend", onAnimationEnd);
+    clip.classList.add("anim");
+});
