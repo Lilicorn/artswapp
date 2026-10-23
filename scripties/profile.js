@@ -1,6 +1,6 @@
 function text(){
         document.getElementsByClassName("swapslots")[0].innerText = 
-    window.innerWidth <= 380 | (800 < window.innerWidth && window.innerWidth < 825) ? "0/5" 
+    window.innerWidth <= 450 | (800 < window.innerWidth && window.innerWidth < 825) ? "0/5" 
     : "0/5 swaps";
 }
 

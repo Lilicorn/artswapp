@@ -226,9 +226,11 @@ main section:not(.profile-header) h2{
   .profile-header {
     display: grid;
     grid-template-columns: auto auto;
+    grid-column: span 2;
     gap: 10px;
     margin-top: -15px;
     padding: 0 10px;
+    height: max-content;
   }
   
   .buttons {
@@ -237,44 +239,17 @@ main section:not(.profile-header) h2{
     justify-content: space-evenly;
     flex-wrap: wrap;
     width: 100%;
-    
-  max-width: none;
+    max-width: none;
     margin-top: 10px;
   }
   
-  button{
-    width: 30%;
-  }
-
   
 
-.username, .handle {
-  text-overflow: ellipsis; /* Ha túl hosszú a név, csinos pontokat tesz a végére */
-}
-
-
-.pfp {
-    width: 90px;
-  }
 
   .top-row, .bottom-row{
     gap: 10px;
   }
 
-  .top-row * {
-    font-size: 3vw;
-    
-  }
-  .bottom-row *{
-    font-size: 1.67vw;
-  }
-
-
-
-}
-
-
-@media (max-width: 800px) {
 
   main{
     grid-template-columns: repeat(2,1fr);
@@ -287,26 +262,11 @@ main section:not(.profile-header) h2{
     width: auto;
   }
 
-  .profile-header{
-    grid-column: span 2 !important;
-  }
-
   .buttons{
-    
   width: 100%;
   align-self: center;
   }
   
-  
-
-  .top-row * {
-    font-size: 1rem;
-    
-  }
-  .bottom-row *{
-    font-size: 0.6rem;
-  }
-
   .tags, .socials{
     grid-column: span 2 !important;
   }
@@ -331,5 +291,65 @@ main section:not(.profile-header) h2{
 
   .portfolio, .swaps{
     height: 500px;
+  }
+}
+
+@media (max-width: 470px) {
+  .profile-header {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 0;
+  }
+
+  .fortheflex {
+    width: 100%;
+    gap: 10px;
+    min-width: 0;
+  }
+
+  .pfp {
+    width: 80px;
+  }
+
+  .profile-details {
+    flex: 1;
+    min-width: 0;
+    width: auto;
+  }
+
+  .top-row {
+    width: 100%;
+  }
+
+  .display {
+    font-size: 1.2rem;
+  }
+
+  .top-row,
+  .bottom-row {
+    gap: 6px;
+  }
+
+  .handle,
+  .swapslots {
+    font-size: 0.8rem;
+  }
+
+  .buttons * {
+    min-width: 0;
+    padding: 6px;
+    font-size: 0.9rem;
+  }
+
+  .buttons {
+    grid-column: 1 / -1;
+  }
+
+  section{
+    font-size: 0.9rem;
+  }
+
+  main section:not(.profile-header) h2{
+    font-size: 1.2rem;
   }
 }

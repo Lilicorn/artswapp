@@ -106,6 +106,9 @@ function colorrandomizer(){
     hamburger.addEventListener("click", () => {
         hamburger.classList.toggle("menu-open");
     });
+    document.getElementById("mobileview").addEventListener("mouseleave", () => {
+        hamburger.classList.remove("menu-open");
+    });
 
     
 
