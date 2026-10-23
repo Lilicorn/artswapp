@@ -24,10 +24,12 @@ body *{
 #banner{
     background-color: var(--complementary);
     width: 100%;
-    height: calc(25vh + 65px);
-    background-image: url("../debug/car.jpg");
+     aspect-ratio: 3 / 1; /* amugy 2:1-es kepek jobban mukodnek vele */
+     
+  max-height: 400px;
+    background-image: url("../debug/banner2.jpg");
     background-size: cover;
-    background-position: center top 60px;
+    background-position: center;
     transition: 0.1s;
 }
 main{
@@ -223,12 +225,16 @@ main section:not(.profile-header) h2{
 
 @media (max-width: 800px) {
 
+#banner{
+  width: 100%;
+    height: calc(25vh + 65px);
+}
+
   .profile-header {
     display: grid;
     grid-template-columns: auto auto;
     grid-column: span 2;
     gap: 10px;
-    margin-top: -15px;
     padding: 0 10px;
     height: max-content;
   }
@@ -244,9 +250,9 @@ main section:not(.profile-header) h2{
   }
   
   
-
-
-  .top-row, .bottom-row{
+  .top-row, 
+  .bottom-row, 
+  .fortheflex{
     gap: 10px;
   }
 
@@ -326,8 +332,9 @@ main section:not(.profile-header) h2{
   }
 
   .top-row,
-  .bottom-row {
-    gap: 6px;
+  .bottom-row,
+  .fortheflex {
+    gap: 5px;
   }
 
   .handle,
@@ -342,14 +349,47 @@ main section:not(.profile-header) h2{
   }
 
   .buttons {
-    grid-column: 1 / -1;
+    grid-column: span 1;
   }
 
   section{
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 
   main section:not(.profile-header) h2{
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 370px) {
+  
+  .profile-header {
+    margin-top: -15px;
+  }
+
+  .pfp {
+    width: 65px;
+  }
+
+  .display {
+    font-size: 1rem;
+  }
+
+
+  .handle,
+  .swapslots {
+    font-size: 0.7rem;
+  }
+
+  .buttons * {
+    font-size: 0.8rem;
+  }
+
+  section{
+    font-size: 0.8rem;
+  }
+
+  h2{
+    font-size: 1rem;
   }
 }
