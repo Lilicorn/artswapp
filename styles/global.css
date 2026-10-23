@@ -26,16 +26,13 @@
 
 body{
     margin: 0;
-
   background-color: var(--background-color);
   color: var(--text-color);
-
   scrollbar-color: var(--accent-color) transparent;
   scrollbar-width: thin;
   scroll-behavior: smooth;
   scroll-padding-right: -30px;
   
-  transition: all 0.5s;
 }
 
 

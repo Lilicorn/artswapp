@@ -17,9 +17,6 @@ body{
 
 }
 
-body *{
-  transition: all 0.3s;
-}
 
 #banner{
     background-color: var(--complementary);
