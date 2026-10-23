@@ -77,11 +77,26 @@ function colorrandomizer(){
     window.addEventListener("resize", nav);
     hamburger.addEventListener("click", () => {
         two.classList.toggle("menu-open");
+        document.querySelector("#profile-dropdown-menu").classList.remove("menu-open");
+   
+    });
+    two.addEventListener("mouseenter", () => {
+         two.addEventListener("mouseleave", () => {
+        two.classList.remove("menu-open");
+    });
     });
 
     document.querySelector(".nav-pfp").addEventListener("click", () => {
         document.querySelector("#profile-dropdown-menu").classList.toggle("menu-open");
+        two.classList.remove("menu-open");
     });
+
+    document.querySelector("#profile-dropdown-menu").addEventListener("mouseenter", () => {
+        document.querySelector("#profile-dropdown-menu").addEventListener("mouseleave", () => {
+        document.querySelector("#profile-dropdown-menu").classList.remove("menu-open");
+    });});
+   
+
 
 const clip = document.createElement("div");
 clip.className = "clip";
