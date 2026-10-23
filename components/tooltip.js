@@ -27,7 +27,7 @@ class tooltipThing extends HTMLElement {
                     visibility: hidden;
                     opacity: 0;
                     box-sizing: border-box;
-                    width: 15vw;
+                    width: 20vw;
                     padding: 10px 15px;
                     color: var(--text-color);
                     font-family: inherit;
@@ -80,17 +80,7 @@ class tooltipThing extends HTMLElement {
                         transform: rotate(0deg) scale(1);
                     }
                 }
-
-                @media (max-width: 912px) {
-                    .tooltip-container {
-                        width: 30vw;
-                        padding: 10px 13px;
-                    }
-
-                    .pos-top-right {
-                        width: 22vw;
-                    }
-                }
+                
             </style>
 
             <div class="tooltip-container ${position}">

@@ -25,7 +25,7 @@ body *{
     background-color: var(--complementary);
     width: 100%;
      aspect-ratio: 3 / 1; /* amugy 2:1-es kepek jobban mukodnek vele */
-     
+     margin-top: 60px;
   max-height: 400px;
     background-image: url("../debug/banner2.jpg");
     background-size: cover;
@@ -300,7 +300,7 @@ main section:not(.profile-header) h2{
   }
 }
 
-@media (max-width: 470px) {
+@media (max-width: 500px) {
   .profile-header {
     grid-template-columns: 1fr;
     gap: 6px;

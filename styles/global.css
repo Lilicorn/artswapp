@@ -115,15 +115,7 @@ nav{
         animation: float infinite 1s ease-in-out alternate;
         
     }
-    @keyframes float {
-    from {
-        translate: 0px 2px;
-    }
-
-    to {
-        translate: 0px -2px;;
-    }
-    }
+    
 
 .links-right{
     display: flex;          
@@ -261,12 +253,7 @@ footer .footer-logo{
     }
     
 
-    .header-logo{
-        display: none;
-    }
-    .mini-logo-box{
-        display: block;
-    }
+    
 
     a:hover{
     text-decoration: none;
@@ -306,6 +293,8 @@ footer .footer-logo{
        padding: 10px 5vw;
        visibility: visible;
        opacity: 1;
+       
+    animation: hoverbounce 0.7s;
     }
 
     #hamburber.menu-open #mobileview a{
@@ -313,3 +302,43 @@ footer .footer-logo{
         opacity: 1;
     }
 }
+
+ @media (max-width: 500px){
+    .header-logo{
+        display: none;
+    }
+    .mini-logo-box{
+        display: block;
+    }
+}
+
+
+
+@keyframes float {
+    from {
+        translate: 0px 2px;
+    }
+
+    to {
+        translate: 0px -2px;;
+    }
+    }
+
+    @keyframes hoverbounce {
+                    0% {
+                        transition-timing-function: ease-out;
+                        transform: rotate(10deg) scale(1.2);
+                    }
+                    30% {
+                        transition-timing-function: ease-in-out;
+                        transform: rotate(-15deg);
+                    }
+                    70% {
+                        transition-timing-function: ease-in-out;
+                        transform: rotate(5deg) scale(0.95);
+                    }
+                    100% {
+                        transition-timing-function: ease-in-out;
+                        transform: rotate(0deg) scale(1);
+                    }
+                }
