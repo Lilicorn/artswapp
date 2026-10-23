@@ -1,0 +1,46 @@
+
+
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .speech-arrow-bg {
+        fill: white;
+        transition: fill 0.3s ease;
+      }
+      .speech-arrow-border {
+        fill: none;
+        stroke: black
+        stroke-width: 14;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        transition: stroke 0.3s ease;
+      }
+
+      body::has(.dark) .speech-arrow-bg {
+      }
+      body::has(.dark) .speech-arrow-border {
+        stroke: white; 
+      }
+    </style>
+  </defs>
+
+  <!-- 1. Réteg: A belseje (háttér/kitöltés) -->
+  <path class="speech-arrow-bg" d="M 135 10 
+       L 55 10 
+       L 20 85 
+       L 65 95 
+       L 42 178 
+       L 155 90 
+       L 115 80 
+       Z" />
+
+  <!-- 2. Réteg: A körvonal (border) -->
+  <path class="speech-arrow-border" d="M 135 10 
+       L 55 10 
+       L 20 85 
+       L 65 95 
+       L 42 178 
+       L 155 90 
+       L 115 80 
+       Z" />
+</svg>

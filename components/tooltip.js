@@ -44,23 +44,42 @@ class tooltipThing extends HTMLElement {
                     pointer-events: auto;
                 }
 
-                .pos-bottom-left {
+                 .pos-top-right{
                     top: 115%;
                     right: 80%;
                     border-radius: 30px 0 30px 30px;
                 }
 
-                .pos-top-right {
-                    bottom: 125%;
+                .pos-bottom-left{
+                    bottom: 140%;
                     left: 100%;
                     border-radius: 30px 30px 30px 0;
                     transform-origin: bottom left;
                 }
 
+                
                 :host([open]) .tooltip-container {
                     visibility: visible;
                     opacity: 1;
                     animation: hoverbubble 0.7s;
+                }
+
+                .tooltip-container > bubble-arrow {
+                    position: absolute;
+                    width: 25px;
+                    height: 30px;
+                    pointer-events: none;
+                }
+
+                .pos-bottom-left > bubble-arrow {
+                    bottom: -27px;
+                    left: -8px;
+                    --arrow-rotation: 0deg;
+                }
+
+                .pos-top-right > bubble-arrow {
+                    top: -27px;
+                    right: -3px;
                 }
 
                 @keyframes hoverbubble {
@@ -83,8 +102,8 @@ class tooltipThing extends HTMLElement {
                 }
                 
             </style>
-
             <div class="tooltip-container ${position}">
+            <bubble-arrow class="dropdown-arrow" aria-hidden="true"></bubble-arrow>
                 <slot></slot>
             </div>
         `;
