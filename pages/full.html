@@ -29,9 +29,13 @@
                 </div>
                 
             <div class="searchbar">Search...</div>
-            <a href="profile.html"><div class="nav-pfp">
-                <my-tooltip position="bottom-left">Your profile</my-tooltip>
-            </div></a>
+            <div class="profile-dropdown">
+                <button class="nav-pfp" type="button" aria-label="Open profile menu" aria-expanded="false" aria-controls="profile-dropdown-menu"></button>
+                <div class="dropdown-menu" id="profile-dropdown-menu">
+                    <a href="profile.html">Profile</a>
+                    <a href="settings.html">Settings</a>
+                </div>
+            </div>
 
             <div id="displaymode">
                 <i id="modeicon" class="fa-solid fa-sun"></i>
@@ -40,7 +44,7 @@
 
             <div id="hamburber">
                     <span class="fa-solid fa-bars"></span>
-                    <div id="mobileview">
+                    <div id="mobileview" class="dropdown-menu">
 
                     </div>
             </div>

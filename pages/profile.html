@@ -27,18 +27,22 @@
                 </div>
                 
             <div class="searchbar">Search...</div>
-            <a href="profile.html"><div class="nav-pfp">
-                <my-tooltip position="bottom-left">Your profile</my-tooltip>
-            </div></a>
-
-            <div id="displaymode">
-                <i id="modeicon" class="fa-solid fa-sun"></i>
-                <my-tooltip id="displayhelper" position="bottom-left">Switch to dark mode</my-tooltip>
+            <div class="profile-dropdown">
+                <button class="nav-pfp" type="button" aria-label="Open profile menu" aria-expanded="false" aria-controls="profile-dropdown-menu"></button>
+                <div class="dropdown-menu" id="profile-dropdown-menu">
+                    <a href="profile.html">Profile</a>
+                    <a href="settings.html">Settings</a>
+                     <div id="displaymode">
+                        <i id="modeicon" class="fa-solid fa-sun"></i>
+                    </div>
+                </div>
             </div>
+
+           
 
             <div id="hamburber">
                     <span class="fa-solid fa-bars"></span>
-                    <div id="mobileview">
+                    <div id="mobileview" class="dropdown-menu">
 
                     </div>
             </div>

@@ -76,13 +76,11 @@ function colorrandomizer(){
     if(document.getElementsByClassName("dark").length===0){
         document.getElementById("modeicon").classList.remove("fa-moon-o");
         document.getElementById("modeicon").classList.add("fa-sun-o");
-         document.getElementById("displayhelper").innerText="Switch to dark mode";
-    }
+         }
     else{
         document.getElementById("modeicon").classList.remove("fa-sun-o");
         document.getElementById("modeicon").classList.add("fa-moon-o");
-        document.getElementById("displayhelper").innerText="Switch to light mode";
-    }
+        }
 
 
     
@@ -91,7 +89,6 @@ function colorrandomizer(){
     const two = document.getElementById("mobileview");
     const hamburger = document.getElementById("hamburber");
 
-    hamburger.classList="";
     function nav(){
         if (window.innerWidth <= 912) {
             two.appendChild(thing);
@@ -104,11 +101,14 @@ function colorrandomizer(){
     nav();
     window.addEventListener("resize", nav);
     hamburger.addEventListener("click", () => {
-        hamburger.classList.toggle("menu-open");
+        two.classList.toggle("menu-open");
     });
-    document.getElementById("mobileview").addEventListener("mouseleave", () => {
-        hamburger.classList.remove("menu-open");
+
+    document.querySelector(".nav-pfp").addEventListener("click", () => {
+        document.querySelector("#profile-dropdown-menu").classList.toggle("menu-open");
     });
+
+    
 
     
 
@@ -120,13 +120,9 @@ function displaymode(){
     if(document.getElementsByClassName("dark").length===0){
         document.getElementById("modeicon").classList.remove("fa-moon");
         document.getElementById("modeicon").classList.add("fa-sun");
-         document.getElementById("displayhelper").innerText="Switch to dark mode";
-    }
+         }
     else{
         document.getElementById("modeicon").classList.remove("fa-sun");
         document.getElementById("modeicon").classList.add("fa-moon");
-        document.getElementById("displayhelper").innerText="Switch to light mode";
-    }
+        }
 }
-
-
