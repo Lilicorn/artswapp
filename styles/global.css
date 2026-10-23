@@ -51,12 +51,12 @@ body.dark {
 
 
 
-a, .nav-pfp, .searchbar, .logo-box, #displaymode{
+a, .nav-pfp, .searchbar, #displaymode{
     transform: scale(1);
     transition: 0.2s;
     text-decoration: none;
 }
-a:hover, .nav-pfp:hover, .searchbar:hover, .logo-box:hover, #displaymode:hover{
+a:hover, .nav-pfp:hover, .searchbar:hover, #displaymode:hover{
     text-decoration: none;
     font-weight: bold;
     transform: scale(1.05);
@@ -89,7 +89,7 @@ nav{
     justify-content: space-between;
       transition: 0.5s;
 }
-.logo-box,.links-right, .links-right a{
+.links-right, .links-right a{
     color: var(--text-color);
 }
 .searchbar{
@@ -100,17 +100,6 @@ nav{
     padding: 3px 15px;
     margin: auto;
 }
-.logo-box{
-    overflow: hidden;
-}
-
-iframe{
-    display: flex;
-    height: 65px;
-    width: 180px;
-    border: none;
-}
-
 .mini-logo-box{
     height: 50px;
     display: none;
@@ -150,6 +139,10 @@ iframe{
     border-radius: 5px;
 }
 
+.randomizer my-tooltip{
+    --tooltip-border-color: var(--accent-color);
+}
+
 /* this is the light dark mode thing so its not that needed */
 .fa-solid{
     color: var(--accent-color);
@@ -170,24 +163,25 @@ iframe{
     border-radius: 50px;
 }
 
-.tooltip, #mobileview {
-    
-  position: absolute;
-  visibility: hidden;
-  opacity: 0;
-
-  color: var(--text-color);
-  font-size: 0.9rem;
-  font-weight: lighter;
-  text-align: left;
-  background-color: var(--complementary);
-  border: 2px solid var(--text-color);
-  border-bottom: 4px solid var(--text-color);
-  padding: 10px 15px;
-  width: 15vw;
-  
-  transform-origin: top right;
-  transition: opacity 0.5s;
+#mobileview {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: lighter;
+    text-align: left;
+    background-color: var(--complementary);
+    border: 2px solid var(--text-color);
+    border-bottom: 4px solid var(--text-color);
+    padding: 10px 15px;
+    width: 15vw;
+    transform-origin: top right;
+    transition: opacity 0.5s;
+    z-index: 10;
+    top: 115%;
+    right: 80%;
+    border-radius: 30px 0 30px 30px;
 }
 
 .help-icon{
@@ -199,19 +193,7 @@ iframe{
 }
 
 
-.help-icon .tooltip{
-    transform-origin: bottom left;
-    bottom: 125%; 
-    left: 100%;
-    border-radius: 30px 30px 30px 0;
-}
-
-.help-icon:hover .tooltip{
-    visibility: visible;
-    opacity: 1;
-    animation: hoverbubble 0.7s
-}
-@keyframes hoverbubble{
+@keyframes navmenu-bubble{
     0%{
         transition-timing-function: ease-out;
         transform: rotate(10deg) scale(1.2);
@@ -242,19 +224,6 @@ iframe{
     transform: scale(1.1);
 }
 
-#displaymode .tooltip, .nav-pfp .tooltip, #mobileview{
-    z-index: 10;
-    top: 115%; 
-    right: 80%;
-    border-radius: 30px 0px 30px 30px;
-} 
-#displaymode:hover .tooltip, .nav-pfp:hover .tooltip{
-    visibility: visible;
-    opacity: 1;
-    animation: hoverbubble 0.7s
-}
-
-
 main, footer{
     margin-top: 50px;
     display: block;
@@ -283,6 +252,10 @@ footer div{
     text-align: center;
 }
 
+footer .footer-logo{
+    margin: 0 auto;
+}
+
 #hamburber {
     display: none;
 }
@@ -301,7 +274,7 @@ footer div{
     }
     
 
-    .logo-box{
+    .header-logo{
         display: none;
     }
     .mini-logo-box{
@@ -311,16 +284,6 @@ footer div{
     a:hover{
     text-decoration: none;
     transform: scale(1.1);
-    }
-    
-    .tooltip{
-        padding: 10px 13px;
-        width: 30vw;
-    }
-
-    .help-icon>.tooltip{
-        width: 22vw;
-        height: auto;
     }
     
     #navitems{
@@ -359,7 +322,7 @@ footer div{
        padding: 10px 0;
        visibility: visible;
        opacity: 1;
-       animation: hoverbubble 0.7s;
+       animation: navmenu-bubble 0.7s;
        transition-delay: 0s;
     }
 

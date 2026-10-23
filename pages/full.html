@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="../styles/global.css">
     <link rel="stylesheet" href="../styles/full.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <script type="module" src="../components/logo.js"></script>
+    <script src="../components/tooltip.js" defer></script>
     <script src="../scripties/display.js" defer></script>
     <script src="../scripties/cards.js" defer></script>
     <script src="../scripties/full.js" defer></script>
@@ -16,7 +18,7 @@
 
     <header>
         <nav class="randomizer">
-            <iframe src="../logo/logo.html" class="logo-box"></iframe>
+            <site-logo class="header-logo"></site-logo>
             <a href="home.html" target="_self"><img src="../logo/S.PNG" class="mini-logo-box"></a>
             <div id="desktopview" class="links-right">
                 <div id="navitems" class="links-right">
@@ -28,12 +30,12 @@
                 
             <div class="searchbar">Search...</div>
             <a href="profile.html"><div class="nav-pfp">
-                <div class="tooltip">Your profile</div>
+                <my-tooltip position="bottom-left">Your profile</my-tooltip>
             </div></a>
 
             <div id="displaymode">
                 <i id="modeicon" class="fa-solid fa-sun"></i>
-                <div id="displayhelper" class="tooltip">Switch to dark mode</div>
+                <my-tooltip id="displayhelper" position="bottom-left">Switch to dark mode</my-tooltip>
             </div>
 
             <div id="hamburber">
@@ -60,7 +62,7 @@
     </main>
 
     <footer>
-        <iframe src="../logo/logo.html" style="justify-self: center;"></iframe>
+        <site-logo class="footer-logo"></site-logo>
 <div>@ all rigths reserved</div>
     </footer>
 

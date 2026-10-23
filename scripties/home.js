@@ -7,7 +7,7 @@ function loadingstuff(){
     let en = mobile ? 5 : 10;
     generatecards("recommendedusers", en, "full.html");
     generatecards("recommendedauctions", en, "auctions.html");
-    generatecards("donatorleaderboard", en, "donatorleaderboard.html");
+    generatecards("donatorleaderboard", en, "full.html");
 
     
     colorrandomizer();
