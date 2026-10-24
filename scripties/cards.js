@@ -12,7 +12,7 @@ function generatecards(mainID, elementnum, seemorehref) {
         let caption = document.createElement("div");
         caption.className = "cardcaption";
         let username = document.createElement("username");
-        username.innerText = "user"
+        username.innerText = "displayname"
         let tags = document.createElement("tags")
         tags.innerHTML = "Because you're interested in:<br> tags";
         let pfp = document.createElement("div");

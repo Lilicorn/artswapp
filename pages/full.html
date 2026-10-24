@@ -16,7 +16,7 @@
 </head>
 
 <body>
-<header>
+ <header>
         <nav class="randomizer">
             <site-logo class="header-logo"></site-logo>
             <a href="home.html" target="_self"><img src="../logo/S.PNG" class="mini-logo-box"></a>
@@ -29,25 +29,42 @@
                 </div>
                 
             <div class="searchbar">Search...</div>
-            
-            <div class="profile-dropdown">
-                <button class="nav-pfp" type="button" aria-label="Open profile menu" aria-expanded="false" aria-controls="profile-dropdown-menu"></button>
-                <div class="dropdown-menu" id="profile-dropdown-menu">
-                   <bubble-arrow class="dropdown-arrow" aria-hidden="true"></bubble-arrow>
-                    <a href="profile.html">Profile</a>
-                    <a href="settings.html">Settings</a>
-                    <div id="displaymode">
-                        <i id="modeicon" class="fa-solid fa-sun"></i>
-                    </div>
-                </div>
-            </div>
-
             <div id="hamburber">
                     <span class="fa-solid fa-bars"></span>
                     <div id="mobileview" class="dropdown-menu">
                         <bubble-arrow class="dropdown-arrow" aria-hidden="true"></bubble-arrow>
                     </div>
             </div>
+            <div class="profile-dropdown">
+                <button  type="button" aria-expanded="false">
+                    <img class="nav-pfp" src="../debug/huh.jpg">
+                </button>
+                <div class="dropdown-menu" id="profile-dropdown-menu">
+                   <bubble-arrow class="dropdown-arrow" aria-hidden="true"></bubble-arrow>
+                    
+                        <div class="profile-dropdown-div">
+                            <img class="nav-pfp" src="../debug/huh.jpg">
+                            <username class="display">displayname woah yay</username>
+                            <div id="displaymode">
+                                <i id="modeicon" class="fa-solid fa-sun"></i>
+                            </div>
+                            <username class="handle">usernameinitsmaxlength111</username>
+                            
+                        </div>
+                    
+                    <p id="userstatus">status</p>
+                    <a href="settings.html">Settings</a>
+                    <a href="#">Notifications</a>
+                    <!--
+                    <a href="settings.html">About</a>
+                    <a href="settings.html">Help</a>
+                    -->
+                    <a href="#">Sign out</a>
+                    
+                </div>
+            </div>
+
+            
 
             </div>
         </nav>

@@ -96,6 +96,13 @@ function colorrandomizer(){
         document.querySelector("#profile-dropdown-menu").classList.remove("menu-open");
     });});*/
    
+    for (const child of document.querySelector(".profile-dropdown-div").children) {
+        if (child.id === "displaymode") continue;
+        child.addEventListener("click", () => {
+            window.location.href = "../pages/profile.html";
+        });
+    }
+
 
 
 const clip = document.createElement("div");
