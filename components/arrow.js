@@ -23,7 +23,6 @@ class BubbleArrow extends HTMLElement {
 
                 .fill {
                     fill: var(--complementary, white);
-                    transition: fill 0.3s ease;
                 }
 
                 .outline {
@@ -32,7 +31,6 @@ class BubbleArrow extends HTMLElement {
                     stroke-width: 18;
                     stroke-linecap: round;
                     stroke-linejoin: round;
-                    transition: stroke 0.3s ease;
                 }
 
                 .outline-top {
@@ -40,7 +38,6 @@ class BubbleArrow extends HTMLElement {
                     stroke: var(--complementary, white);
                     stroke-width: 18;
                     stroke-linecap: round;
-                    transition: stroke 0.3s ease;
                 }
             </style>
 

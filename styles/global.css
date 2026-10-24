@@ -173,7 +173,7 @@ nav{
     text-align: right;
     opacity: 0;
     font-size: large;
-    transition: 0.5s, opacity 0.2s;
+    transition: 0.5s, opacity 0.2s, color 0.0s;
 }
 
 
