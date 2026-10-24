@@ -47,7 +47,7 @@ a, .nav-pfp, .searchbar, #displaymode{
     transition: 0.2s;
     text-decoration: none;
 }
-a:hover, .nav-pfp:hover, .searchbar:hover, #displaymode:hover{
+a:hover, .nav-pfp:hover, .searchbar:hover, #displaymode:hover, .profile-dropdown-div p:hover{
     text-decoration: none;
     font-weight: bold;
     transform: scale(1.05);
@@ -84,7 +84,7 @@ nav{
     width: 150px;
     border:1px solid var(--accent-color);
     border-radius: 50px;
-    padding: 3px 15px;
+    padding: 3px 10px;
     margin: auto;
 }
 .mini-logo-box{
@@ -106,14 +106,12 @@ nav{
     align-items: center;  
     gap: 15px;
 }
-.searchbar{
-    margin: 0 10px;
-}
 .nav-pfp, .help-icon{
     position: relative;
     background-color: var(--accent-color);
+    border:none;
     width: 30px;
-    height: 30px;
+    aspect-ratio: 1/1;
     padding: auto;
     border-radius: 5px;
 }
@@ -143,7 +141,7 @@ nav{
 
 .dropdown-menu {
     position: absolute;
-    top: 55px;
+    top: 53px;
     right: 100%;
     display: flex;
     flex-direction: column;
@@ -152,8 +150,6 @@ nav{
     visibility: hidden;
     opacity: 0;
     color: var(--text-color);
-    font-size: 0.9rem;
-    font-weight: lighter;
     text-align: right;
     background-color: var(--complementary);
     border: 3px solid var(--text-color) !important;
@@ -164,6 +160,11 @@ nav{
     transform-origin: top right;
     z-index: 10;
     border-radius: 30px 0 30px 30px;
+    transition: right 0.3s ease-out;
+}
+
+.dropdown-menu a{
+    transform-origin: right;
 }
 
 .dropdown-menu a {
@@ -172,7 +173,7 @@ nav{
     color: var(--text-color);
     text-align: right;
     opacity: 0;
-    font-size: large;
+    font-size: 1.1rem;
     transition: 0.5s, opacity 0.2s, color 0.0s;
 }
 
@@ -201,7 +202,6 @@ nav{
     position: relative;
 }
 
-
 .dropdown-menu.menu-open {
     visibility: visible;
     opacity: 1;
@@ -211,12 +211,71 @@ nav{
     animation: hoverbounce 0.7s;
 }
 
-.dropdown-menu:hover {
-    transform: scale(1.02);
-}
-
 .dropdown-menu.menu-open a {
     opacity: 1;
+}
+
+.profile-dropdown-div{
+    display: grid;
+    grid-template: 1fr 1fr / 50px auto 30px;
+    height: max-content;
+    text-align: left;
+    scale: 1;
+    transition: scale 0.5s;
+}
+
+.profile-dropdown-div p, #userstatus{
+    margin: 0;
+    font-size: 1.1rem;
+}
+.profile-dropdown-div p:hover{
+    transform: scale(1.02);
+    transition: all 0.4s;
+}
+.profile-dropdown-div > .nav-pfp, #displaymode{
+    grid-row: span 2;
+    border-radius: 10px;
+}
+.profile-dropdown-div > .nav-pfp{
+    margin-right: 10px;
+    height: 40px;
+    width: 40px;
+}
+
+.profile-dropdown-div p:last-child{
+    font-size: 0.9rem;
+    color: grey;
+}
+.profile-dropdown-div p:last-child::before{
+    content: "@";
+}
+#displaymode{
+    font-size: 20px;
+    cursor: default;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+}
+#displaymode:hover{
+    transform: scale(1.05);
+}
+
+#userstatus{
+    text-align: center;
+    font-style: italic;
+    font-size: 0.9rem;
+    scale: 1;
+    transition: scale 0.5s;
+    text-wrap: wrap;
+    color: grey;
+}
+#userstatus::before, #userstatus::after{
+    content: "\"";
+}
+#userstatus:hover{
+    scale: 1.02;
+    color: var(--text-color);
 }
 
 .help-icon{
@@ -230,16 +289,7 @@ nav{
 
 
 
-#displaymode{
-    position: relative;
-    border: none;
-    background: none;
-    font-size: 20px;
-    cursor: default;
-}
-#displaymode:hover{
-    transform: scale(1.1);
-}
+
 
 main, footer{
     margin-top: 50px;
@@ -290,13 +340,6 @@ footer .footer-logo{
         gap: 7px;
     }
 
-    .searchbar{
-    max-width: 150px;
-    min-width: 0;
-    }
-    
-
-    
 
     a:hover{
     text-decoration: none;
@@ -313,6 +356,7 @@ footer .footer-logo{
         
     }
 
+
 }
 
  @media (max-width: 500px){
@@ -321,6 +365,76 @@ footer .footer-logo{
     }
     .mini-logo-box{
         display: block;
+    }
+    .dropdown-menu {
+        right: 30%;
+    }
+    .dropdown-menu.menu-open {
+        padding: 7px 15px;
+    }
+
+    
+    .dropdown-menu a {
+        font-size: 1rem;
+    }
+
+    .profile-dropdown-div p, #userstatus {
+        font-size: 1rem;
+    }
+
+    .profile-dropdown-div p:last-child {
+        font-size: 0.85rem;
+    }
+
+    #userstatus {
+        font-size: 0.85rem;
+    }
+    #displaymode {
+        font-size: 13px;
+    }
+    .profile-dropdown-div > .nav-pfp{
+        height: 35px;
+        width: 35px;
+        margin-right: 7px;
+        border-radius: 7px;
+    }
+    .profile-dropdown-div{
+        grid-template: 1fr 1fr / 43px auto 20px;
+    }
+    
+}
+
+ @media (max-width: 370px){
+   
+    .dropdown-menu a {
+        font-size: 0.95rem;
+    }
+
+    .profile-dropdown-div p, #userstatus {
+        font-size: 0.95rem;
+    }
+
+    .profile-dropdown-div p:last-child {
+        font-size: 0.75rem;
+    }
+
+    #userstatus {
+        font-size: 0.75rem;
+    }
+    #displaymode {
+        font-size: 10px;
+        margin-left: 3px;
+    }
+
+    .profile-dropdown-div > .nav-pfp{
+        height: 30px;
+        width: 30px;
+        margin-right: 5px;
+        border-radius: 5px;
+    }
+
+    .profile-dropdown-div{
+        grid-template: 1fr 1fr / 35px auto 20px;
     }
 }
 
