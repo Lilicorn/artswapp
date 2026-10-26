@@ -37,8 +37,8 @@ class tooltipThing extends HTMLElement {
                     text-align: left;
                     white-space: normal;
                     background-color: var(--complementary);
-                    border: 2px solid var(--tooltip-border-color, var(--text-color));
-                    border-bottom: 4px solid var(--tooltip-border-color, var(--text-color));
+                    border: 3px solid var(--tooltip-border-color, var(--text-color));
+                    border-bottom: 6px solid var(--tooltip-border-color, var(--text-color));
                     transition: opacity 0.5s;
                     transform-origin: top right;
                     pointer-events: auto;

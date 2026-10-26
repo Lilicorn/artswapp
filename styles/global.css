@@ -123,7 +123,6 @@ nav{
     border-radius: 5px;
     object-fit: cover;
     object-position: center;
-    overflow: hidden;
 }
 button:has(img){
     border-radius: 5px;
@@ -152,6 +151,7 @@ button:has(img){
     align-items: center;
     justify-content: center;
     border-radius: 50px;
+    background-color: var(--accent-color);
 }
 
 .dropdown-menu {
@@ -350,22 +350,38 @@ button{
 }
 
 footer{
-    margin: 40px 0 0 0;
-    padding: 40px;
+    margin-top: 40px;
+    padding: 40px 7vw;
     background:linear-gradient(to bottom, var(--background-color), var(--accent-color), var(--accent-color), var(--accent-color));
     border: 3px solid var(--accent-color);
     border-top-width: 6px;
     border-radius: 20px 20px 0 0;
     color: var(--background-color);
-    height: 300px;
-}
-footer div{
-    text-align: center;
+    height: max-content;
 }
 
-footer .footer-logo{
-    margin: 0 auto;
+footer div div{
+    margin: 10px 20px;
 }
+footer div div *{
+    margin: 0;
+}
+footer div div:nth-child(2){
+   text-align: right;
+}
+
+footer>div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+site-logo.footer-logo{
+    margin-left: -10px;
+}
+
+
 
 #hamburber {
     display: none;
