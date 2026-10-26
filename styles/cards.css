@@ -8,8 +8,8 @@
     transform-origin: top;
     height: var(--card-size);
     width: var(--card-size);
-    border:1px solid var(--accent-color);
-    box-shadow: 0 1px 5px var(--accent-color);
+    border:3px solid var(--accent-color);
+    border-bottom-width: 6px;
     
 }
 .card:hover{
@@ -47,6 +47,8 @@
     font-size: 0.75em;
     opacity: 0;
     visibility: collapse;
+    margin: 0;
+    line-height: 15px;
 }
 
 .card:hover tags{
@@ -116,6 +118,7 @@ badge{
     width:90%;
     top: 110%;
     left: 5%;
+    padding: 3px 0px;
     transition: all 0.5s;
 }
 .card:hover>button{
@@ -135,7 +138,7 @@ button:hover{
     top: calc(90% - 5px);
 }
 .card:has(>button:hover){
-    height: calc(var(--card-size) * 1.4);
+    height: calc(var(--card-size) * 1.45);
     width: calc(var(--card-size) * 1.12);
 }
 

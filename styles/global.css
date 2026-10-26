@@ -45,7 +45,7 @@ body.dark {
   --text-color: white;
   --background-color:rgb(60, 52, 57);
   --transition:rgba(60, 52, 57, 0.68);
-  --complementary: black;
+  --complementary: rgb(60, 52, 57);
 }
 
 
@@ -67,8 +67,8 @@ a, a:visited{
     color: var(--accent-color);
 }
 nav{
-    border: 1px solid var(--accent-color);
-    border-bottom: 5px solid var(--accent-color);
+    border: 3px solid var(--accent-color);
+    border-bottom-width: 6px;
     background: linear-gradient(to top, var(--transition),  var(--background-color), var(--background-color));
     position: fixed;
     top: 0;
@@ -90,6 +90,7 @@ nav{
     height: 25px;
     width: 150px;
     border:1px solid var(--accent-color);
+    border-bottom-width: 3px;
     border-radius: 50px;
     padding: 3px 10px;
     margin: auto;
@@ -273,15 +274,23 @@ tags, username{
 }
 tags{
     line-height: 25px;
+    margin: 10px;
 }
 tag{
     border: 1px solid var(--accent-color);
     border-radius: 25px;
-    font-size: 0.75em;
-    padding: 3px;
+    font-size: 0.8em;
+    padding: 2px 4px;
+    background-color: none;
+    color: var(--text-color);
+    transition: all 0.2s;
 }
 tag::before{
     content: "#";
+}
+tag:hover{
+    background-color: var(--accent-color);
+    color: var(--complementary);
 }
 #displaymode{
     font-size: 20px;
@@ -344,8 +353,8 @@ footer{
     margin: 40px 0 0 0;
     padding: 40px;
     background:linear-gradient(to bottom, var(--background-color), var(--accent-color), var(--accent-color), var(--accent-color));
-    border: 1px solid var(--accent-color);
-    border-top: 5px solid var(--accent-color);
+    border: 3px solid var(--accent-color);
+    border-top-width: 6px;
     border-radius: 20px 20px 0 0;
     color: var(--background-color);
     height: 300px;
@@ -456,7 +465,7 @@ footer .footer-logo{
         font-size: 0.75rem;
     }
     .profile-dropdown-div username.handle{
-        font-size: 0.4rem;
+        font-size: 0.55rem;
     }
 
     #userstatus {

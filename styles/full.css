@@ -34,12 +34,13 @@
 .card{
     transform-origin: top;
     
-    height: calc(var(--card-size) * 1.375);
-    width: calc(var(--card-size) * 1.1);
-    border:1px solid var(--accent-color);
-    box-shadow: 0 1px 5px var(--accent-color);
+    height: calc(var(--card-size) * 1.25);
+    width: calc(var(--card-size) * 1.05);
+    border:3px solid var(--accent-color);
+    border-bottom-width: 6px;
     
 }
+
 .cardcaption{
     background-color: var(--complementary);
     height: 60%;
@@ -69,7 +70,10 @@
     opacity: 1;
     visibility: visible;
     transition: 0.2s, color 0.0s;
+    margin: 0;
+    line-height: 15px;
 }
+
 
 badge{
     font-size: 0.5rem;
@@ -120,9 +124,9 @@ badge{
     position: absolute;
     scale: 1;
     width:90%;
-    top: 90%;
+    top: 87%;
     left: 5%;
-    padding: 0;
+    padding: 3px 0px;
     margin-bottom: 0;
     transition: 0.5s, color 0.0s;
     background-color: var(--accent-color);
@@ -134,11 +138,11 @@ badge{
     scale: 1.02;
     padding: 5px 0;
     margin: 0;
-    top: calc(90% - 5px);
+    top: calc(90% - 10px);
 }
 .card:hover{
-    height: calc(var(--card-size) * 1.45);
-    width: calc(var(--card-size) * 1.12);
+    height: calc(var(--card-size) * 1.35);
+    width: calc(var(--card-size) * 1.1);
 }
 
 @media (max-width: 515px){
