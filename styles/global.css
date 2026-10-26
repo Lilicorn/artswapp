@@ -154,6 +154,12 @@ button:has(img){
     background-color: var(--accent-color);
 }
 
+.help-tooltip{
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+
 .dropdown-menu {
     position: absolute;
     top: 53px;
@@ -350,9 +356,9 @@ tag:hover{
 
 .help-icon{
     margin: 0px 10px;
-    display: inline-block;
+    display: inline-flex;
     text-align: center;
-        cursor: help;
+    cursor: pointer;
 
 }
 
@@ -459,56 +465,14 @@ site-logo.footer-logo{
         padding: 7px 15px;
     }
 
-    
-    .dropdown-menu a {
-        font-size: 1rem;
-    }
-
-    .profile-dropdown-div p, #userstatus {
-        font-size: 0.9rem;
-    }
-
-    .profile-dropdown-div app-username.display{
-        font-size: 0.9rem;
-    }
-    .profile-dropdown-div app-username.handle{
-        font-size: 0.6rem;
-    }
-
-    #userstatus {
-        font-size: 0.75rem;
-    }
     #displaymode {
         font-size: 13px;
-    }
-    .profile-dropdown-div > .nav-pfp{
-        height: 35px;
-        width: 35px;
-        margin-right: 7px;
-        border-radius: 7px;
-    }
-    .profile-dropdown-div{
-        grid-template: 1fr 1fr / 43px auto 20px;
     }
     
 }
 
  @media (max-width: 370px){
    
-    .dropdown-menu a {
-        font-size: 0.95rem;
-    }
-
-    .profile-dropdown-div p, #userstatus {
-        font-size: 0.85rem;
-    }
-
-    .profile-dropdown-div app-username.display{
-        font-size: 0.75rem;
-    }
-    .profile-dropdown-div app-username.handle{
-        font-size: 0.55rem;
-    }
 
     #userstatus {
         font-size: 0.6srem;
@@ -518,16 +482,7 @@ site-logo.footer-logo{
         margin-left: 3px;
     }
 
-    .profile-dropdown-div > .nav-pfp{
-        height: 30px;
-        width: 30px;
-        margin-right: 5px;
-        border-radius: 5px;
-    }
-
-    .profile-dropdown-div{
-        grid-template: 1fr 1fr / 35px auto 20px;
-    }
+    
 }
 
 

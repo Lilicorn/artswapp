@@ -150,6 +150,18 @@ function collectScrollPositions(source, clone, positions) {
     });
 }
 
+function copyComponentState(source, clone) {
+    if (source instanceof HTMLElement && clone instanceof HTMLElement) {
+        if (source.localName === "app-card") {
+            clone.user = source.user;
+        }
+    }
+
+    Array.from(source.children).forEach((child, index) => {
+        copyComponentState(child, clone.children[index]);
+    });
+}
+
 setModeIcon(document.body.classList.contains("dark"));
 document.getElementById("displaymode").addEventListener("click", (event) => {
     event.preventDefault();
@@ -168,8 +180,9 @@ document.getElementById("displaymode").addEventListener("click", (event) => {
     for (const child of body.children) {
         if (child !== clip) {
             const clone = child.cloneNode(true);
-            collectScrollPositions(child, clone, scrollPositions);
+            copyComponentState(child, clone);
             clipContent.append(clone);
+            collectScrollPositions(child, clone, scrollPositions);
         }
     }
 
