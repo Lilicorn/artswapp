@@ -45,26 +45,30 @@ body.dark {
   --text-color: white;
   --background-color:rgb(60, 52, 57);
   --transition:rgba(60, 52, 57, 0.68);
-  --complementary: rgb(60, 52, 57);
+  --complementary: rgb(29, 29, 28);
 }
 
 
-a, .nav-pfp, .searchbar, #displaymode{
+a, .nav-pfp,.searchbar, #displaymode{
     scale: 1;
-    transition: 0.2s;
+    transition: 0.4s;
     text-decoration: none;
 }
 a:hover, .nav-pfp:hover, .searchbar:hover, #displaymode:hover{
     text-decoration: none;
     font-weight: bold;
-    transition: font-weight 0.4s;
     scale: 1.02;
 }
 a.nav-link{
     color:var(--text-color);
 }
 a, a:visited{
-    color: var(--accent-color);
+    display: block;
+    width: 100%;
+    color: var(--text-color);
+    transform-origin: right;
+    font-size: 1.1rem;
+    transition: font-weight 0.4s, scale 0.4s, opacity 0.2s;
 }
 nav{
     border: 3px solid var(--accent-color);
@@ -184,18 +188,9 @@ button:has(img){
     transition: right 0.3s ease-out;
 }
 
-.dropdown-menu a{
-    transform-origin: right;
-}
-
 .dropdown-menu a {
-    display: block;
-    width: 100%;
-    color: var(--text-color);
     text-align: right;
     opacity: 0;
-    font-size: 1.1rem;
-    transition: 0.5s, opacity 0.2s, color 0.0s;
 }
 
 
@@ -374,6 +369,11 @@ main, footer{
     padding: 15px;
 }
 
+#back2top{
+    position: absolute;
+    top: 0;
+}
+
 button{
     background-color: var(--accent-color);
     color:var(--complementary);
@@ -388,8 +388,15 @@ footer{
     border: 3px solid var(--accent-color);
     border-top-width: 6px;
     border-radius: 20px 20px 0 0;
-    color: var(--background-color);
+    color: var(--complementary);
     height: max-content;
+}
+
+footer a,
+footer a:visited{
+    color: var(--complementary);
+    display: block;
+    transform-origin: right;
 }
 
 footer div div{
@@ -408,6 +415,7 @@ footer>div{
     align-items: center;
     flex-wrap: wrap;
 }
+
 
 site-logo.footer-logo{
     margin-left: -10px;
