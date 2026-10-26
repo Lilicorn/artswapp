@@ -1,42 +1,20 @@
 let imgdebug = ["car.jpg", "huh.jpg", "letöltés.jpg"]
 
-function generatecards(mainID, elementnum, seemorehref) {
+function generatecards(mainID, elementnum, seemorehref, variant = "compact", users = null) {
     let main = document.getElementById(mainID);
     main.innerText = "";
-    for (let i = 0; i < elementnum; i++) {
-        let card = document.createElement("section");
-        card.className = "card";
-        let image = document.createElement("div");
-        image.className = "cardimage";
+    let cardUsers = users || Array.from({ length: elementnum }, (_, index) => ({
+        displayName: "displayname",
+        username: `artist${index + 1}`,
+        tags: ["lorem", "ipsum"],
+        images: imgdebug.map(image => "../debug/" + image)
+    }));
 
-        let caption = document.createElement("div");
-        caption.className = "cardcaption";
-        let username = document.createElement("username");
-        username.innerText = "displayname"
-        let tags = document.createElement("tags")
-        tags.innerHTML = "Because you're interested in:<br> <tag>lorem</tag><tag>ipsum</tag>";
-        let pfp = document.createElement("div");
-        pfp.className = "cardpfp";
-        let button = document.createElement("button");
-        button.innerText = "View Profile"
-
-        for (let i = 0; i < 3; i++) {
-            let im = document.createElement("img");
-            im.src = "../debug/" + imgdebug[i];
-            im.alt = "#";
-            image.appendChild(im);
-        }
-        card.appendChild(image);
-
-        caption.appendChild(username);
-        caption.appendChild(tags);
-        caption.appendChild(pfp);
-        card.appendChild(caption);
-
-        card.appendChild(button);
-
-        card.classList.add("randomizer")
-
+    for (const user of cardUsers) {
+        let card = document.createElement("art-card");
+        card.setAttribute("variant", variant);
+        card.user = user;
+        card.classList.add("randomizer");
         main.appendChild(card);
     }
 

@@ -1,21 +1,27 @@
-let prev = -1;
+let previousColors = [];
+
+function getRandomColorIndex(colors) {
+    const availableColors = colors
+        .map((_, index) => index)
+        .filter((index) => !previousColors.includes(index));
+    const random = availableColors[Math.floor(Math.random() * availableColors.length)];
+
+    previousColors.push(random);
+    if (previousColors.length > 2) previousColors.shift();
+    return random;
+}
+
 function colorrandomizer(){
     var colors = ["#ff4a6f", "#ff924a", "#7fd01c", "#4acfff", "#ad2dcd", "#ff69b4"];
     
     
     const everyone = document.querySelectorAll('.randomizer');
     for(const e of everyone){
-        let random;
-        do {
-        random = Math.floor(Math.random() * colors.length);
-    } while (random === prev);
-        prev = random;
-
-        
-    e.style.setProperty("--accent-color", colors[random]);
+        const random = getRandomColorIndex(colors);
+        e.style.setProperty("--accent-color", colors[random]);
     }
 
-    let bi = Math.floor(Math.random() * colors.length);
+    const bi = getRandomColorIndex(colors);
     document.body.style.setProperty("--accent-color", colors[bi]);
 }
 
@@ -45,12 +51,12 @@ function colorrandomizer(){
         " .˚⋆ ₊ ⊹ ⋆ ",
         "˚⋆ ₊ ⊹ ⋆ ."
     ]*/
-    const flicker=["♡︎⁠ ","♡︎⁠ ", "♥︎ ","♥︎ "]
+    const flicker=["♡︎⁠ ", "♥︎ "]
 
     //let i = 0; 
     let j = 1;
     let l = 0;
-        setInterval(updateTitle,300);
+        setInterval(updateTitle,1000);
     
     
 
