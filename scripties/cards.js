@@ -14,7 +14,7 @@ function generatecards(mainID, elementnum, seemorehref) {
         let username = document.createElement("username");
         username.innerText = "displayname"
         let tags = document.createElement("tags")
-        tags.innerHTML = "Because you're interested in:<br> tags";
+        tags.innerHTML = "Because you're interested in:<br> <tag>lorem</tag><tag>ipsum</tag>";
         let pfp = document.createElement("div");
         pfp.className = "cardpfp";
         let button = document.createElement("button");

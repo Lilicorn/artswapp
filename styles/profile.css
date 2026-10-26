@@ -218,6 +218,9 @@ main section:not(.profile-header) h2{
   height: 800px;
   border-radius: 25px;
   margin: 10px;
+  overflow: scroll;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 

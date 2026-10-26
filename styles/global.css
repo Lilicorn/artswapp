@@ -268,6 +268,21 @@ username:hover{
 username.handle::before{
     content: "@";
 }
+tags, username{
+    display: block;
+}
+tags{
+    line-height: 25px;
+}
+tag{
+    border: 1px solid var(--accent-color);
+    border-radius: 25px;
+    font-size: 0.75em;
+    padding: 3px;
+}
+tag::before{
+    content: "#";
+}
 #displaymode{
     font-size: 20px;
     cursor: default;
