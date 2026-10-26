@@ -154,6 +154,12 @@ button:has(img){
     background-color: var(--accent-color);
 }
 
+.help-tooltip{
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+
 .dropdown-menu {
     position: absolute;
     top: 53px;
@@ -226,13 +232,18 @@ button:has(img){
     animation: hoverbounce 0.7s;
 }
 
+#profile-dropdown-menu.menu-open {
+    width: min(320px, calc(100vw - 24px));
+}
+
 .dropdown-menu.menu-open a {
     opacity: 1;
 }
 
 .profile-dropdown-div{
     display: grid;
-    grid-template: 1fr 1fr / 50px auto 30px;
+    grid-template: 1fr 1fr / 50px minmax(0, 1fr) 30px;
+    width: 100%;
     height: max-content;
     text-align: left;
 }
@@ -251,26 +262,47 @@ button:has(img){
     width: 40px;
 }
 
-.profile-dropdown-div username.display{
+.profile-dropdown-div app-username.display{
     font-size: 1.05rem;
+    --app-username-min-size: 10px;
 }
-.profile-dropdown-div username.handle{
+.profile-dropdown-div app-username.handle{
     font-size: 0.75rem;
     color: grey;
+    --app-username-min-size: 9px;
 }
-username{
-    cursor:default;
-    scale: 1;
-    transition: scale 0.3s;
-}
-username:hover{
-    scale: 1.02;
-}
-username.handle::before{
-    content: "@";
-}
-tags, username{
+
+
+
+tags, app-username{
     display: block;
+    cursor: default;
+}
+
+app-username{
+    min-width: 0;
+    max-width: 100%;
+    overflow: visible;
+    white-space: nowrap;
+    --app-username-min-size: 10px;
+}
+
+app-username.display{
+    font-weight: 700;
+}
+
+app-username .app-username-text{
+    white-space: inherit;
+}
+
+app-username.app-username--wrapped,
+app-username.app-username--wrapped .app-username-text{
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+app-username.handle::before{
+    content: "@";
 }
 tags{
     line-height: 25px;
@@ -324,9 +356,9 @@ tag:hover{
 
 .help-icon{
     margin: 0px 10px;
-    display: inline-block;
+    display: inline-flex;
     text-align: center;
-        cursor: help;
+    cursor: pointer;
 
 }
 
@@ -433,56 +465,14 @@ site-logo.footer-logo{
         padding: 7px 15px;
     }
 
-    
-    .dropdown-menu a {
-        font-size: 1rem;
-    }
-
-    .profile-dropdown-div p, #userstatus {
-        font-size: 0.9rem;
-    }
-
-    .profile-dropdown-div username.display{
-        font-size: 0.9rem;
-    }
-    .profile-dropdown-div username.handle{
-        font-size: 0.6rem;
-    }
-
-    #userstatus {
-        font-size: 0.75rem;
-    }
     #displaymode {
         font-size: 13px;
-    }
-    .profile-dropdown-div > .nav-pfp{
-        height: 35px;
-        width: 35px;
-        margin-right: 7px;
-        border-radius: 7px;
-    }
-    .profile-dropdown-div{
-        grid-template: 1fr 1fr / 43px auto 20px;
     }
     
 }
 
  @media (max-width: 370px){
    
-    .dropdown-menu a {
-        font-size: 0.95rem;
-    }
-
-    .profile-dropdown-div p, #userstatus {
-        font-size: 0.85rem;
-    }
-
-    .profile-dropdown-div username.display{
-        font-size: 0.75rem;
-    }
-    .profile-dropdown-div username.handle{
-        font-size: 0.55rem;
-    }
 
     #userstatus {
         font-size: 0.6srem;
@@ -492,16 +482,7 @@ site-logo.footer-logo{
         margin-left: 3px;
     }
 
-    .profile-dropdown-div > .nav-pfp{
-        height: 30px;
-        width: 30px;
-        margin-right: 5px;
-        border-radius: 5px;
-    }
-
-    .profile-dropdown-div{
-        grid-template: 1fr 1fr / 35px auto 20px;
-    }
+    
 }
 
 

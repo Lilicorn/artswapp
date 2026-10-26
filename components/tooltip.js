@@ -20,6 +20,7 @@ class tooltipThing extends HTMLElement {
                     inset: 0;
                     display: block;
                     z-index: 10;
+                    pointer-events: none;
                     }
                
                 .tooltip-container {
@@ -109,21 +110,40 @@ class tooltipThing extends HTMLElement {
         `;
 
         this.trigger = this.parentElement;
-        this.showTooltip = () => this.setAttribute('open', '');
-        this.hideTooltip = event => {
-            if (event.relatedTarget && this.trigger.contains(event.relatedTarget)) {
-                return;
-            }
+        this.button = this.trigger.querySelector('button');
+        this.button.setAttribute('aria-expanded', 'false');
+
+        this.toggleTooltip = () => {
+            const isOpen = !this.hasAttribute('open');
+            this.toggleAttribute('open', isOpen);
+            this.button.setAttribute('aria-expanded', String(isOpen));
+        };
+        this.closeTooltip = () => {
             this.removeAttribute('open');
+            this.button.setAttribute('aria-expanded', 'false');
+        };
+        this.handleTriggerClick = event => {
+            if (event.composedPath().includes(this)) return;
+            this.toggleTooltip();
+        };
+        this.handleOutsideClick = event => {
+            if (event.composedPath().includes(this.trigger)) return;
+            this.closeTooltip();
+        };
+        this.handleKeydown = event => {
+            if (event.key === 'Escape') this.closeTooltip();
         };
 
-        this.trigger.addEventListener('mouseenter', this.showTooltip);
-        this.trigger.addEventListener('mouseleave', this.hideTooltip);
-        this.trigger.addEventListener('focusin', this.showTooltip);
-        this.trigger.addEventListener('focusout', this.hideTooltip);
+        this.trigger.addEventListener('click', this.handleTriggerClick);
+        document.addEventListener('click', this.handleOutsideClick);
+        document.addEventListener('keydown', this.handleKeydown);
     }
 
-    
+    disconnectedCallback() {
+        this.trigger?.removeEventListener('click', this.handleTriggerClick);
+        document.removeEventListener('click', this.handleOutsideClick);
+        document.removeEventListener('keydown', this.handleKeydown);
+    }
 }
 
 customElements.define('my-tooltip', tooltipThing);

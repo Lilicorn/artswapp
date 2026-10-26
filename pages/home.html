@@ -45,11 +45,11 @@
                     
                         <div class="profile-dropdown-div">
                             <img class="nav-pfp" src="../debug/huh.jpg">
-                            <username class="display">displayname woah yay</username>
+                            <app-username class="display">displayname</app-username>
                             <div id="displaymode">
                                 <i id="modeicon" class="fa-solid fa-sun"></i>
                             </div>
-                            <username class="handle">usernameinitsmaxlength111</username>
+                            <app-username class="handle">usernameinitsmaxlength111</app-username>
                             
                         </div>
                     
@@ -100,9 +100,10 @@
 
         <section>
             <h2>Our Top Donators
-                <div class="help-icon">?
+                <span class="help-tooltip">
+                    <button type="button" class="help-icon" aria-label="Learn more about donating" aria-expanded="false">?</button>
                     <my-tooltip position="bottom-left">Learn more about donating <a href="#">here.</a></my-tooltip>
-                </div>
+                </span>
             </h2>
             <div id="donatorleaderboard" class="card-grid">
                 
