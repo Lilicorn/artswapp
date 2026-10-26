@@ -49,6 +49,21 @@ art-card.card {
     padding-bottom: 0;
 }
 
+.cardhandle {
+    display: block;
+    position: relative;
+    font-size: 0.75em;
+    opacity: 0.75;
+}
+
+.card--compact .cardhandle {
+    display: none;
+}
+
+.card--compact:hover .cardhandle {
+    display: block;
+}
+
 .cardcaption > tags {
     position: relative;
     display: block;
@@ -95,8 +110,8 @@ badge {
 }
 
 .card--compact:hover {
-    height: calc(var(--card-size) * 1.4);
-    width: calc(var(--card-size) * 1.1);
+    height: calc(var(--card-size) * 1.5);
+    width: calc(var(--card-size) * 1.15);
 }
 
 .card--compact .cardcaption {
@@ -106,9 +121,13 @@ badge {
 }
 
 .card--compact:hover .cardcaption {
-    top: 60%;
+    top: 55%;
     height: 60%;
-    padding-top: 15px;
+    padding: 15px;
+}
+
+.card--compact:hover .cardcaption > username {
+    font-size: 1.4em;
 }
 
 .card--compact .cardcaption > username {
@@ -156,26 +175,30 @@ badge {
 }
 
 .card--compact:hover > button {
-    top: 90%;
+    top: 87%;
+    padding: 3px 0;
     opacity: 1;
     visibility: visible;
     scale: 1;
+    transition: 0.5s, color 0s;
 }
 
 .card--compact > button:hover {
-    top: calc(90% - 5px);
+    top: calc(90% - 10px);
     padding: 5px 0;
+    scale: 1.02;
 }
 
 .card--compact:has(> button:hover) {
-    height: calc(var(--card-size) * 1.45);
-    width: calc(var(--card-size) * 1.12);
+    height: calc(var(--card-size) * 1.55);
+    width: calc(var(--card-size) * 1.2);
 }
 
 .card--full {
-    height: calc(var(--card-size) * 1.25);
-    width: calc(var(--card-size) * 1.05);
+    height: calc(var(--card-size) * 1.5);
+    width: calc(var(--card-size) * 1.15);
 }
+
 
 .card--full .cardimage {
     height: 60%;
@@ -219,9 +242,10 @@ badge {
 }
 
 .card--full:hover {
-    height: calc(var(--card-size) * 1.35);
-    width: calc(var(--card-size) * 1.1);
+    height: calc(var(--card-size) * 1.55);
+    width: calc(var(--card-size) * 1.2);
 }
+
 
 .card-grid {
     display: grid;
@@ -273,7 +297,7 @@ more badge:hover {
 }
 
 @media (max-width: 912px) {
-    .card--compact {
+    .card--compact:not(:hover) {
         scale: 0.95;
     }
 

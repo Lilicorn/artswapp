@@ -1,14 +1,19 @@
 let imgdebug = ["car.jpg", "huh.jpg", "letöltés.jpg"]
 
-function generatecards(mainID, elementnum, seemorehref, variant = "compact") {
+function generatecards(mainID, elementnum, seemorehref, variant = "compact", users = null) {
     let main = document.getElementById(mainID);
     main.innerText = "";
-    for (let i = 0; i < elementnum; i++) {
+    let cardUsers = users || Array.from({ length: elementnum }, (_, index) => ({
+        displayName: "displayname",
+        username: `artist${index + 1}`,
+        tags: ["lorem", "ipsum"],
+        images: imgdebug.map(image => "../debug/" + image)
+    }));
+
+    for (const user of cardUsers) {
         let card = document.createElement("art-card");
         card.setAttribute("variant", variant);
-        card.setAttribute("username", "displayname");
-        card.setAttribute("tags", "lorem, ipsum");
-        card.setAttribute("images", imgdebug.map(image => "../debug/" + image).join(" "));
+        card.user = user;
         card.classList.add("randomizer");
         main.appendChild(card);
     }
