@@ -85,7 +85,8 @@ main{
   display: flex;
   flex-direction: column;
   gap: 6px;
-  width: 100%;
+  flex: 1;
+  min-width: 0;
   padding-bottom: 6px; /* Hogy szép egy vonalban legyen a kép aljával */
 }
 
@@ -96,6 +97,7 @@ main{
   gap: 20px;
   align-items: center;
   width: 100%;
+  min-width: 0;
 }
 
 /* Felső sor stílusai */

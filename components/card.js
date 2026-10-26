@@ -1,4 +1,6 @@
-class ArtCard extends HTMLElement {
+import "./username.js";
+
+class AppCard extends HTMLElement {
     static observedAttributes = [
         "variant",
         "username",
@@ -58,7 +60,8 @@ class ArtCard extends HTMLElement {
         const caption = document.createElement("div");
         caption.className = "cardcaption";
 
-        const name = document.createElement("username");
+        const name = document.createElement("app-username");
+        name.className = "display";
         name.textContent = displayName;
 
         const tagList = document.createElement("tags");
@@ -84,9 +87,9 @@ class ArtCard extends HTMLElement {
 
         caption.append(name);
         if (username) {
-            const handle = document.createElement("span");
-            handle.className = "cardhandle";
-            handle.textContent = `@${username}`;
+            const handle = document.createElement("app-username");
+            handle.className = "cardhandle handle";
+            handle.textContent = username;
             caption.appendChild(handle);
         }
         caption.append(tagList, profilePicture);
@@ -104,4 +107,4 @@ class ArtCard extends HTMLElement {
     }
 }
 
-customElements.define("art-card", ArtCard);
+customElements.define("app-card", AppCard);

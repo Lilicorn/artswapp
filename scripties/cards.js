@@ -4,14 +4,14 @@ function generatecards(mainID, elementnum, seemorehref, variant = "compact", use
     let main = document.getElementById(mainID);
     main.innerText = "";
     let cardUsers = users || Array.from({ length: elementnum }, (_, index) => ({
-        displayName: "displayname",
-        username: `artist${index + 1}`,
+        displayName: "displaynamethats20__",
+        username: `artist${index + 1}_25charactersaaaugh`,
         tags: ["lorem", "ipsum"],
         images: imgdebug.map(image => "../debug/" + image)
     }));
 
     for (const user of cardUsers) {
-        let card = document.createElement("art-card");
+        let card = document.createElement("app-card");
         card.setAttribute("variant", variant);
         card.user = user;
         card.classList.add("randomizer");

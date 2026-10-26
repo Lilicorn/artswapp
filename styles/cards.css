@@ -5,7 +5,7 @@
     overflow: hidden;
 }
 
-art-card.card {
+app-card.card {
     display: block;
     flex: 0 0 auto;
     transform-origin: top;
@@ -42,7 +42,7 @@ art-card.card {
     transition: 0.5s, color 0s, background-color 0s;
 }
 
-.cardcaption > username {
+.cardcaption > app-username.display {
     position: relative;
     display: block;
     width: 90%;
@@ -54,6 +54,7 @@ art-card.card {
     position: relative;
     font-size: 0.75em;
     opacity: 0.75;
+    --app-username-min-size: 9px;
 }
 
 .card--compact .cardhandle {
@@ -126,11 +127,11 @@ badge {
     padding: 15px;
 }
 
-.card--compact:hover .cardcaption > username {
+.card--compact:hover .cardcaption > app-username.display {
     font-size: 1.4em;
 }
 
-.card--compact .cardcaption > username {
+.card--compact .cardcaption > app-username.display {
     font-size: 1.3em;
 }
 
@@ -211,7 +212,7 @@ badge {
     padding: 15px;
 }
 
-.card--full .cardcaption > username {
+.card--full .cardcaption > app-username.display {
     font-size: 1.4em;
 }
 
@@ -319,7 +320,7 @@ more badge:hover {
         padding: 18px;
     }
 
-    .card--full .cardcaption > username {
+    .card--full .cardcaption > app-username.display {
         font-size: 1.7rem;
     }
 

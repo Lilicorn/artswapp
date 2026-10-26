@@ -226,13 +226,18 @@ button:has(img){
     animation: hoverbounce 0.7s;
 }
 
+#profile-dropdown-menu.menu-open {
+    width: min(320px, calc(100vw - 24px));
+}
+
 .dropdown-menu.menu-open a {
     opacity: 1;
 }
 
 .profile-dropdown-div{
     display: grid;
-    grid-template: 1fr 1fr / 50px auto 30px;
+    grid-template: 1fr 1fr / 50px minmax(0, 1fr) 30px;
+    width: 100%;
     height: max-content;
     text-align: left;
 }
@@ -251,26 +256,47 @@ button:has(img){
     width: 40px;
 }
 
-.profile-dropdown-div username.display{
+.profile-dropdown-div app-username.display{
     font-size: 1.05rem;
+    --app-username-min-size: 10px;
 }
-.profile-dropdown-div username.handle{
+.profile-dropdown-div app-username.handle{
     font-size: 0.75rem;
     color: grey;
+    --app-username-min-size: 9px;
 }
-username{
-    cursor:default;
-    scale: 1;
-    transition: scale 0.3s;
-}
-username:hover{
-    scale: 1.02;
-}
-username.handle::before{
-    content: "@";
-}
-tags, username{
+
+
+
+tags, app-username{
     display: block;
+    cursor: default;
+}
+
+app-username{
+    min-width: 0;
+    max-width: 100%;
+    overflow: visible;
+    white-space: nowrap;
+    --app-username-min-size: 10px;
+}
+
+app-username.display{
+    font-weight: 700;
+}
+
+app-username .app-username-text{
+    white-space: inherit;
+}
+
+app-username.app-username--wrapped,
+app-username.app-username--wrapped .app-username-text{
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+app-username.handle::before{
+    content: "@";
 }
 tags{
     line-height: 25px;
@@ -442,10 +468,10 @@ site-logo.footer-logo{
         font-size: 0.9rem;
     }
 
-    .profile-dropdown-div username.display{
+    .profile-dropdown-div app-username.display{
         font-size: 0.9rem;
     }
-    .profile-dropdown-div username.handle{
+    .profile-dropdown-div app-username.handle{
         font-size: 0.6rem;
     }
 
@@ -477,10 +503,10 @@ site-logo.footer-logo{
         font-size: 0.85rem;
     }
 
-    .profile-dropdown-div username.display{
+    .profile-dropdown-div app-username.display{
         font-size: 0.75rem;
     }
-    .profile-dropdown-div username.handle{
+    .profile-dropdown-div app-username.handle{
         font-size: 0.55rem;
     }
 
