@@ -1,189 +1,44 @@
-
-        main{
-            display: flex;
-            justify-items: center;
-        }
-        main > section{
-            display: flex;
-            flex-wrap:wrap;
-            
-            justify-self: center;
-            }
-
-        main > section > h1{
-            width: 100%;
-        }
-
-        main > section > div{
-            display: flex;
-            flex-flow: row wrap;
-            
-            justify-content: center;
-            justify-self: center;
-        }
-        .card{
-            margin: 7px;
-        }
-
-.card, more{
-    position: relative;
-    border-radius: 15px;
-    transition: 0.3s, background-color 0.0s, color 0.0s, border-color 0.0s;
-    overflow: hidden;
-}
-.card{
-    transform-origin: top;
-    
-    height: calc(var(--card-size) * 1.25);
-    width: calc(var(--card-size) * 1.05);
-    border:3px solid var(--accent-color);
-    border-bottom-width: 6px;
-    
-}
-
-.cardcaption{
-    background-color: var(--complementary);
-    height: 60%;
-    width: 100%;
-    position: absolute;
-    top:55%;
-    padding: 15px;
-    display: block;
-    box-sizing: border-box;
-    transition: 0.5s, color 0.0s, background-color 0.0s;
-
-}
-
-.cardcaption>username{
-    display: block;
-    position: relative;
-    font-size: 1.4em;
-    width: 90%;
-    /*border: 1px solid;*/
-    padding-bottom: 0;
-    transition: 0.5s, color 0.0s;
-}
-.cardcaption>tags{
-    display: block;
-    position: relative;
-    font-size: 0.75em;
-    opacity: 1;
-    visibility: visible;
-    transition: 0.2s, color 0.0s;
-    margin: 0;
-    line-height: 15px;
-}
-
-
-badge{
-    font-size: 0.5rem;
-    margin: 5px;
-    border-radius: 50px;
-}
-
-.cardpfp{
-    width: 25%;
-    aspect-ratio: 1/1;
-    position: absolute;
-    top: -25%;
-    left: 5%;
-    background-color: var(--accent-color);
-    border-radius: 5px;
-    transition: 0.5s, top 0.3s, border-color 0s;
-    border: 3px solid var(--complementary) !important;
-}
-
-.cardimage{
-    position: absolute;
-    top:0;
-    width: 100%;
-    height: 60%;
+main {
     display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    gap: 0;
-    padding:0;
-    transition: all 0.5s;
-    overflow-y: scroll;
-    transform-origin: center;
+    justify-items: center;
 }
 
-.cardimage img {
-    display: block;
+main > section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-self: center;
+}
+
+main > section > h1 {
     width: 100%;
-    height: 100%;
-    flex-shrink: 0;
-    border: 3px;
-    object-fit: cover;
-    transition: all 0.5s;
 }
 
-.card > button{
-    opacity: 100;
-    visibility: visible;
-    position: absolute;
-    scale: 1;
-    width:90%;
-    top: 87%;
-    left: 5%;
-    padding: 3px 0px;
-    margin-bottom: 0;
-    transition: 0.5s, color 0.0s;
-    background-color: var(--accent-color);
-    color:var(--complementary);
-    border-radius: 50px;
-    border: none;
-}
-.card:hover button{
-    scale: 1.02;
-    padding: 5px 0;
-    margin: 0;
-    top: calc(90% - 10px);
-}
-.card:hover{
-    height: calc(var(--card-size) * 1.35);
-    width: calc(var(--card-size) * 1.1);
+main > section > div {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    justify-self: center;
 }
 
-@media (max-width: 515px){
-    main{
+.card {
+    margin: 7px;
+}
+
+@media (max-width: 515px) {
+    main {
         display: block;
     }
 
-    main > section{
+    main > section {
         display: block;
         width: 100%;
     }
 
-    main > section > div{
+    main > section > div {
         display: grid;
         grid-template-columns: auto;
         justify-items: center;
         gap: 14px;
         width: 100%;
-    }
-
-    .card,
-    .card:hover{
-        width: 300px;
-        height: auto;
-        aspect-ratio: 4 / 5;
-        margin: 0;
-    }
-
-    .cardcaption{
-        padding: 18px;
-    }
-
-    .cardcaption > username{
-        font-size: 1.7rem;
-    }
-
-    .cardcaption > tags{
-        font-size: 1rem;
-    }
-
-    .card > button{
-        font-size: 1rem;
     }
 }
