@@ -280,7 +280,7 @@ button:has(img){
 
 
 
-tags, app-username{
+app-username{
     display: block;
     cursor: default;
 }
@@ -311,8 +311,14 @@ app-username.handle::before{
     content: "@";
 }
 tags{
-    line-height: 25px;
+    cursor: default;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 4px;
+    overflow-y: hidden;
     margin: 10px;
+    line-height: 10px;
 }
 tag{
     border: 1px solid var(--accent-color);

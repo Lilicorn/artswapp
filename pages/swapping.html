@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/card.css">
+    <link rel="stylesheet" href="../styles/swapping.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js" defer></script>
+    <script type="module" src="../components/logo.js"></script>
+    <script type="module" src="../components/username.js"></script>
+    <script type="module" src="../components/card.js"></script>
+    <script src="../components/arrow.js" defer></script>
+    <script src="../components/tooltip.js" defer></script>
+    <script src="../scripties/display.js" defer></script>
+    <script src="../scripties/cards.js" defer></script>
+    <script src="../scripties/swapping.js" defer></script>
+    <title>ArtSwapp - Swapping!</title>
+</head>
+<body>
+     <header id="back2top">
+        <nav class="randomizer">
+            <site-logo class="header-logo"></site-logo>
+            <a href="home.html" target="_self"><img src="../logo/S.PNG" class="mini-logo-box"></a>
+            <div id="desktopview" class="links-right">
+                <div id="navitems" class="links-right">
+            <a class="nav-link" href="home.html">Home</a>
+            <a class="nav-link" href="#">Swaps</a>
+            <a class="nav-link" href="#">Auctions</a>
+            <a class="nav-link" href="#">Events</a>
+                </div>
+                
+            <div class="searchbar">Search...</div>
+            <div id="hamburber">
+                    <span class="fa-solid fa-bars"></span>
+                    <div id="mobileview" class="dropdown-menu">
+                        <bubble-arrow class="dropdown-arrow" aria-hidden="true"></bubble-arrow>
+                    </div>
+            </div>
+            <div class="profile-dropdown">
+                <button  type="button" aria-expanded="false">
+                    <img class="nav-pfp" src="../debug/huh.jpg">
+                </button>
+                <div class="dropdown-menu" id="profile-dropdown-menu">
+                   <bubble-arrow class="dropdown-arrow" aria-hidden="true"></bubble-arrow>
+                    
+                        <div class="profile-dropdown-div">
+                            <img class="nav-pfp" src="../debug/huh.jpg">
+                            <app-username class="display">displayname woah yay</app-username>
+                            <div id="displaymode">
+                                <i id="modeicon" class="fa-solid fa-sun"></i>
+                            </div>
+                            <app-username class="handle">usernameinitsmaxlength111</app-username>
+                            
+                        </div>
+                    
+                    <p id="userstatus">status</p>
+                    <a href="settings.html">Settings</a>
+                    <a href="#">Notifications</a>
+                    <!--
+                    <a href="settings.html">About</a>
+                    <a href="settings.html">Help</a>
+                    -->
+                    <a href="#">Sign out</a>
+                    
+                </div>
+            </div>
+
+            
+
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="tinder">
+            <div class="tinder--status">
+                <i class="fa fa-remove"></i>
+                <i class="fa fa-heart"></i>
+            </div>
+
+            <div id="tinder--cards">
+                <app-card variant="full"></app-card>
+                <app-card variant="full"></app-card>
+                <app-card variant="full"></app-card>
+                <app-card variant="full"></app-card>
+                <app-card variant="full"></app-card>
+            </div>
+
+            <div class="tinder--buttons">
+                <button id="nope"><i class="fa fa-remove"></i></button>
+                <button id="love"><i class="fa fa-heart"></i></button>
+            </div>
+        </div>
+    </main>
+
+    <!--
+    <footer class="randomizer">
+        <div>
+            <div>
+                <site-logo class="footer-logo"></site-logo>
+                <p>@ All rigths reserved <span style="font-size: 0.65rem;">(...not really)</span></p>
+                <p>Made with ❤︎⁠ by Lilicorn and Choco</p>
+            </div>
+            <div>
+                <a href="#back2top">Back to top</a>
+                <a>About</a>
+                <a>TOS</a>
+                <a>Privacy Policy</a>
+                <a>Contact</a>
+            </div>
+        </div>
+    </footer>
+    -->
+</body>
+</html>

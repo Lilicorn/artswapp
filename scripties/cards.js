@@ -6,7 +6,7 @@ function generatecards(mainID, elementnum, seemorehref, variant = "compact", use
     let cardUsers = users || Array.from({ length: elementnum }, (_, index) => ({
         displayName: "displaynamethats20__",
         username: `artist${index + 1}_25charactersaaaugh`,
-        tags: ["lorem", "ipsum"],
+        tags: ["lorem", "ipsum", "dolor", "sit"],
         images: imgdebug.map(image => "../debug/" + image)
     }));
 

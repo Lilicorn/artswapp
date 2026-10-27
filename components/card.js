@@ -54,6 +54,7 @@ class AppCard extends HTMLElement {
             const image = document.createElement("img");
             image.src = source;
             image.alt = displayName;
+            image.draggable = false;
             imageGallery.appendChild(image);
         }
 
@@ -65,16 +66,20 @@ class AppCard extends HTMLElement {
         name.textContent = displayName;
 
         const tagList = document.createElement("tags");
+        const tagItems = document.createElement("div");
+        tagItems.className = "cardtagitems";
         if (tagNames.length > 0) {
             const tagIntro = document.createElement("span");
+            tagIntro.className = "cardtaglabel";
             tagIntro.textContent = user.tagsLabel || "Because you're interested in:";
-            tagList.append(tagIntro, document.createElement("br"));
+            tagList.appendChild(tagIntro);
         }
         for (const tagName of tagNames) {
             const tag = document.createElement("tag");
             tag.textContent = tagName;
-            tagList.appendChild(tag);
+            tagItems.appendChild(tag);
         }
+        tagList.appendChild(tagItems);
 
         const profilePicture = document.createElement("div");
         profilePicture.className = "cardpfp";
