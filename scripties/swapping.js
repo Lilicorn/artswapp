@@ -13,9 +13,12 @@ function updateCardScale() {
   var card = cardStack.querySelector('app-card');
   if (!card || !cardStack.clientWidth || !cardStack.clientHeight) return;
 
-  var widthScale = cardStack.clientWidth * 0.9 / card.offsetWidth;
+  var stackStyle = getComputedStyle(cardStack);
+  var horizontalPadding = parseFloat(stackStyle.paddingLeft) + parseFloat(stackStyle.paddingRight);
+  var availableWidth = cardStack.clientWidth - horizontalPadding;
+  var widthScale = availableWidth * 0.9 / card.offsetWidth;
   var heightScale = cardStack.clientHeight * 0.8 / card.offsetHeight;
-  var scale = Math.max(0.5, Math.min(1.5, widthScale, heightScale));
+  var scale = Math.max(0.5, Math.min(widthScale, heightScale));
   cardStack.style.setProperty('--swipe-card-scale', scale);
 }
 
