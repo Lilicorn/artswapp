@@ -112,6 +112,12 @@ function colorrandomizer(target = null){
 
 
 
+
+
+
+
+
+
 const clip = document.createElement("div");
 clip.className = "clip";
 clip.setAttribute("aria-hidden", "true");

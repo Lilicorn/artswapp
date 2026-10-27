@@ -151,6 +151,12 @@ function attachCardGesture(el) {
       var yMulti = event.deltaY / 80;
       var rotate = xMulti * yMulti;
 
+      var direction = event.deltaX > 0 ? 'love' : 'nope';
+            el.dispatchEvent(new CustomEvent('card-swipe', {
+              bubbles: true,
+              detail: { direction }
+            }));
+
       el.style.transform = 'translate(' + toX + 'px, ' + (toY + event.deltaY) + 'px) rotate(' + rotate + 'deg) ' + stackTransform;
       initCards();
       retireCard(el);
@@ -176,6 +182,12 @@ function createButtonListener(love) {
       card.style.transform = 'translate(-' + moveOutWidth + 'px, -100px) rotate(30deg) ' + stackTransform;
     }
 
+    var direction = love ? 'love' : 'nope';
+            card.dispatchEvent(new CustomEvent('card-swipe', {
+              bubbles: true,
+              detail: { direction }
+            }));
+
     initCards();
     retireCard(card);
 
@@ -188,3 +200,6 @@ var loveListener = createButtonListener(true);
 
 nope.addEventListener('click', nopeListener);
 love.addEventListener('click', loveListener);
+
+document.body.addEventListener('card-swipe', event => console.log(event.detail))
+
