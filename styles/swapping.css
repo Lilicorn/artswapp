@@ -52,7 +52,7 @@
   position: relative;
   flex-grow: 1;
   min-height: 0;
-  padding-inline: 5%;
+  padding-inline: 10%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,8 +77,8 @@
 
 #tinder--cards app-card.card--full {
   height: var(--swipe-card-height);
-  width: calc(var(--swipe-card-height) * 4 / 5);
-  aspect-ratio: 4 / 5;
+  width: calc(var(--swipe-card-height) * 1.15 / 1.5);
+  aspect-ratio: 1.15 / 1.5;
   transform-origin: center;
 }
 #tinder--cards app-card .cardcaption > tags {
@@ -131,4 +131,18 @@
 
 .fa-remove {
   color: #CDD6DD;
+}
+
+
+
+
+@media (max-width: 470px){
+  #tinder--cards {
+    padding-inline: 7%;
+  }
+}
+@media (max-width: 370px){
+  #tinder--cards {
+    padding-inline: 5%;
+  }
 }
