@@ -11,18 +11,19 @@ function getRandomColorIndex(colors) {
     return random;
 }
 
-function colorrandomizer(){
+function colorrandomizer(target = null){
     var colors = ["#ff4a6f", "#ff924a", "#7fd01c", "#4acfff", "#ad2dcd", "#ff69b4"];
     
-    
-    const everyone = document.querySelectorAll('.randomizer');
+    const everyone = target ? [target] : document.querySelectorAll('.randomizer');
     for(const e of everyone){
         const random = getRandomColorIndex(colors);
         e.style.setProperty("--accent-color", colors[random]);
     }
 
-    const bi = getRandomColorIndex(colors);
-    document.body.style.setProperty("--accent-color", colors[bi]);
+    if (!target) {
+        const bi = getRandomColorIndex(colors);
+        document.body.style.setProperty("--accent-color", colors[bi]);
+    }
 }
 
 

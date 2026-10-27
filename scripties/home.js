@@ -5,8 +5,8 @@ function loadingstuff(){
     laststate = mobile;
 
     let en = mobile ? 5 : 10;
-    generatecards("recommendedusers", en, "full.html");
-    generatecards("recommendedauctions", en, "auctions.html");
+    generatecards("recommendedusers", en, "full.html", "compact");
+    generatecards("recommendedauctions", en, "auctions.html", "compact");
     //generatecards("donatorleaderboard", en, "full.html");
 
     

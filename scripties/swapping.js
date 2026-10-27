@@ -1,13 +1,28 @@
 'use strict';
 
 var tinderContainer = document.querySelector('.tinder');
-generatecards("tinder--cards", 10, '', "full")
-var allCards = document.querySelectorAll('app-card');
 var nope = document.getElementById('nope');
 var love = document.getElementById('love');
-colorrandomizer();
 var cardOffsets = new WeakMap();
 var cardStack = document.getElementById('tinder--cards');
+var visibleCardCount = 3;
+var candidateUsers = createDemoUsers(10);
+var nextCandidateIndex = 0;
+
+for (var index = 0; index < visibleCardCount && index < candidateUsers.length; index++) {
+  appendNextCard();
+}
+colorrandomizer();
+
+function appendNextCard() {
+  if (nextCandidateIndex >= candidateUsers.length) return;
+
+  var card = createCardElement(candidateUsers[nextCandidateIndex++]);
+  card.classList.add('card--positioning');
+  cardStack.appendChild(card);
+  colorrandomizer(card);
+  attachCardGesture(card);
+}
 
 function updateCardScale() {
   var card = cardStack.querySelector('app-card');
@@ -35,32 +50,64 @@ function getStackTransform(card, index) {
     cardOffsets.set(card, offset);
   }
 
-  var rotation = index === 0 ? 0 : offset.rotation;
-  return 'scale(' + (20 - index) / 20 + ') translateY(' + offset.y + 'px) translateX(' + offset.x + 'px) rotate(' + rotation + 'deg)';
+  var frontCard = index === 0;
+  var x = frontCard ? 0 : offset.x;
+  var y = frontCard ? 0 : offset.y;
+  var rotation = frontCard ? 0 : offset.rotation;
+  return 'scale(' + (20 - index) / 20 + ') translateY(' + y + 'px) translateX(' + x + 'px) rotate(' + rotation + 'deg)';
 }
 
 function getActiveCardIndex(card) {
-  return Array.from(document.querySelectorAll('app-card:not(.removed)')).indexOf(card);
+  return Array.from(cardStack.querySelectorAll('app-card:not(.removed)')).indexOf(card);
 }
 
 updateCardScale();
 window.addEventListener('resize', updateCardScale);
 
 function initCards(card, index) {
-  var newCards = document.querySelectorAll('app-card:not(.removed)');
+  var newCards = cardStack.querySelectorAll('app-card:not(.removed)');
 
   newCards.forEach(function (card, index) {
-    card.style.zIndex = allCards.length - index;
+    card.style.zIndex = visibleCardCount - index;
     card.style.transform = getStackTransform(card, index);
-    card.style.opacity = (10 - index) / 10;
+    card.style.opacity = (visibleCardCount - index) / visibleCardCount;
   });
+
+  var positioningCards = cardStack.querySelectorAll('.card--positioning');
+  if (positioningCards.length) {
+    window.requestAnimationFrame(function () {
+      window.requestAnimationFrame(function () {
+        positioningCards.forEach(function (card) {
+          card.classList.remove('card--positioning');
+        });
+      });
+    });
+  }
   
   tinderContainer.classList.add('loaded');
 }
 
 initCards();
 
-allCards.forEach(function (el) {
+function retireCard(card) {
+  var retired = false;
+  var fallbackTimer;
+
+  function finishRetiring(event) {
+    if (retired || (event && (event.target !== card || event.propertyName !== 'transform'))) return;
+    retired = true;
+    window.clearTimeout(fallbackTimer);
+    card.removeEventListener('transitionend', finishRetiring);
+    card.remove();
+    appendNextCard();
+    initCards();
+  }
+
+  card.addEventListener('transitionend', finishRetiring);
+  fallbackTimer = window.setTimeout(finishRetiring, 800);
+}
+
+function attachCardGesture(el) {
   var hammertime = new Hammer(el);
 
   hammertime.on('pan', function (event) {
@@ -106,13 +153,14 @@ allCards.forEach(function (el) {
 
       el.style.transform = 'translate(' + toX + 'px, ' + (toY + event.deltaY) + 'px) rotate(' + rotate + 'deg) ' + stackTransform;
       initCards();
+      retireCard(el);
     }
   });
-});
+}
 
 function createButtonListener(love) {
   return function (event) {
-    var cards = document.querySelectorAll('app-card:not(.removed)');
+    var cards = cardStack.querySelectorAll('app-card:not(.removed)');
     var moveOutWidth = document.body.clientWidth * 1.5;
 
     if (!cards.length) return false;
@@ -129,6 +177,7 @@ function createButtonListener(love) {
     }
 
     initCards();
+    retireCard(card);
 
     event.preventDefault();
   };
