@@ -1,9 +1,5 @@
 function loadingstuff(){
-   if( window.innerWidth <= 513 ){
-    generatecards("recommendedusersfull", 15, "", "full");
-   }
-   else generatecards("recommendedusersfull", 30, "", "full");
-
+   generatecards("recommendedusersfull", 30, "");
     colorrandomizer();
 }
 

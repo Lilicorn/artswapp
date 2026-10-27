@@ -31,6 +31,9 @@ app-card.card {
     height: 100%;
     flex-shrink: 0;
     object-fit: cover;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
     transition: all 0.5s;
 }
 
@@ -69,7 +72,24 @@ app-card.card {
     position: relative;
     display: block;
     margin: 0;
-    line-height: 15px;
+    line-height: normal;
+}
+
+.cardcaption > tags > .cardtaglabel {
+    display: block;
+    margin-bottom: 0;
+}
+
+.cardcaption > tags > .cardtagitems {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px 4px;
+    max-height: 3em;
+    overflow: hidden;
+}
+
+.card--full .cardcaption > tags > .cardtaglabel {
+    margin-bottom: 6px;
 }
 
 badge {
@@ -207,8 +227,8 @@ badge {
 }
 
 .card--full .cardcaption {
-    top: 55%;
-    height: 60%;
+    top: 50%;
+    height: 50%;
     padding: 15px;
 }
 
@@ -316,15 +336,10 @@ more badge:hover {
         margin: 0;
     }
 
-    .card--full .cardcaption {
-        padding: 18px;
-    }
-
     .card--full .cardcaption > app-username.display {
         font-size: 1.7rem;
     }
 
-    .card--full .cardcaption > tags,
     .card--full > button {
         font-size: 1rem;
     }
