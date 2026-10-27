@@ -38,12 +38,12 @@
   margin-left: -50px;
 }
 
- .tinder_love .fa-heart {
+.tinder_love .tinder--status .fa-heart {
   opacity: 0.5;
   transform: scale(2);
 }
 
- .tinder_nope .fa-remove {
+.tinder_nope .tinder--status .fa-remove {
   opacity: 0.5;
   transform: scale(2);
 }
@@ -73,6 +73,7 @@
 
 #tinder--cards app-card.card {
   transform-origin: center;
+  transition: 0.7s, background-color 0s, color 0s, border-color 0s;
 }
 
 #tinder--cards app-card.card--full {
@@ -81,10 +82,51 @@
   aspect-ratio: 1.15 / 1.5;
   transform-origin: center;
 }
-#tinder--cards app-card .cardcaption > tags {
-    line-height: 13px;
+
+#tinder--cards app-card.card--full .cardimage {
+  height: 65%;
 }
 
+#tinder--cards app-card.card--full .cardpfp {
+    top: -25%;
+    width: 20%;
+}
+
+#tinder--cards app-card.card--full .cardcaption {
+  top: 65%;
+  height: 50%;
+  padding: clamp(8px, 3%, 12px);
+  font-size: 0.85em;
+}
+
+#tinder--cards app-card.card--full .cardcaption > app-username.display {
+  font-size: 1.1em;
+}
+
+#tinder--cards app-card.card--full .cardcaption > tags {
+  font-size: 0.7em;
+}
+
+#tinder--cards app-card.card--full .cardcaption > tags > .cardtaglabel {
+  margin-bottom: 3px;
+}
+
+#tinder--cards app-card.card--full > button {
+  top: 90%;
+  font-size: 0.9em;
+}
+
+#tinder--cards app-card.card--full:hover > button {
+  top: calc(92% - 10px);
+}
+
+#tinder--cards app-card .cardcaption > tags {
+  line-height: 10px;
+}
+
+#tinder--cards app-card .cardcaption tag{
+    padding: 1px 3px;
+}
 #tinder--cards app-card.moving {
   transition: none;
   cursor: -webkit-grabbing;
@@ -105,7 +147,7 @@
   gap: clamp(24px, 3vw, 40px);
 }
 
-.tinder--buttons *{
+.tinder--buttons button {
   opacity: 1 !important;
 }
 
@@ -127,11 +169,19 @@
   vertical-align: middle;
 }
 
-.fa-heart {
+.tinder--status .fa-heart {
   color: var(--accent-color);
 }
 
-.fa-remove {
+.tinder--status .fa-remove {
+  color: #CDD6DD;
+}
+
+.tinder--buttons .fa-heart {
+  color: var(--accent-color);
+}
+
+.tinder--buttons .fa-remove {
   color: #CDD6DD;
 }
 
