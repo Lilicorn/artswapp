@@ -23,7 +23,7 @@ class AppUsername extends HTMLElement {
     disconnectedCallback() {
         this._mutationObserver?.disconnect();
         this._resizeObserver?.disconnect();
-        window.clearTimeout(this._resizeTimeout);
+        window.cancelAnimationFrame(this._fitFrame);
         window.removeEventListener("resize", this._onResize);
     }
 
@@ -73,8 +73,11 @@ class AppUsername extends HTMLElement {
     }
 
     scheduleFit() {
-        window.clearTimeout(this._resizeTimeout);
-        this._resizeTimeout = window.setTimeout(() => this.fitText(), 20);
+        if (this._fitFrame !== undefined) return;
+        this._fitFrame = window.requestAnimationFrame(() => {
+            this._fitFrame = undefined;
+            this.fitText();
+        });
     }
 
     _onResize = () => this.scheduleFit();
