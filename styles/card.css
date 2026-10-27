@@ -327,20 +327,45 @@ more badge:hover {
     }
 }
 
-@media (max-width: 515px) {
+@media (max-width: 518px) {
     .card--full,
     .card--full:hover {
-        width: 300px;
+        width: min(300px, calc(100vw - 46px));
         height: auto;
         aspect-ratio: 4 / 5;
         margin: 0;
+        container-type: inline-size;
+    }
+
+    .card--full .cardcaption {
+        top: 60%;
+        height: 50%;
+        padding: 5cqi;
+        font-size: clamp(10px, 5.333cqi, 16px);
+    }
+
+    .card--full .cardcaption > tags {
+        line-height: clamp(10px, 3.333cqi, 10px);
+        padding-top: clamp(2px, 1.5cqi, 10px);
+    }
+
+    .card--full .cardpfp{
+        top: -30%;
+    }
+    .card--full button{
+        top: 90%;
+    }
+    .card--full:hover > button {
+        top: calc(91% - 5px);
+        padding: 5px 0;
+        scale: 1.02;
     }
 
     .card--full .cardcaption > app-username.display {
-        font-size: 1.7rem;
+        font-size: clamp(10px, 9cqi, 27.2px);
     }
 
     .card--full > button {
-        font-size: 1rem;
+        font-size: clamp(10px, 5.333cqi, 16px);
     }
 }

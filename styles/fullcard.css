@@ -23,22 +23,3 @@ main > section > div {
 .card {
     margin: 7px;
 }
-
-@media (max-width: 515px) {
-    main {
-        display: block;
-    }
-
-    main > section {
-        display: block;
-        width: 100%;
-    }
-
-    main > section > div {
-        display: grid;
-        grid-template-columns: auto;
-        justify-items: center;
-        gap: 14px;
-        width: 100%;
-    }
-}
