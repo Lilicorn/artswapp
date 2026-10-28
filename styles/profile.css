@@ -98,6 +98,16 @@ main{
   min-width: 0;
 }
 
+.top-row > .display {
+  flex: 1 1 0;
+  --app-username-min-size: 8px;
+}
+
+.top-row > div {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
 .display {
   margin: 0;
   font-size: 1.6rem;
@@ -216,7 +226,7 @@ main section:not(.profile-header) h2{
   height: 800px;
   border-radius: 25px;
   margin: 10px;
-  overflow: scroll;
+  overflow-y: auto;
   display: flex;
   flex-wrap: wrap;
 }
@@ -392,4 +402,10 @@ main section:not(.profile-header) h2{
   h2{
     font-size: 1rem;
   }
+}
+
+main section.open {
+  height: max-content;
+  min-height: 0;
+  overflow: visible;
 }
