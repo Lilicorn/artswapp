@@ -173,15 +173,13 @@
   vertical-align: middle;
 }
 
-.tinder--status .fa-heart {
-  color: var(--accent-color);
-}
+
 
 .tinder--status .fa-remove {
   color: var(--text-color);
 }
 
-.tinder--buttons .fa-heart {
+.tinder--buttons .fa-heart, .fa-heart {
   color: var(--accent-color);
 }
 
@@ -197,6 +195,13 @@
     padding-inline: 7%;
   }
 }
+
+@media (max-width: 767px){
+  #tinder--cards {
+    padding-bottom: 12vh;
+  }
+}
+
 @media (max-width: 370px){
   #tinder--cards {
     padding-inline: 5%;
