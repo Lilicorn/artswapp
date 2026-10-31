@@ -45,15 +45,13 @@ class AppCard extends HTMLElement {
         this.classList.add("card");
         this.classList.remove("card--compact", "card--full");
         this.classList.add(`card--${variant}`);
-        this.setAttribute("role", "article");
-        this.setAttribute("aria-label", displayName);
 
         const imageGallery = document.createElement("div");
         imageGallery.className = "cardimage";
         for (const source of imageSources) {
             const image = document.createElement("img");
             image.src = source;
-            image.alt = displayName;
+            image.alt = displayName + "'s art";
             image.draggable = false;
             imageGallery.appendChild(image);
         }

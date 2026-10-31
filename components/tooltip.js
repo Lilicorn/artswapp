@@ -130,19 +130,15 @@ class tooltipThing extends HTMLElement {
             if (event.composedPath().includes(this.trigger)) return;
             this.closeTooltip();
         };
-        this.handleKeydown = event => {
-            if (event.key === 'Escape') this.closeTooltip();
-        };
+        
 
         this.trigger.addEventListener('click', this.handleTriggerClick);
         document.addEventListener('click', this.handleOutsideClick);
-        document.addEventListener('keydown', this.handleKeydown);
     }
 
     disconnectedCallback() {
         this.trigger?.removeEventListener('click', this.handleTriggerClick);
         document.removeEventListener('click', this.handleOutsideClick);
-        document.removeEventListener('keydown', this.handleKeydown);
     }
 }
 
