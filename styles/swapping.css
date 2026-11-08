@@ -195,12 +195,12 @@
     padding-inline: 7%;
   }
 }
-
-@media (max-width: 767px){
+@media (max-width: 400px){
   #tinder--cards {
-    padding-bottom: 12vh;
+    padding-bottom: 10vh;
   }
 }
+
 
 @media (max-width: 370px){
   #tinder--cards {
