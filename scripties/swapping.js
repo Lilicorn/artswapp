@@ -201,5 +201,6 @@ var loveListener = createButtonListener(true);
 nope.addEventListener('click', nopeListener);
 love.addEventListener('click', loveListener);
 
-document.body.addEventListener('card-swipe', event => console.log(event.detail))
+document.body.addEventListener('card-swipe', event => console.log(event.detail)) 
+
 

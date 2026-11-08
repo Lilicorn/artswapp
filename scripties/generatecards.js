@@ -5,7 +5,8 @@ function createDemoUsers(count) {
         displayName: "displaynamethats20__",
         username: `artist${index + 1}_25charactersaaaugh`,
         tags: ["lorem", "ipsum", "dolor", "sit"],
-        images: imgdebug.map(image => "../debug/" + image)
+        images: imgdebug.map(image => "../debug/" + image),
+        profileHref: "../pages/profile.html" + "?embed=1"
     }));
 }
 
@@ -38,3 +39,10 @@ function generatecards(mainID, elementnum, seemorehref, variant = "full", users 
         main.appendChild(more)
     }
 }
+
+document.body.addEventListener('open-a-profile', event => {
+  const profileFrame = document.createElement("app-iframe");
+  profileFrame.setAttribute("src", event.detail.url);
+  profileFrame.setAttribute("title", event.detail.name + "'s profile");
+  document.body.appendChild(profileFrame);
+});

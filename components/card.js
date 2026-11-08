@@ -102,7 +102,14 @@ class AppCard extends HTMLElement {
         button.textContent = buttonLabel;
         if (profileHref) {
             button.addEventListener("click", () => {
-                window.location.assign(profileHref);
+                this.dispatchEvent(new CustomEvent("open-a-profile", {
+                    bubbles: true,
+                    composed: true,
+                    detail: {
+                        url: profileHref,
+                        name: displayName
+                    }
+                }));
             });
         }
 

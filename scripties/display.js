@@ -249,3 +249,7 @@ displayMode.addEventListener("click", (event) => {
     const isDark = document.body.classList.toggle("dark");
     setModeIcon(isDark);
 });
+
+if (new URLSearchParams(location.search).has("embed")) {
+  document.body.classList.add("embed-mode");
+}
