@@ -114,10 +114,8 @@ function colorrandomizer(target = null){
 
 
 
-
-
-
-
+// cool transition
+/*
 const clip = document.createElement("div");
 clip.className = "clip";
 clip.setAttribute("aria-hidden", "true");
@@ -231,4 +229,23 @@ document.getElementById("displaymode").addEventListener("click", (event) => {
 
         clip.classList.add("anim");
     });
+});
+*/
+
+function setModeIcon(isDark) {
+    const icon = document.querySelector("#modeicon");
+    if (!icon) return;
+
+    icon.classList.toggle("fa-moon", isDark);
+    icon.classList.toggle("fa-sun", !isDark);
+}
+
+const displayMode = document.getElementById("displaymode");
+setModeIcon(document.body.classList.contains("dark"));
+displayMode.addEventListener("click", (event) => {
+    event.preventDefault();
+    colorrandomizer();
+
+    const isDark = document.body.classList.toggle("dark");
+    setModeIcon(isDark);
 });
