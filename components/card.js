@@ -107,7 +107,8 @@ class AppCard extends HTMLElement {
                     composed: true,
                     detail: {
                         url: profileHref,
-                        name: displayName
+                        name: displayName,
+                        color: getComputedStyle(this).getPropertyValue("--accent-color").trim()
                     }
                 }));
             });

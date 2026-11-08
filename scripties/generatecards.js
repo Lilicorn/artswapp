@@ -44,5 +44,6 @@ document.body.addEventListener('open-a-profile', event => {
   const profileFrame = document.createElement("app-iframe");
   profileFrame.setAttribute("src", event.detail.url);
   profileFrame.setAttribute("title", event.detail.name + "'s profile");
+  profileFrame.setAttribute("framecolor", event.detail.color);
   document.body.appendChild(profileFrame);
 });

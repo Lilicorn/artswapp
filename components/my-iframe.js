@@ -1,5 +1,5 @@
 class AppIframe extends HTMLElement {
-    static observedAttributes = ["src", "title"];
+    static observedAttributes = ["src", "title", "framecolor"];
 
     constructor() {
         super();
@@ -28,21 +28,38 @@ class AppIframe extends HTMLElement {
     }
 
     render() {
+        const frameColor = this.getAttribute("framecolor") || "var(--accent-color)";
         this.shadowRoot.innerHTML = `
             <style>
                 :host {
                     display: grid;
                     place-items: center;
+                    --accent-color: ${frameColor};
                 }
                 iframe {
                     display: block;
                     width: 90vw;
                     height: 90vh;
                     box-sizing: border-box;
-                    border: 5px var(--accent-color) solid;
-                    border-bottom-width: 10px;
+                    border: 5px solid var(--accent-color);
+                    border-bottom-width: 15px;
                     border-radius: 32px;
                     background: var(--background-color);
+                }
+                @media (max-width: 912px) {
+                    iframe {
+                        border-width: 4px 4px 12px;
+                    }
+                }
+                @media (max-width: 500px) {
+                    iframe {
+                        border-width: 3px 3px 9px;
+                    }
+                }
+                @media (max-width: 370px) {
+                    iframe {
+                        border-width: 2px 2px 6px;
+                    }
                 }
                     button {
                         position: absolute;
