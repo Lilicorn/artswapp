@@ -163,7 +163,7 @@ button:has(img){
     margin: 5px;
 }
 
-body.embed-mode header {
+body.embed-mode header, body.embed-mode footer{
   display: none;
 }
 

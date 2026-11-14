@@ -64,7 +64,7 @@ app-card.card {
     display: none;
 }
 
-.card--compact:hover .cardhandle {
+.card--compact:is(:hover, .card--expanded) .cardhandle {
     display: block;
 }
 
@@ -130,7 +130,7 @@ badge {
     width: var(--card-size);
 }
 
-.card--compact:hover {
+.card--compact:is(:hover, .card--expanded) {
     height: calc(var(--card-size) * 1.5);
     width: calc(var(--card-size) * 1.15);
 }
@@ -141,13 +141,13 @@ badge {
     padding: 8px;
 }
 
-.card--compact:hover .cardcaption {
+.card--compact:is(:hover, .card--expanded) .cardcaption {
     top: 55%;
     height: 60%;
     padding: 15px;
 }
 
-.card--compact:hover .cardcaption > app-username.display {
+.card--compact:is(:hover, .card--expanded) .cardcaption > app-username.display {
     font-size: 1.4em;
 }
 
@@ -161,7 +161,7 @@ badge {
     visibility: hidden;
 }
 
-.card--compact:hover .cardcaption > tags {
+.card--compact:is(:hover, .card--expanded) .cardcaption > tags {
     opacity: 1;
     visibility: visible;
     padding-bottom: 8px;
@@ -172,7 +172,7 @@ badge {
     width: 20%;
 }
 
-.card--compact:hover .cardpfp {
+.card--compact:is(:hover, .card--expanded) .cardpfp {
     top: -25%;
     width: 25%;
 }
@@ -182,7 +182,7 @@ badge {
     overflow-y: hidden;
 }
 
-.card--compact:hover .cardimage {
+.card--compact:is(:hover, .card--expanded) .cardimage {
     height: 60%;
     overflow-y: auto;
 }
@@ -196,7 +196,7 @@ badge {
     transition: all 0.5s;
 }
 
-.card--compact:hover > button {
+.card--compact:is(:hover, .card--expanded) > button {
     top: auto;
     bottom: 8px;
     padding: 3px 0;
@@ -323,7 +323,7 @@ more badge:hover {
 }
 
 @media (max-width: 912px) {
-    .card--compact:not(:hover) {
+    .card--compact:not(:hover):not(.card--expanded) {
         scale: 0.95;
     }
 

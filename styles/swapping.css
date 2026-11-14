@@ -74,7 +74,7 @@
 
 #tinder--cards app-card.card {
   transform-origin: center;
-  transition: 0.7s, background-color 0s, color 0s, border-color 0s;
+  transition: 0.3s, background-color 0s, color 0s, border-color 0s;
 }
 
 #tinder--cards app-card.card--positioning {
@@ -85,7 +85,13 @@
   height: var(--swipe-card-height);
   width: calc(var(--swipe-card-height) * 1.15 / 1.5);
   aspect-ratio: 1.15 / 1.5;
-  transform-origin: center;
+  transform-origin: top center;
+}
+
+#tinder--cards app-card.card--full:hover {
+  transform-origin: top center;
+  height: calc(var(--swipe-card-height) * 1.525 / 1.5);
+  width: calc(var(--swipe-card-height) * 1.175 / 1.5);
 }
 
 #tinder--cards app-card.card--full .cardimage {
@@ -118,12 +124,12 @@
 
 #tinder--cards app-card.card--full > button {
   top: auto;
-  bottom: 8px;
+  bottom: 2%;
   font-size: 0.9em;
 }
 
 #tinder--cards app-card.card--full:hover > button {
-  bottom: 8px;
+  bottom: 2%;
 }
 
 #tinder--cards app-card .cardcaption > tags {

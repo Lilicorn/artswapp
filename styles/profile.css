@@ -99,8 +99,14 @@ main{
 }
 
 .top-row > .display {
-  flex: 1 1 0;
+  flex: 0 1 auto;
   --app-username-min-size: 8px;
+}
+
+.top-row {
+  width: fit-content;
+  max-width: 100%;
+  gap: 8px;
 }
 
 .top-row > div {
@@ -331,10 +337,11 @@ main section:not(.profile-header) h2{
     flex: 1;
     min-width: 0;
     width: auto;
+    gap: 2px;
   }
 
   .top-row {
-    width: 100%;
+    width: fit-content;
   }
 
   .display {
@@ -375,6 +382,10 @@ main section:not(.profile-header) h2{
   
   .profile-header {
     margin-top: -15px;
+  }
+
+  .profile-details {
+    gap: 1px;
   }
 
   .pfp {
