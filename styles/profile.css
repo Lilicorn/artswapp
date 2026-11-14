@@ -70,7 +70,7 @@ main{
   width: 120px;
   aspect-ratio: 1/1;
   background-color: var(--accent-color);
-  border-radius: 20px;
+  border-radius: 15px;
   border: 3px solid var(--accent-color);
     border-bottom-width: 6px;
   margin: 0;
@@ -331,6 +331,7 @@ main section:not(.profile-header) h2{
 
   .pfp {
     width: 80px;
+    border-radius: 10px;
   }
 
   .profile-details {
