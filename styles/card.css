@@ -198,7 +198,7 @@ badge {
 
 .card--compact:is(:hover, .card--expanded) > button {
     top: auto;
-    bottom: 8px;
+    bottom: 12px;
     padding: 3px 0;
     opacity: 1;
     visibility: visible;
@@ -208,7 +208,7 @@ badge {
 
 .card--compact > button:hover {
     top: auto;
-    bottom: 8px;
+    bottom: 12px;
     padding: 5px 0;
     scale: 1.02;
 }
@@ -253,7 +253,7 @@ badge {
 
 .card--full > button {
     top: auto;
-    bottom: 8px;
+    bottom: 16px;
     padding: 3px 0;
     opacity: 1;
     visibility: visible;
@@ -262,7 +262,7 @@ badge {
 }
 
 .card--full:hover > button {
-    bottom: 8px;
+    bottom: 16px;
     padding: 5px 0;
     scale: 1.02;
 }
@@ -360,10 +360,10 @@ more badge:hover {
     }
     .card--full button{
         top: auto;
-        bottom: 8px;
+        bottom: 16px;
     }
     .card--full:hover > button {
-        bottom: 8px;
+        bottom: 16px;
         padding: 5px 0;
         scale: 1.02;
     }
