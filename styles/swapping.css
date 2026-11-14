@@ -6,6 +6,7 @@
   width: 100%;
   margin: auto;
   height: 80vh;
+  height: 80dvh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -116,12 +117,13 @@
 }
 
 #tinder--cards app-card.card--full > button {
-  top: 90%;
+  top: auto;
+  bottom: 8px;
   font-size: 0.9em;
 }
 
 #tinder--cards app-card.card--full:hover > button {
-  top: calc(92% - 10px);
+  bottom: 8px;
 }
 
 #tinder--cards app-card .cardcaption > tags {
@@ -142,6 +144,7 @@
   position: fixed;
   left: 0;
   bottom: 0;
+  bottom: env(safe-area-inset-bottom, 0px);
   z-index: 3;
   width: 100%;
   padding: 10px 0;

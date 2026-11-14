@@ -164,6 +164,7 @@ badge {
 .card--compact:hover .cardcaption > tags {
     opacity: 1;
     visibility: visible;
+    padding-bottom: 8px;
 }
 
 .card--compact .cardpfp {
@@ -196,7 +197,8 @@ badge {
 }
 
 .card--compact:hover > button {
-    top: 87%;
+    top: auto;
+    bottom: 8px;
     padding: 3px 0;
     opacity: 1;
     visibility: visible;
@@ -205,7 +207,8 @@ badge {
 }
 
 .card--compact > button:hover {
-    top: calc(90% - 10px);
+    top: auto;
+    bottom: 8px;
     padding: 5px 0;
     scale: 1.02;
 }
@@ -240,6 +243,7 @@ badge {
     font-size: 0.75em;
     opacity: 1;
     visibility: visible;
+    padding-bottom: 8px;
 }
 
 .card--full .cardpfp {
@@ -248,7 +252,8 @@ badge {
 }
 
 .card--full > button {
-    top: 87%;
+    top: auto;
+    bottom: 8px;
     padding: 3px 0;
     opacity: 1;
     visibility: visible;
@@ -257,7 +262,7 @@ badge {
 }
 
 .card--full:hover > button {
-    top: calc(90% - 10px);
+    bottom: 8px;
     padding: 5px 0;
     scale: 1.02;
 }
@@ -347,16 +352,18 @@ more badge:hover {
     .card--full .cardcaption > tags {
         line-height: clamp(10px, 3.333cqi, 10px);
         padding-top: clamp(2px, 1.5cqi, 10px);
+        padding-bottom: 8px;
     }
 
     .card--full .cardpfp{
         top: -30%;
     }
     .card--full button{
-        top: 90%;
+        top: auto;
+        bottom: 8px;
     }
     .card--full:hover > button {
-        top: calc(91% - 5px);
+        bottom: 8px;
         padding: 5px 0;
         scale: 1.02;
     }

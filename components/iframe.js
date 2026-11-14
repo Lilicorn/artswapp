@@ -34,12 +34,15 @@ class AppIframe extends HTMLElement {
                 :host {
                     display: grid;
                     place-items: center;
+                    grid-template-rows: minmax(0, 1fr);
                     --accent-color: ${frameColor};
                 }
                 iframe {
                     display: block;
-                    width: 90vw;
-                    height: 90vh;
+                    width: 100%;
+                    height: 100%;
+                    min-width: 0;
+                    min-height: 0;
                     box-sizing: border-box;
                     border: 5px solid var(--accent-color);
                     border-bottom-width: 15px;
@@ -63,8 +66,8 @@ class AppIframe extends HTMLElement {
                 }
                     button {
                         position: absolute;
-                        top: calc(5vh + 14px);
-                        right: calc(5vw + 14px);
+                        top: calc(max(12px, env(safe-area-inset-top)) + 14px);
+                        right: calc(max(12px, 5vw) + 14px);
                         z-index: 1;
                         display: grid;
                         place-items: center;
