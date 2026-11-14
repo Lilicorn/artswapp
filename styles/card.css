@@ -333,6 +333,12 @@ more badge:hover {
 }
 
 @media (max-width: 518px) {
+    .card--compact:is(:hover, .card--expanded) > button,
+    .card--compact:has(> button:hover) > button,
+    .card--compact > button:hover {
+        bottom: 6px;
+    }
+
     .card--full,
     .card--full:hover {
         width: min(300px, calc(100vw - 46px));
@@ -360,10 +366,10 @@ more badge:hover {
     }
     .card--full button{
         top: auto;
-        bottom: 16px;
+        bottom: 6px;
     }
     .card--full:hover > button {
-        bottom: 16px;
+        bottom: 6px;
         padding: 5px 0;
         scale: 1.02;
     }
