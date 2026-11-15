@@ -134,7 +134,7 @@ function handleRegistration(event) {
     );
      window.setTimeout(() => {
         if (window.parent === window) {
-            window.location.href = "profile.html";
+            window.location.href = "home.html";
             return;
         }
 
