@@ -135,7 +135,11 @@ function attachCardGesture(el) {
     tinderContainer.classList.remove('tinder_nope');
 
     var moveOutWidth = document.body.clientWidth;
-    var keep = Math.abs(event.deltaX) < 80 || Math.abs(event.velocityX) < 0.5;
+
+    let mobile = window.innerWidth <= 768 ? true : false;
+    var keep = mobile 
+         ? Math.abs(event.deltaX) < 100 || Math.abs(event.velocityX) < 0.5 
+        :  Math.abs(event.deltaX) < 50 || Math.abs(event.velocityX) < 0.5;
     var stackTransform = getStackTransform(el, getActiveCardIndex(el));
 
     el.classList.toggle('removed', !keep);
