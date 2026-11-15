@@ -23,6 +23,8 @@
 
 body{
     margin: 0;
+    height: 100vh;
+    height: 100dvh;
   background-color: var(--background-color);
   color: var(--text-color);
   scrollbar-color: var(--accent-color) transparent;
