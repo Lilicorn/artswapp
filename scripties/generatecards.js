@@ -4,6 +4,7 @@ function createDemoUsers(count) {
     return Array.from({ length: count }, (_, index) => ({
         displayName: "displaynamethats20__",
         username: `artist${index + 1}_25charactersaaaugh`,
+        profileImage: null,
         tags: ["lorem", "ipsum", "dolor", "sit"],
         images: imgdebug.map(image => "../debug/" + image),
         profileHref: "../pages/profile.html" + "?embed=1"

@@ -29,7 +29,7 @@ class tooltipThing extends HTMLElement {
                     visibility: hidden;
                     opacity: 0;
                     box-sizing: border-box;
-                    width: 20vw;
+                    width: 25vw;
                     padding: 10px 15px;
                     color: var(--text-color);
                     font-family: inherit;

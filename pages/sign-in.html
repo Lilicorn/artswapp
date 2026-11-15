@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/sign-in.css">
+    <script type="module" src="../components/logo.js"></script>
+    <script src="../components/arrow.js" defer></script>
+    <script src="../components/tooltip.js" defer></script>
+    <script src="../scripties/display.js" defer></script>
+    <script src="../scripties/sign-in.js" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <title>ArtSwapp - Sign in</title>
+</head>
+<body data-page="urlap">
+     <header id="back2top">
+        <nav class="randomizer">
+            <site-logo class="header-logo"></site-logo>
+            <a href="home.html" target="_self"><img src="../logo/S.PNG" class="mini-logo-box"></a>
+            <div id="desktopview" class="links-right">
+                <div id="navitems" class="links-right">
+            <a class="nav-link" href="home.html">Home</a>
+            <a class="nav-link" href="swapping.html">Swapping</a>
+            <a class="nav-link" href="#">Auctions</a>
+            <a class="nav-link" href="#">Events</a>
+                </div>
+                
+            <div class="searchbar">Search...</div>
+            <div id="hamburber">
+                    <span class="fa-solid fa-bars"></span>
+                    <div id="mobileview" class="dropdown-menu">
+                        <bubble-arrow class="dropdown-arrow" aria-hidden="true"></bubble-arrow>
+                    </div>
+            </div>
+            <div class="profile-dropdown">
+                <button  type="button" aria-expanded="false">
+                    <img class="nav-pfp" src="../debug/huh.jpg">
+                </button>
+                <div class="dropdown-menu" id="profile-dropdown-menu">
+                   <bubble-arrow class="dropdown-arrow" aria-hidden="true"></bubble-arrow>
+                    
+                        <div class="profile-dropdown-div">
+                            <img class="nav-pfp" src="../debug/huh.jpg">
+                            <app-username class="display">displayname woah yay</app-username>
+                            <div id="displaymode">
+                                <i id="modeicon" class="fa-solid fa-sun"></i>
+                            </div>
+                            <app-username class="handle">usernameinitsmaxlength111</app-username>
+                            
+                        </div>
+                    
+                    <p id="userstatus">status</p>
+                    <a href="settings.html">Settings</a>
+                    <a href="#">Notifications</a>
+                    <!--
+                    <a href="settings.html">About</a>
+                    <a href="settings.html">Help</a>
+                    -->
+                    <a href="#">Sign out</a>
+                    
+                </div>
+            </div>
+
+            
+
+            </div>
+        </nav>
+    </header>
+    <main>
+
+        <h1 style="margin: auto;"><span class="ful">Register</span> • <span class="ful">Sign in</span></h1>
+        
+        <form id="regisztracio">
+            <label for="displayName">Display name</label>
+            <input type="text" id="displayname" name="displayname"  required>
+
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <div class="field-label">
+                <label for="email">Email</label>
+                <span class="help-tooltip">
+                    <button type="button" class="help-icon" aria-label="Email requirements" aria-expanded="false">?</button>
+                    <my-tooltip position="bottom-left"><b>Accepted email providers:</b><br>- gmail.com<br>- freemail.hu<br>- citromail.hu<br>- yahoo.com<br>- hotmail.com<br> - hbsz.edu.hu</my-tooltip>
+                </span>
+            </div>
+            <input type="email" id="email" name="email" required>
+
+            <div class="field-label">
+                <label for="password">Password</label>
+                <span class="help-tooltip">
+                    <button type="button" class="help-icon" aria-label="Password requirements" aria-expanded="false">?</button>
+                    <my-tooltip position="bottom-left"><b>The password:</b><br>- must be 8 charcters long,<br>- must include an uppercase letter,<br>- must include a number,<br>- must include a  special character.</my-tooltip>
+                </span>
+            </div>
+            <input type="password" id="password" name="password"  required>
+
+            <label for="passwordConfirmation">Confirm password</label>
+            <input type="password" id="passwordConfirmation" name="passwordConfirmation"  required>
+
+            <label>
+                <input type="checkbox" name="newsletterOptIn">
+                Subscribe to the newsletter
+            </label>
+
+            <div id="registration-status" role="status" aria-live="polite">
+               
+                <span id="registration-status-message"></span>
+            </div>
+            <button type="submit" id="regisztracio-gomb">Register</button>
+        </form>
+      
+        <form id="bejelentkezes">
+            <label for="email2">Email</label>
+            <input type="email" id="email2" name="email" autocomplete="email" required>
+
+            <label for="jelszo3">Password</label>
+            <input type="password" id="jelszo3" name="password" autocomplete="current-password" required>
+
+            <!-- státusz konténer -->
+            <p id="login-status" role="status" aria-live="polite"></p>
+            
+            <button type="submit" id="bejelentkezes-gomb">Sign in</button>
+        </form>
+    </main>
+    <footer class="randomizer">
+        <div>
+            <div>
+                <site-logo class="footer-logo"></site-logo>
+                <p>@ All rigths reserved <span style="font-size: 0.65rem;">(...not really)</span></p>
+                <p>Made with ❤︎⁠ by Lilicorn and Choco</p>
+            </div>
+            <div>
+                <a href="#back2top">Back to top</a>
+                <a>About</a>
+                <a>TOS</a>
+                <a>Privacy Policy</a>
+                <a>Contact</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
