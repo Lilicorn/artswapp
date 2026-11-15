@@ -52,7 +52,6 @@ class AppCard extends HTMLElement {
         const images = user.images ?? this.getAttribute("images") ?? [];
         const profileImage = user.profileImage ?? this.getAttribute("profile-image");
         const profileHref = user.profileHref ?? this.getAttribute("profile-href");
-        const buttonLabel = user.buttonLabel ?? this.getAttribute("button-label") ?? "View Profile";
         const imageSources = Array.isArray(images) ? images : images.split(/\s+/).filter(Boolean);
         const tagNames = Array.isArray(tags) ? tags : tags.split(",").map(tag => tag.trim()).filter(Boolean);
 
@@ -113,7 +112,7 @@ class AppCard extends HTMLElement {
 
         const button = document.createElement("button");
         button.type = "button";
-        button.textContent = buttonLabel;
+        button.textContent = "View Profile";
         if (profileHref) {
             button.addEventListener("click", () => {
                 this.dispatchEvent(new CustomEvent("open-a-profile", {
