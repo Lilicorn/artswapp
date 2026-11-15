@@ -1,5 +1,5 @@
 class AppIframe extends HTMLElement {
-    static observedAttributes = ["src", "title", "framecolor"];
+    static observedAttributes = ["src", "title", "framecolor", "frameless"];
 
     constructor() {
         super();
@@ -28,14 +28,16 @@ class AppIframe extends HTMLElement {
     }
 
     render() {
-        const frameColor = this.getAttribute("framecolor") || "var(--accent-color)";
+        const frameColor = this.getAttribute("framecolor");
+        const frameless = this.hasAttribute("frameless");
         this.shadowRoot.innerHTML = `
             <style>
                 :host {
                     display: grid;
                     place-items: center;
                     grid-template-rows: minmax(0, 1fr);
-                    --accent-color: ${frameColor};
+                    ${frameColor ? `--accent-color: ${frameColor};` : ""}
+                    
                 }
                 iframe {
                     display: block;
@@ -44,30 +46,31 @@ class AppIframe extends HTMLElement {
                     min-width: 0;
                     min-height: 0;
                     box-sizing: border-box;
-                    border: 5px solid var(--accent-color);
-                    border-bottom-width: 15px;
-                    border-radius: 32px;
-                    background: var(--background-color);
+                    border: ${frameless ? "0" : "5px solid var(--accent-color)"};
+                    border-bottom-width: ${frameless ? "0" : "15px"};
+                    border-radius: ${frameless ? "0" : "32px"};
+                    background: ${frameless ? "transparent" : "var(--background-color)"};
+                    
                 }
                 @media (max-width: 912px) {
                     iframe {
-                        border-width: 4px 4px 12px;
+                        ${frameless ? "" : "border-width: 4px 4px 12px;"}
                     }
                 }
                 @media (max-width: 500px) {
                     iframe {
-                        border-width: 3px 3px 9px;
+                        ${frameless ? "" : "border-width: 3px 3px 9px;"}
                     }
                 }
                 @media (max-width: 370px) {
                     iframe {
-                        border-width: 2px 2px 6px;
+                        ${frameless ? "" : "border-width: 2px 2px 6px;"}
                     }
                 }
                     button {
                         position: absolute;
                         top: calc(max(12px, env(safe-area-inset-top)) + 14px);
-                        right: calc(max(12px, 5vw) + 14px);
+                        right: calc(var(--app-iframe-horizontal-inset, max(12px, 5vw)) + 14px);
                         z-index: 1;
                         display: grid;
                         place-items: center;

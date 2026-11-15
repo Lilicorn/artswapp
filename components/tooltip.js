@@ -63,6 +63,7 @@ class tooltipThing extends HTMLElement {
                     visibility: visible;
                     opacity: 1;
                     animation: hoverbubble 0.7s;
+                    transition: 0.0s;
                 }
 
                 .tooltip-container > bubble-arrow {

@@ -69,77 +69,76 @@
     </header>
     <main>
 
+        <div>
         <div class="tabthingies"><span class="tab">Register</span><span> ❤︎ </span><span class="tab">Sign in</span></div>
+
         
-        <form id="registration">
-            <label for="displayname">Display name</label>
-            <input type="text" id="displayname" name="displayname"  required>
 
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" required>
-
-            <div class="field-label">
+        <form id="registration-1">
+             <div class="field-label">
                 <label for="email">Email</label>
                 <span class="help-tooltip">
                     <button type="button" class="help-icon" aria-label="Email requirements" aria-expanded="false">?</button>
-                    <my-tooltip position="bottom-left"><b>Accepted email providers:</b><br>- gmail.com<br>- freemail.hu<br>- citromail.hu<br>- yahoo.com<br>- hotmail.com<br> - hbsz.edu.hu</my-tooltip>
+                    <my-tooltip position="bottom-left">format@example.yeah</my-tooltip>
                 </span>
             </div>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email"  >
 
             <div class="field-label">
                 <label for="password">Password</label>
                 <span class="help-tooltip">
                     <button type="button" class="help-icon" aria-label="Password requirements" aria-expanded="false">?</button>
-                    <my-tooltip position="bottom-left"><b>The password:</b><br>- must be 8 charcters long,<br>- must include an uppercase letter,<br>- must include a number,<br>- must include a  special character.</my-tooltip>
+                    <my-tooltip position="bottom-left">The password:<br>- must be 8 charcters long,<br>- must include an uppercase letter,<br>- must include a number,<br>- must include a  special character.</my-tooltip>
                 </span>
-            </div>
-            <input type="password" id="password" name="password"  required>
+                </div>
 
-            <label for="passwordConfirmation">Confirm password</label>
-            <input type="password" id="passwordConfirmation" name="passwordConfirmation"  required>
+                <input type="password" id="password" name="password"  >
+            
+
+
+            <button type="submit" id="registration-continue">Continue ></button>
+        </form>
+
+        <form id="registration-2">
+            
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username"  >
+
+            <label for="displayname">Display name</label>
+            <input type="text" id="displayname" name="displayname"   >
 
             <label>
                 <input type="checkbox" name="newsletterOptIn">
-                Subscribe to the newsletter
+                sub to the newsletter... pretty pwease.....
             </label>
 
-            <div id="registration-status" role="status" aria-live="polite">
-               
-                <span id="registration-status-message"></span>
-            </div>
-            <button type="submit" id="registration-button">Register</button>
+            <button type="button" id="registration-back">&lt; Back</button>
+           
+
+            <button type="submit" id="submit-button">Register</button>
         </form>
       
         <form id="signin">
-            <label for="email2">Email</label>
-            <input type="email" id="email2" name="email" autocomplete="email" required>
+            <label for="email2">Email / Username</label>
+            <input type="text" id="email2" name="email" autocomplete="email"  >
 
-            <label for="jelszo3">Password</label>
-            <input type="password" id="jelszo3" name="password" autocomplete="current-password" required>
+            <label for="password2">Password</label>
+            <input type="password" id="password2" name="password"  >
 
             <!-- státusz konténer -->
             <p id="login-status" role="status"></p>
             
             <button type="submit" id="signin-button">Sign in</button>
         </form>
-    </main>
-    <footer class="randomizer">
-        <div>
-            <div>
-                <site-logo class="footer-logo"></site-logo>
-                <p>@ All rigths reserved <span style="font-size: 0.65rem;">(...not really)</span></p>
-                <p>Made with ❤︎⁠ by Lilicorn and Choco</p>
-            </div>
-            <div>
-                <a href="#back2top">Back to top</a>
-                <a>About</a>
-                <a>TOS</a>
-                <a>Privacy Policy</a>
-                <a>Contact</a>
-            </div>
+        <div id="registration-status" role="status" aria-live="polite">
+            <span id="registration-status-message"></span>
         </div>
-    </footer>
+        
+        </div>
+    </main>
+
+    
+    
 
 </body>
 </html>
