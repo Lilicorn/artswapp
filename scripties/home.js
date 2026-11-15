@@ -17,3 +17,26 @@ function loadingstuff(){
 
 window.addEventListener("load", loadingstuff);
 window.addEventListener("resize", loadingstuff);
+
+window.addEventListener("message", event => {
+    if (event.data !== "artswapp-sign-in-complete") return;
+
+    const signInFrame = [...document.querySelectorAll("app-iframe")].find(appFrame =>
+        appFrame.getAttribute("title") === "Sign in" &&
+        appFrame.shadowRoot?.querySelector("iframe")?.contentWindow === event.source
+    );
+    if (!signInFrame) return;
+
+    window.location.href = "profile.html";
+});
+
+document.getElementById("sign-out-link").addEventListener("click", event => {
+    event.preventDefault();
+
+    const signInFrame = document.createElement("app-iframe");
+    signInFrame.setAttribute("src", event.currentTarget.href);
+    signInFrame.setAttribute("title", "Sign in");
+    signInFrame.setAttribute("frameless", "");
+    signInFrame.style.setProperty("--app-iframe-horizontal-inset", "max(8px, 2vw)");
+    document.body.appendChild(signInFrame);
+});

@@ -474,7 +474,7 @@ app-iframe{
     width: 100%;
     height: 100vh;
     height: 100dvh;
-    padding: max(12px, env(safe-area-inset-top)) max(12px, 5vw) max(12px, env(safe-area-inset-bottom));
+    padding: max(12px, env(safe-area-inset-top)) var(--app-iframe-horizontal-inset, max(12px, 5vw)) max(12px, env(safe-area-inset-bottom));
     background: rgba(0, 0, 0, 0.45);
 }
 

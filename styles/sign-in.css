@@ -1,24 +1,32 @@
-main{
+html, body, main{
+    background:transparent;
+    overflow: hidden;
+}
+main>div{
     display: grid;
     place-items: center;
-    padding: 50px;
+    padding: 32px;
+}
+
+main *{
+    transition: 0.3s;
 }
 
 form{
     grid-template-columns: minmax(0, 1fr);
     background-color: var(--complementary);
-    padding: 20px;
+    padding: 22px;
     margin: 0 auto;
     border-radius: 25px;
-    width: 80%;
+    width: 90%;
     border: 3px solid var(--accent-color);
     border-bottom-width: 6px;
 }
 
-#signin{
+#signin, #registration-2{
     display: none;
 }
-#registration{
+#registration-1{
     display: grid;
 }
 .field-label{
@@ -27,14 +35,14 @@ form{
     gap: 8px;
 }
 label{
-    padding: 10px 0px;
+    padding: 16px 0px;
     width: auto;
     
 }
 
 
 .tabthingies{
-    font-size: 30px;
+    font-size: 31px;
     z-index: 2;
     margin: auto;
     color: var(--accent-color);
@@ -55,12 +63,12 @@ label{
     border: 3px solid var(--accent-color);
     border-bottom-width: 0;
     color: var(--text-color);
-    width: 150px;
+    width: 155px;
 }
 
 .tabthingies > span:not(.tab){
     width: max-content;
-    font-size: 20px;
+    font-size: 21px;
     padding: 5px;
 }
 
@@ -70,7 +78,7 @@ input{
     border-radius: 10px;
     border: 3px solid var(--accent-color);
     border-bottom-width: 6px;
-    padding: 10px;
+    padding: 11px;
     min-width: 0;
 }
 input:focus-visible, input:focus{
@@ -83,27 +91,25 @@ input:focus-visible, input:focus{
 
 }
 
-#registration-status{
-    position: absolute;
-    top: 60px;
-    right: 20px;
+#registration-status, #login-status{
+    position: relative;
     z-index: 20;
     box-sizing: border-box;
-    width: max-content;
+    width: inherit;
     max-width: min(360px, calc(100vw - 24px));
     padding: 10px 20px;
     color: var(--text-color);
     background-color: var(--complementary);
     border: 3px solid var(--text-color);
     border-bottom-width: 6px;
-    border-radius: 30px 0 30px 30px;
+    border-radius: 25px;
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
     transform-origin: top right;
     transition: opacity 0.3s;
 }
-#registration-status.is-visible{
+#registration-status.is-visible, #login-status.is-visible{
     visibility: visible;
     opacity: 1;
     pointer-events: auto;
@@ -111,9 +117,14 @@ input:focus-visible, input:focus{
 }
 
 
-button[type="submit"]{
-    min-height: 30px;
-    max-height: 70px;
+form > button:not(.help-icon){
+    height: 37px;
+    margin-top: 22px;
+}
+form > button:not(.help-icon):hover{
+    height: 40px;
+    margin-top: 23px;
+    font-size: medium;
 }
 
 @media (min-width: 912px){
@@ -130,17 +141,21 @@ button[type="submit"]{
         padding: 40px 20px;
     }
 
+    main>div{
+        padding: 24px;
+    }
+
     form{
-        width: 90%;
-        padding: 16px;
+        width: 96%;
+        padding: 18px;
     }
 
     .tabthingies{
-        font-size: 24px;
+        font-size: 25px;
     }
 
     .tab{
-        width: 125px;
+        width: 130px;
         padding: 8px 6px 6px;
     }
 
@@ -149,8 +164,8 @@ button[type="submit"]{
     }
 
     label{
-        padding: 8px 0;
-        font-size: 0.95rem;
+        padding: 9px 0;
+        font-size: 1rem;
     }
 
     .field-label{
@@ -158,13 +173,13 @@ button[type="submit"]{
     }
 
     input{
-        padding: 8px;
-        font-size: 18px;
+        padding: 9px;
+        font-size: 19px;
     }
 
     button[type="submit"]{
-        padding: 7px 16px;
-        font-size: 0.95rem;
+        padding: 8px 17px;
+        font-size: 1rem;
     }
 }
 
@@ -173,27 +188,32 @@ button[type="submit"]{
         padding: 32px 12px;
     }
 
+    main>div{
+        padding: 18px;
+    }
+
     form{
-        padding: 12px;
+        width: 100%;
+        padding: 14px;
     }
 
     .tabthingies{
-        font-size: 20px;
+        font-size: 21px;
     }
 
     .tab{
-        width: 105px;
-        padding: 6px 5px 3.5px;
+        width: 110px;
+        padding: 7px 6px 4px;
     }
 
     .tabthingies > span:not(.tab){
-        font-size: 10px;
+        font-size: 11px;
     padding: 2px;
     }
 
     label{
-        padding: 6px 0;
-        font-size: 0.875rem;
+        padding: 7px 0;
+        font-size: 0.9rem;
     }
 
     .field-label{
@@ -201,12 +221,12 @@ button[type="submit"]{
     }
 
     input{
-        padding: 6px;
-        font-size: 16px;
+        padding: 7px;
+        font-size: 17px;
     }
 
     button[type="submit"]{
-        padding: 6px 12px;
-        font-size: 0.875rem;
+        padding: 7px 13px;
+        font-size: 0.9rem;
     }
 }
