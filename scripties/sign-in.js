@@ -4,7 +4,7 @@ function updatetext(){
     decor.innerText = 
     window.innerWidth <= 370 
         ? " " 
-        : " ♡︎❤︎♡︎ ";
+        : " ❤︎ ";
 }
 
 updatetext();
