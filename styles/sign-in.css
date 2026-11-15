@@ -5,6 +5,7 @@ main{
 }
 
 form{
+    grid-template-columns: minmax(0, 1fr);
     background-color: var(--complementary);
     padding: 20px;
     margin: 0 auto;
@@ -14,10 +15,10 @@ form{
     border-bottom-width: 6px;
 }
 
-#bejelentkezes{
+#signin{
     display: none;
 }
-#regisztracio{
+#registration{
     display: grid;
 }
 .field-label{
@@ -27,21 +28,40 @@ form{
 }
 label{
     padding: 10px 0px;
+    width: auto;
     
 }
-.ful{
+
+
+.tabthingies{
+    font-size: 30px;
+    z-index: 2;
+    margin: auto;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+.tabthingies *{
+    text-align: center;
+    display: inline-block;
+}
+
+.tab{
+    text-align: center;
     border-radius: 20px 20px 0 0;
     cursor: pointer;
     padding: 10px;
-    padding-bottom: 2px;
+    padding-bottom: 6px;
     margin-bottom: -10px;
     border: 3px solid var(--accent-color);
     border-bottom-width: 0;
+    color: var(--text-color);
+    width: 150px;
 }
 
-h1{
-    font-size: 30px;
-    z-index: 2;
+.tabthingies > span:not(.tab){
+    width: max-content;
+    font-size: 20px;
+    padding: 5px;
 }
 
 input{
@@ -51,6 +71,16 @@ input{
     border: 3px solid var(--accent-color);
     border-bottom-width: 6px;
     padding: 10px;
+    min-width: 0;
+}
+input:focus-visible, input:focus{
+    border-color:  var(--accent-color) !important;
+    border-width:0;
+    border-bottom-width:5px;
+    outline: 4px solid var(--accent-color);
+    outline-offset: -2px;
+    
+
 }
 
 #registration-status{
@@ -81,6 +111,102 @@ input{
 }
 
 
-button:not(.help-icon){
-    height: 2.5vh;
+button[type="submit"]{
+    min-height: 30px;
+    max-height: 70px;
+}
+
+@media (min-width: 1024px){
+.tabthingies > span:not(.tab){
+        font-size: 24px;
+    }
+    .tab{
+    padding-bottom: 8px;
+    }
+}
+
+@media (max-width: 600px){
+    main{
+        padding: 40px 20px;
+    }
+
+    form{
+        width: 90%;
+        padding: 16px;
+    }
+
+    .tabthingies{
+        font-size: 24px;
+    }
+
+    .tab{
+        width: 125px;
+        padding: 8px 6px 6px;
+    }
+
+    .tabthingies > span:not(.tab){
+        font-size: 16px;
+    }
+
+    label{
+        padding: 8px 0;
+        font-size: 0.95rem;
+    }
+
+    .field-label{
+        gap: 6px;
+    }
+
+    input{
+        padding: 8px;
+        font-size: 18px;
+    }
+
+    button[type="submit"]{
+        padding: 7px 16px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 430px){
+    main{
+        padding: 32px 12px;
+    }
+
+    form{
+        padding: 12px;
+    }
+
+    .tabthingies{
+        font-size: 20px;
+    }
+
+    .tab{
+        width: 105px;
+        padding: 6px 5px 3.5px;
+    }
+
+    .tabthingies > span:not(.tab){
+        font-size: 10px;
+    padding: 2px;
+    }
+
+    label{
+        padding: 6px 0;
+        font-size: 0.875rem;
+    }
+
+    .field-label{
+        gap: 4px;
+    }
+
+    input{
+        padding: 6px;
+        font-size: 16px;
+    }
+
+    button[type="submit"]{
+        padding: 6px 12px;
+        font-size: 0.875rem;
+    }
 }

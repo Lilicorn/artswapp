@@ -27,6 +27,7 @@ body{
     height: 100dvh;
   background-color: var(--background-color);
   color: var(--text-color);
+  accent-color: var(--accent-color);
   scrollbar-color: var(--accent-color) transparent;
   scrollbar-width: thin;
   scrollbar-gutter: stable;
@@ -299,7 +300,7 @@ body.embed-mode header, body.embed-mode footer{
 
 
 app-username{
-    display: block;
+    display: inline-block;
     cursor: default;
 }
 

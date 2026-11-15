@@ -1,6 +1,24 @@
-const registrationForm = document.getElementById("regisztracio");
-const loginForm = document.getElementById("bejelentkezes");
-const tabs = document.querySelectorAll(".ful");
+function updatetext(){
+    const decor = document.querySelector(".tabthingies > span:not(.tab)");
+    
+    decor.innerText = 
+    window.innerWidth <= 370 
+        ? " " 
+        : " ♡︎❤︎♡︎ ";
+}
+
+updatetext();
+window.addEventListener("resize", updatetext);
+
+
+
+
+
+
+const regisform = document.getElementById("registration");
+const signinform = document.getElementById("signin");
+const tabs = document.querySelectorAll(".tab");
+// ezt majd maskepp kene
 const registrationStatus = document.getElementById("registration-status");
 const registrationStatusMessage = document.getElementById("registration-status-message");
 const loginStatus = document.getElementById("login-status");
@@ -8,8 +26,10 @@ const loginStatus = document.getElementById("login-status");
 for(let i of document.querySelectorAll("input")){
     i.classList.add("randomizer");
 }
+for(let i of document.querySelectorAll('button[type="submit"]')){
+    i.classList.add("randomizer");
+}
 colorrandomizer();
-
 
 function setRegistrationStatus(message) {
     registrationStatusMessage.innerText += message; 
@@ -17,8 +37,8 @@ function setRegistrationStatus(message) {
 }
 
 function setActiveTab(showLogin) {
-    loginForm.style.display = showLogin ? "grid" : "none";
-    registrationForm.style.display = showLogin ? "none" : "grid";
+    signinform.style.display = showLogin ? "grid" : "none";
+    regisform.style.display = showLogin ? "none" : "grid";
 
     tabs[1].style.backgroundColor = showLogin ? "var(--complementary)" : "var(--background-color)";
     tabs[0].style.backgroundColor = showLogin ? "var(--background-color)" : "var(--complementary)";
@@ -34,43 +54,41 @@ function handleRegistration(event) {
     event.preventDefault();
     setRegistrationStatus("");
 
-    const formData = new FormData(registrationForm);
-    const displayName = String(formData.get("displayname")).trim();
+    const formData = new FormData(regisform);
+    const displayname = String(formData.get("displayname")).trim();
     const username = String(formData.get("username")).trim();
     const email = String(formData.get("email")).trim();
     const password = String(formData.get("password"));
-    const passwordConfirmation = String(formData.get("passwordConfirmation"));
+    const passconfirm = String(formData.get("passconfirm"));
     const errors = [];
 
     const uppercaseLetters = "AÁBCDEFGHIJKLMNOPQRSTUVWXYZÉÁÚŰÖŐÜÓÍ";
     const lowercaseLetters = "aábcdefghijklmnopqrstuvwxyzéáúűöőüóí";
-    const nameCharacters = new Set([...uppercaseLetters, ...lowercaseLetters, " "]);
-    const displayNameIsValid =
-        [...displayName].every(character => nameCharacters.has(character)) &&
-        displayName.trim().split(/\s+/).length >= 2;
+    const specialCharacters = "!#%&?*-_@";
+       
 
-    if (!displayNameIsValid) {
-        errors.push(" - Display name must contain only letters and spaces, and have at least two parts.");
-    }
     if (!username) {
         errors.push(" - Username is required.");
     }
 
-    const allowedEmailDomains = [
+    if (!displayname) {
+        displayname = username;
+    }
+
+    /*const allowedEmailDomains = [ // ezt majd maskepp kene sztem megint
         "gmail.com",
-        "freemail.hu",
-        "citromail.hu",
+        "proton.me",
         "yahoo.com",
         "hotmail.com",
         "hbsz.edu.hu"
-    ];
+    ]; 
     const emailDomain = email.slice(email.lastIndexOf("@") + 1).toLowerCase();
-    if (!allowedEmailDomains.includes(emailDomain)) {
-        errors.push(" - Use an email address from an accepted provider.");
+    */
+
+    if (/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
+        errors.push(" - Email format is invalid.");
     }
 
-    const specialCharacters = "!#%&?*-_@";
-    const hasUppercase = [...password].some(character => uppercaseLetters.includes(character));
     if (password.length < 8) {
         errors.push(" - Password must be at least 8 characters long.");
     }
@@ -80,10 +98,10 @@ function handleRegistration(event) {
     if (!/\d/.test(password)) {
         errors.push(" - Password must include a number.");
     }
-    if (!hasUppercase) {
+    if (![...password].some(character => uppercaseLetters.includes(character))) {
         errors.push(" - Password must include an uppercase letter.");
     }
-    if (password !== passwordConfirmation) {
+    if (password !== passconfirm) {
         errors.push(" - The passwords do not match.");
     }
 
@@ -96,7 +114,7 @@ function handleRegistration(event) {
         email,
         password,
         username,
-        displayName,
+        displayname,
         newsletterOptIn: formData.has("newsletterOptIn")
     };
 
@@ -113,7 +131,7 @@ function handleLogin(event) {
 
 tabs[0].addEventListener("click", () => setActiveTab(false));
 tabs[1].addEventListener("click", () => setActiveTab(true));
-registrationForm.addEventListener("submit", handleRegistration);
-loginForm.addEventListener("submit", handleLogin);
+regisform.addEventListener("submit", handleRegistration);
+signinform.addEventListener("submit", handleLogin);
 
 setActiveTab(false);
