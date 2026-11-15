@@ -316,7 +316,7 @@ main section:not(.profile-header) h2{
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .profile-header {
     grid-template-columns: 1fr;
     gap: 6px;

@@ -507,7 +507,29 @@ app-iframe{
 
 }
 
- @media (max-width: 500px){
+ @media (max-width: 600px){
+     footer{
+         text-align: center;
+     }
+
+     footer > div{
+         flex-direction: column;
+         justify-content: center;
+     }
+
+     footer div div{
+         margin: 10px 0;
+         text-align: center;
+     }
+
+     footer div div:nth-child(2){
+         text-align: center;
+     }
+
+     site-logo.footer-logo{
+         margin: 0 auto;
+     }
+
     .header-logo{
         display: none;
     }
