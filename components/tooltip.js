@@ -24,7 +24,7 @@ class tooltipThing extends HTMLElement {
                     }
                
                 .tooltip-container {
-                    transition: 0.5s, background-color 0.0s, color 0.0s;
+                    transition: 0.5s;
                     position: absolute;
                     visibility: hidden;
                     opacity: 0;
