@@ -27,6 +27,7 @@ window.addEventListener("message", event => {
     );
     if (!signInFrame) return;
 
+    signInFrame.remove();
     window.location.href = "profile.html";
 });
 

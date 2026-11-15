@@ -132,6 +132,14 @@ function handleRegistration(event) {
     setRegistrationStatus(
         `Backend registration is not connected. The account "${registration.username}" was not saved.`
     );
+     window.setTimeout(() => {
+        if (window.parent === window) {
+            window.location.href = "home.html";
+            return;
+        }
+
+        window.parent.postMessage("artswapp-sign-in-complete", "*");
+    }, 1500);
 }
 
 function handleLogin(event) {
