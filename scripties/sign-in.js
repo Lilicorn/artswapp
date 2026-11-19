@@ -49,11 +49,13 @@ function setActiveTab(showLogin) {
     signinform.style.display = showLogin ? "grid" : "none";
     setRegistrationStep(registrationStep);
 
-    tabs[1].style.backgroundColor = showLogin ? "var(--complementary)" : "var(--background-color)";
-    tabs[0].style.backgroundColor = showLogin ? "var(--background-color)" : "var(--complementary)";
-
-    tabs[1].style.borderStyle = showLogin ? "solid" : "dashed";
-    tabs[0].style.borderStyle = showLogin ? "dashed" : "solid";
+    tabs[1].style.backgroundColor = showLogin ? "var(--complementary)" : "var(--accent-color)";
+    tabs[0].style.backgroundColor = showLogin ? "var(--accent-color)" : "var(--complementary)";
+    
+    tabs[1].style.borderWidth = showLogin ? "3px" : "0";
+    tabs[0].style.borderWidth = showLogin ? "0" : "3px";
+    tabs[1].style.borderBottomWidth =  "0";
+    tabs[0].style.borderBottomWidth = "0";
 
 }
 

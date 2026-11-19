@@ -71,6 +71,10 @@ function colorrandomizer(target = null){
     const two = document.getElementById("mobileview");
     const hamburger = document.getElementById("hamburber");
 
+    const header = document.querySelector("header"); // vagy ami a header szelektora nálad
+
+if (header) {    // csak akkor fut a headerhez kötött logika, ha tényleg van header
+
     function nav(){
         if (window.innerWidth <= 912) {
             two.appendChild(thing);
@@ -87,21 +91,11 @@ function colorrandomizer(target = null){
         document.querySelector("#profile-dropdown-menu").classList.remove("menu-open");
    
     });
-    /*two.addEventListener("mouseenter", () => {
-         two.addEventListener("mouseleave", () => {
-        two.classList.remove("menu-open");
-    });
-    });*/
 
     document.querySelector(".nav-pfp").addEventListener("click", () => {
         document.querySelector("#profile-dropdown-menu").classList.toggle("menu-open");
         two.classList.remove("menu-open");
     });
-
-    /*document.querySelector("#profile-dropdown-menu").addEventListener("mouseenter", () => {
-        document.querySelector("#profile-dropdown-menu").addEventListener("mouseleave", () => {
-        document.querySelector("#profile-dropdown-menu").classList.remove("menu-open");
-    });});*/
    
     for (const child of document.querySelector(".profile-dropdown-div").children) {
         if (child.id === "displaymode") continue;
@@ -110,7 +104,25 @@ function colorrandomizer(target = null){
         });
     }
 
+    function setModeIcon(isDark) {
+    const icon = document.querySelector("#modeicon");
+    if (!icon) return;
 
+    icon.classList.toggle("fa-moon", isDark);
+    icon.classList.toggle("fa-sun", !isDark);
+    }
+
+    const displayMode = document.getElementById("displaymode");
+    setModeIcon(document.body.classList.contains("dark"));
+    displayMode.addEventListener("click", (event) => {
+        event.preventDefault();
+        colorrandomizer();
+
+        const isDark = document.body.classList.toggle("dark");
+        setModeIcon(isDark);
+    });
+
+} // ha van header
 
 
 
@@ -232,24 +244,35 @@ document.getElementById("displaymode").addEventListener("click", (event) => {
 });
 */
 
-function setModeIcon(isDark) {
-    const icon = document.querySelector("#modeicon");
-    if (!icon) return;
 
-    icon.classList.toggle("fa-moon", isDark);
-    icon.classList.toggle("fa-sun", !isDark);
-}
-
-const displayMode = document.getElementById("displaymode");
-setModeIcon(document.body.classList.contains("dark"));
-displayMode.addEventListener("click", (event) => {
-    event.preventDefault();
-    colorrandomizer();
-
-    const isDark = document.body.classList.toggle("dark");
-    setModeIcon(isDark);
-});
 
 if (new URLSearchParams(location.search).has("embed")) {
   document.body.classList.add("embed-mode");
 }
+
+
+
+//sign-in and out yeah
+window.addEventListener("message", event => {
+    if (event.data !== "artswapp-sign-in-complete") return;
+
+    const signInFrame = [...document.querySelectorAll("app-iframe")].find(appFrame =>
+        appFrame.getAttribute("title") === "Sign in" &&
+        appFrame.shadowRoot?.querySelector("iframe")?.contentWindow === event.source
+    );
+    if (!signInFrame) return;
+
+    signInFrame.remove();
+    window.location.href = "profile.html";
+});
+
+document.getElementById("sign-out-link").addEventListener("click", event => {
+    event.preventDefault();
+
+    const signInFrame = document.createElement("app-iframe");
+    signInFrame.setAttribute("src", event.currentTarget.href);
+    signInFrame.setAttribute("title", "Sign in");
+    signInFrame.setAttribute("frameless", "");
+    signInFrame.style.setProperty("--app-iframe-horizontal-inset", "max(8px, 2vw)");
+    document.body.appendChild(signInFrame);
+});

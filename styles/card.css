@@ -98,6 +98,23 @@ badge {
     border-radius: 50px;
 }
 
+.cardauctiontimer {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 6px;
+    margin: 6px 0 4px;
+}
+
+.cardtimervalue {
+    margin-right: 10px;
+    font-size: 1.7rem; /* ezt húzd feljebb vagy lejjebb ízlés szerint, pl. 1.5rem */
+    font-weight: bold;
+    line-height: 1.1;
+    font-variant-numeric: tabular-nums; /* hogy a számok ne ugráljanak jobbra-balra másodpercenként! */
+}
+
+
 .cardpfp {
     position: absolute;
     aspect-ratio: 1 / 1;

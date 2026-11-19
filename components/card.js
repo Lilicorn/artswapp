@@ -8,8 +8,7 @@ class AppCard extends HTMLElement {
         "tags",
         "images",
         "profile-image",
-        "profile-href",
-        "button-label"
+        "profile-href"
     ];
 
     set user(data) {
@@ -54,6 +53,7 @@ class AppCard extends HTMLElement {
         const profileHref = user.profileHref ?? this.getAttribute("profile-href");
         const imageSources = Array.isArray(images) ? images : images.split(/\s+/).filter(Boolean);
         const tagNames = Array.isArray(tags) ? tags : tags.split(",").map(tag => tag.trim()).filter(Boolean);
+        const isAuction = Boolean(user.auction?.endsAt || this.getAttribute("ends-at"));
 
         this.classList.add("card");
         this.classList.remove("card--compact", "card--full");
@@ -68,6 +68,7 @@ class AppCard extends HTMLElement {
             image.draggable = false;
             imageGallery.appendChild(image);
         }
+        if(isAuction) imageGallery.style.overflow = "hidden";
 
         const caption = document.createElement("div");
         caption.className = "cardcaption";
@@ -76,21 +77,44 @@ class AppCard extends HTMLElement {
         name.className = "display";
         name.textContent = displayName;
 
-        const tagList = document.createElement("tags");
-        const tagItems = document.createElement("div");
-        tagItems.className = "cardtagitems";
-        if (tagNames.length > 0) {
-            const tagIntro = document.createElement("span");
-            tagIntro.className = "cardtaglabel";
-            tagIntro.textContent = user.tagsLabel || "Because you're interested in:";
-            tagList.appendChild(tagIntro);
-        }
-        for (const tagName of tagNames) {
-            const tag = document.createElement("tag");
-            tag.textContent = tagName;
-            tagItems.appendChild(tag);
-        }
-        tagList.appendChild(tagItems);
+        //aukciohoz
+        this._clearTimer();
+
+        let infoBlock;
+        if (isAuction) {
+            const endsAt = user.auction?.endsAt ?? this.getAttribute("ends-at");
+            const timerBox = document.createElement("div");
+            timerBox.className = "cardauctiontimer";
+
+            
+            const countdown = document.createElement("span");
+            countdown.className = "cardtimervalue";
+
+            timerBox.append(countdown);
+            this._mountTimer(countdown, endsAt);
+            infoBlock = timerBox;
+            } 
+            else {
+                const tagList = document.createElement("tags");
+                    const tagItems = document.createElement("div");
+                    tagItems.className = "cardtagitems";
+                    if (tagNames.length > 0) {
+                        const tagIntro = document.createElement("span");
+                        tagIntro.className = "cardtaglabel";
+                        tagIntro.textContent = user.tagsLabel || "Because you're interested in:";
+                        tagList.appendChild(tagIntro);
+                    }
+                    for (const tagName of tagNames) {
+                        const tag = document.createElement("tag");
+                        tag.textContent = tagName;
+                        tagItems.appendChild(tag);
+                    }
+                    tagList.appendChild(tagItems);
+                infoBlock = tagList;
+            }
+
+
+        
 
         const profilePicture = document.createElement("div");
         profilePicture.className = "cardpfp";
@@ -108,12 +132,32 @@ class AppCard extends HTMLElement {
             handle.textContent = username;
             caption.appendChild(handle);
         }
-        caption.append(tagList, profilePicture);
+        caption.append(infoBlock, profilePicture);
+
+        
+        //gomb
 
         const button = document.createElement("button");
         button.type = "button";
-        button.textContent = "View Profile";
-        if (profileHref) {
+        button.textContent = isAuction
+            ?  "View Auction"
+            :  "View Profile";
+
+        if (isAuction) {
+            button.addEventListener("click", () => {
+                this.dispatchEvent(new CustomEvent("open-an-auction", {
+                    bubbles: true,
+                    composed: true,
+                    detail: {
+                        url: user.auction?.href || profileHref,
+                        name: displayName,
+                        //endsAt: user.auction?.endsAt ?? this.getAttribute("ends-at"),
+                        color: getComputedStyle(this).getPropertyValue("--accent-color").trim()
+                    }
+                }));
+            });
+        } 
+        else if (profileHref) {
             button.addEventListener("click", () => {
                 this.dispatchEvent(new CustomEvent("open-a-profile", {
                     bubbles: true,
@@ -129,6 +173,42 @@ class AppCard extends HTMLElement {
 
         this.replaceChildren(imageGallery, caption, button);
     }
+
+
+
+    //aukciohoz
+        disconnectedCallback() {
+            this._clearTimer();
+        }
+
+        _clearTimer() {
+            if (this._timerInterval) {
+                clearInterval(this._timerInterval);
+                this._timerInterval = null;
+            }
+        }
+
+        _formatRemaining(endsAt) {
+            const target = typeof endsAt === "number" ? endsAt : new Date(endsAt).getTime();
+            const diff = target - Date.now();
+            if (Number.isNaN(diff) || diff <= 0) return "Auction ended";
+
+            const totalSec = Math.floor(diff / 1000);
+            const hours = Math.floor(totalSec / 3600);
+            const minutes = Math.floor((totalSec % 3600) / 60);
+            const seconds = totalSec % 60;
+
+            return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+        }
+
+        _mountTimer(timerElement, endsAt) {
+            this._clearTimer();
+            const update = () => {
+                timerElement.textContent = `⏳ ${this._formatRemaining(endsAt)}`;
+            };
+            update();
+            this._timerInterval = setInterval(update, 1000);
+        }
 }
 
 customElements.define("app-card", AppCard);
