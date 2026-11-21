@@ -1,3 +1,6 @@
+CREATE DATABASE artswapp_test;
+use artswapp_test;
+
 CREATE TABLE `user` (
   `user_id` int PRIMARY KEY AUTO_INCREMENT,
   `username` varchar(25) UNIQUE NOT NULL,
@@ -46,7 +49,7 @@ CREATE TABLE `drawing` (
   `picture_url` varchar(500),
   `points` int,
   `version_num` int NOT NULL DEFAULT 1,
-  `created_at` timestamp NOT NULL
+  `created_at` datetime NOT NULL
 );
 
 CREATE TABLE `swap` (
@@ -54,8 +57,8 @@ CREATE TABLE `swap` (
   `swap_user2` int NOT NULL,
   `swap_id` int PRIMARY KEY AUTO_INCREMENT,
   `swap_status` varchar(30) NOT NULL,
-  `created_at` timestamp NOT NULL,
-  `deadline` timestamp NOT NULL,
+  `created_at` datetime NOT NULL,
+  `deadline` datetime NOT NULL,
   `publish_result` tinyint
 );
 
@@ -64,7 +67,7 @@ CREATE TABLE `message` (
   `sender_id` int NOT NULL,
   `swap_id` int NOT NULL,
   `msg_text` varchar(5000) NOT NULL,
-  `sent_at` timestamp NOT NULL,
+  `sent_at` datetime NOT NULL,
   `seen` tinyint NOT NULL DEFAULT 0
 );
 
@@ -73,7 +76,7 @@ CREATE TABLE `swipe` (
   `swipe_user1` int NOT NULL,
   `swipe_user2` int NOT NULL,
   `direction` varchar(10) NOT NULL,
-  `created_at` timestamp NOT NULL
+  `created_at` datetime NOT NULL
 );
 
 CREATE TABLE `swap_rating` (
@@ -82,7 +85,7 @@ CREATE TABLE `swap_rating` (
   `reviewed_id` int NOT NULL,
   `swap_id` int NOT NULL,
   `stars` int NOT NULL,
-  `created_at` timestamp NOT NULL
+  `created_at` datetime NOT NULL
 );
 
 CREATE TABLE `auction` (
@@ -92,8 +95,8 @@ CREATE TABLE `auction` (
   `current_price` decimal(10,2) NOT NULL,
   `min_increase` decimal(10,2) NOT NULL DEFAULT 0.5,
   `autobuy_price` decimal(10,2),
-  `start_time` timestamp NOT NULL,
-  `end_time` timestamp NOT NULL,
+  `start_time` datetime NOT NULL,
+  `end_time` datetime NOT NULL,
   `auction_status` varchar(20) NOT NULL
 );
 
@@ -102,7 +105,7 @@ CREATE TABLE `bid` (
   `auc_id` int NOT NULL,
   `user_id` int NOT NULL,
   `amount` decimal(10,2) NOT NULL,
-  `bid_time` timestamp NOT NULL
+  `bid_time` datetime NOT NULL
 );
 
 CREATE TABLE `transaction` (
@@ -113,7 +116,7 @@ CREATE TABLE `transaction` (
   `fee_percentage` decimal(5,2) NOT NULL DEFAULT 2,
   `fee_amount` decimal(10,2) NOT NULL,
   `payment_status` varchar(20) NOT NULL,
-  `created_at` timestamp
+  `created_at` datetime
 );
 
 CREATE TABLE `report` (
@@ -121,7 +124,7 @@ CREATE TABLE `report` (
   `reporter_id` int NOT NULL,
   `victim_id` int NOT NULL,
   `report_msg` varchar(2000) NOT NULL,
-  `created_at` timestamp NOT NULL,
+  `created_at` datetime NOT NULL,
   `report_status` varchar(30) NOT NULL
 );
 
@@ -136,7 +139,7 @@ CREATE TABLE `user_badges` (
   `connection_id` int PRIMARY KEY AUTO_INCREMENT,
   `user_id` int NOT NULL,
   `badge_id` int NOT NULL,
-  `earned_at` timestamp NOT NULL
+  `earned_at` datetime NOT NULL
 );
 
 ALTER TABLE `user_socials` ADD FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
