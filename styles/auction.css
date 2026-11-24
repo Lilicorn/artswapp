@@ -1,0 +1,28 @@
+
+
+main{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 2%;
+}
+
+section img{
+    height: 300px;
+    width: auto;
+}
+
+section, aside{
+    position: relative;
+  background-color: var(--complementary);
+  border: 3px solid var(--accent-color);
+  border-bottom-width: 5px;
+  margin: 0;
+  border-radius: 25px;
+  padding: 10px;
+  align-content: start !important;
+  overflow: hidden;
+}
+
+.imgcontainer{
+    display: flex;
+}
