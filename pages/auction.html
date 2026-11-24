@@ -10,6 +10,7 @@
     <script type="module" src="../components/username.js"></script>
     <script src="../components/arrow.js" defer></script>
     <script src="../scripties/display.js" defer></script>
+    <script src="../scripties/auction.js" defer></script>
     <title>ArtSwapp - user's Auction</title>
 </head>
 <body>
@@ -70,12 +71,33 @@
     <main>
         <h1>user's Auction</h1>
 
-        <section class="randomizer">
-            <div class="imgcontainer">
-                <img src="../debug/car.jpg">
+        <div id = "wrap">
+            <section class="randomizer">
+                    <img src="../debug/huh.jpg">
+            </section>
+            <aside id="data" class="randomizer">
+                <button class="randomizer" type="bid">Bid</button>
+                <p class="timer">00:00</p>
+                <div id = "bids" >
+                   
+                </div>
+            </aside>
+        </div>
+        <section id="hostprofile" class="randomizer">
+            <div>
+            <h2>Hosted by:</h2>
+            <img class="nav-pfp">
+            <app-username>loooooongdisplayname</app-username>
             </div>
+            <button>View Profile</button>
         </section>
-        <aside class="randomizer"></aside>
+        <section id="description" class="randomizer">
+                <h2>Description</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis consequatur sunt ea magni obcaecati modi suscipit doloremque esse quam ex! Iste tempore distinctio modi nobis laborum facere reprehenderit similique! Beatae fugit odit facilis deleniti provident iusto quis consequatur culpa voluptas excepturi? Fuga porro quae iure architecto eligendi vel repellat aliquid consequatur ipsa corrupti harum et quaerat culpa sed dolorum illo numquam eveniet commodi, non provident laudantium. Sunt ullam, ratione recusandae officiis consectetur ea nostrum asperiores laborum natus saepe. Fugit aliquid odio, corrupti aliquam quisquam suscipit pariatur inventore iusto a nobis. Deserunt commodi quidem enim, doloremque animi laborum dolore porro temporibus!</p>
+        </section>
+        <tags class="randomizer">
+            <h1>Tags</h1>
+        </tags>
 
     </main>
 

@@ -19,7 +19,7 @@ function createDemoUsers2(count) {
         profileImage: null,
         tags: ["lorem", "ipsum", "dolor", "sit"],
         images: imgdebug.map(image => "../debug/" + image),
-        profileHref: "../pages/profile.html" + "?embed=1",
+        profileHref: "../pages/auction.html" + "?embed=1",
         auction: {
             endsAt: Date.now() + 1000 * 60 * 45 // pl. 45 perc múlva jár le
         }

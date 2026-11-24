@@ -50,6 +50,7 @@ h1{
 }
 
 
+
 body.dark {
   --text-color: white;
   --background-color:rgb(60, 52, 57);
@@ -128,7 +129,7 @@ nav > a:has(> .mini-logo-box):hover{
     scale: 1;
 }
 
-@media (hover: hover) and (pointer: fine){
+@media (hover: hover){
     nav > a:has(> .mini-logo-box):hover .mini-logo-box{
         transform: scale(1.1) rotate(360deg);
         animation: float 1s ease-in-out infinite alternate;
