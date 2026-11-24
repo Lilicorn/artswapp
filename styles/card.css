@@ -64,7 +64,7 @@ app-card.card {
     display: none;
 }
 
-.card--compact:is(:hover, .card--expanded) .cardhandle {
+.card--compact:is( .card--expanded) .cardhandle {
     display: block;
 }
 
@@ -147,7 +147,7 @@ badge {
     width: var(--card-size);
 }
 
-.card--compact:is(:hover, .card--expanded) {
+.card--compact:is( .card--expanded) {
     height: calc(var(--card-size) * 1.5);
     width: calc(var(--card-size) * 1.15);
 }
@@ -158,13 +158,13 @@ badge {
     padding: 8px;
 }
 
-.card--compact:is(:hover, .card--expanded) .cardcaption {
+.card--compact:is( .card--expanded) .cardcaption {
     top: 55%;
     height: 60%;
     padding: 15px;
 }
 
-.card--compact:is(:hover, .card--expanded) .cardcaption > app-username.display {
+.card--compact:is( .card--expanded) .cardcaption > app-username.display {
     font-size: 1.4em;
 }
 
@@ -178,7 +178,7 @@ badge {
     visibility: hidden;
 }
 
-.card--compact:is(:hover, .card--expanded) .cardcaption > tags {
+.card--compact:is( .card--expanded) .cardcaption > tags {
     opacity: 1;
     visibility: visible;
     padding-bottom: 8px;
@@ -189,7 +189,7 @@ badge {
     width: 20%;
 }
 
-.card--compact:is(:hover, .card--expanded) .cardpfp {
+.card--compact:is( .card--expanded) .cardpfp {
     top: -25%;
     width: 25%;
 }
@@ -199,7 +199,7 @@ badge {
     overflow-y: hidden;
 }
 
-.card--compact:is(:hover, .card--expanded) .cardimage {
+.card--compact:is( .card--expanded) .cardimage {
     height: 60%;
     overflow-y: auto;
 }
@@ -213,7 +213,7 @@ badge {
     transition: all 0.5s;
 }
 
-.card--compact:is(:hover, .card--expanded) > button {
+.card--compact:is( .card--expanded) > button {
     top: auto;
     bottom: 12px;
     padding: 3px 0;
@@ -340,7 +340,7 @@ more badge:hover {
 }
 
 @media (max-width: 912px) {
-    .card--compact:not(:hover):not(.card--expanded) {
+    .card--compact:not(.card--expanded) {
         scale: 0.95;
     }
 
@@ -350,7 +350,7 @@ more badge:hover {
 }
 
 @media (max-width: 518px) {
-    .card--compact:is(:hover, .card--expanded) > button,
+    .card--compact:is(.card--expanded) > button,
     .card--compact:has(> button:hover) > button,
     .card--compact > button:hover {
         bottom: 6px;

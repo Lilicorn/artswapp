@@ -25,7 +25,6 @@ class AppCard extends HTMLElement {
             this._tapToExpandHandler = event => {
                 if (
                     event.detail === 0 ||
-                    !window.matchMedia("(hover: none) and (pointer: coarse)").matches ||
                     !this.classList.contains("card--compact") ||
                     (event.target instanceof Element && event.target.closest("button"))
                 ) return;
