@@ -425,6 +425,7 @@ button{
     color:var(--complementary);
     border-radius: 50px;
     border: none;
+    font-size: 1.1rem;
 }
 
 footer{
@@ -561,9 +562,7 @@ app-iframe{
         font-size: 13px;
     }
 
-    button{
-        font-size: 1.1rem;
-    }
+    
     
 }
 
