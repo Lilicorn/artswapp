@@ -21,10 +21,9 @@ section, aside, tags{
   margin: 0;
   border-radius: 25px;
   padding: 20px;
-  align-content: start !important;
   overflow: hidden;
-  
-    margin-bottom: 20px;
+  align-self: center;
+    margin-bottom: 20px !important;
 }
 
 section{
@@ -36,7 +35,9 @@ aside{
     height: max-content;
     max-height: var(--section-height);
     min-height: 0;
-    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
     align-self: center;
 }
 
@@ -44,6 +45,7 @@ button{
     width: 100%;
     height: 25px;
     margin-top: 10px;
+    flex-shrink: 0;
 }
 button[type="bid"]{
     margin-top: 0;
@@ -56,31 +58,39 @@ button[type="bid"]{
     font-weight: bold;
     line-height: 1;
     font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
 }
 #bids{
+    width: 100%;
     margin: auto;
     padding: 2%;
     max-width: 300px;
     display: flex;
     flex-direction: column;
     row-gap: 10px;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
 }
+
 #bids > div, #hostprofile > div{
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-#bids> div > app-username{
+
+#bids > div > app-username{
     margin-right: auto;
 }
-#bids> div > span{
+#bids  > div > span{
     font-weight: bold;
     margin-left: auto;
 }
 
 #hostprofile{
     padding: 15px;
+    margin: auto;
     justify-self: center;
     align-self: center;
     justify-content: center;
@@ -98,6 +108,7 @@ button[type="bid"]{
 #description{
     justify-self: center;
     align-self: center;
+    margin: auto;
     width: 80vw;
     max-width: 800px;
     padding-bottom: 10px; /* ez valamiert kell*/
@@ -109,6 +120,9 @@ h2{
 }
 
 tags{
+    margin: auto;
+    justify-self: center;
+    align-self: center;
     max-width: 1000px;
 }
 

@@ -31,14 +31,15 @@ if(Math.random() > 0.5){
 }
 
 let r = Math.random()*20;
+const bidList = document.querySelector("#bids");
 if(r >= 1){
     for(let i = 1; i < r; i++){
-    document.querySelector("#bids").innerHTML += '<div><img class="nav-pfp"></img><app-username>user1</app-username><span>15 EUR</span></div>';
+    bidList.innerHTML += '<div><img class="nav-pfp"></img><app-username>user1</app-username><span>15 EUR</span></div>';
     document.querySelector("tags").innerHTML += '<tag class="randomizer">cooltag</tag>';
     }
 }
 else{
-    document.querySelector("#bids").innerHTML += '<div style="color:grey;"><app-username><i>No bids yet.</i></app-username><span>-</span></div>';
+    bidList.innerHTML += '<div style="color:grey;"><app-username><i>No bids yet.</i></app-username><span>-</span></div>';
     document.querySelector("tags").innerHTML += '<tag class="randomizer">cooltag</tag>';
 
 }
