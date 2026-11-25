@@ -179,7 +179,6 @@ form > button:not(.help-icon):hover{
 
     button[type="submit"]{
         padding: 8px 17px;
-        font-size: 1rem;
     }
 }
 
@@ -227,6 +226,5 @@ form > button:not(.help-icon):hover{
 
     button[type="submit"]{
         padding: 7px 13px;
-        font-size: 0.9rem;
     }
 }

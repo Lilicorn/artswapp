@@ -363,7 +363,6 @@ main section:not(.profile-header) h2{
   .buttons * {
     min-width: 0;
     padding: 6px;
-    font-size: 0.9rem;
   }
 
   .buttons {
@@ -401,10 +400,6 @@ main section:not(.profile-header) h2{
   .handle,
   .swapslots {
     font-size: 0.7rem;
-  }
-
-  .buttons * {
-    font-size: 0.8rem;
   }
 
   section{
