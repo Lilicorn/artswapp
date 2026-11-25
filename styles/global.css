@@ -346,6 +346,9 @@ tags{
     margin: 10px;
     line-height: 10px;
 }
+tags h2{
+    width: 100%;
+}
 tag{
     border: 1px solid var(--accent-color);
     border-radius: 25px;
@@ -515,6 +518,10 @@ app-iframe{
 }
 
  @media (max-width: 600px){
+   /* html{
+        font-size: 15px;
+    }*/
+
      footer{
          text-align: center;
      }
@@ -553,15 +560,18 @@ app-iframe{
     #displaymode {
         font-size: 13px;
     }
+
+    button{
+        font-size: 1.1rem;
+    }
     
 }
 
  @media (max-width: 370px){
-   
-
-    #userstatus {
-        font-size: 0.6srem;
+    html{
+        font-size: 14px;
     }
+
     #displaymode {
         font-size: 10px;
         margin-left: 3px;
